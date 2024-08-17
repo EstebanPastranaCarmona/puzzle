@@ -25,16 +25,16 @@ namespace puzzle
             {
                 if (gbxMain.Controls[i].Name != "btn16")
                 {
-                    gbxMain.Controls[i].Text = $"{numbers[i]}";
+                    gbxMain.Controls[i].Text = $"{randomNumbers[i]}";
                 }
             }
         }
-
         #region variables
         Button[,] buttons = new Button[4, 4];
         int index = 0;
         Random random = new Random();
         List<int> numbers = new List<int>([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]);
+        List<int> randomNumbers = new List<int>();
         #endregion variables
 
         #region events
@@ -97,12 +97,20 @@ namespace puzzle
         }
         void CheckIfWin()
         {
-
+            List<int> buttonNumber = new List<int>();
+            for(int i  = 0; i < gbxMain.Controls.Count - 1;i++)
+            {
+                buttonNumber.Add(Convert.ToInt32(gbxMain.Controls[i].Text));
+            }
+            if (numbers.SequenceEqual(buttonNumber))
+            {
+                MessageBox.Show("Congratulation you win", "Win", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         void  Shuffle(Random random)
         {
-            numbers = numbers.OrderBy(x => random.Next(1,16)).ToList();
+            randomNumbers = numbers.OrderBy(x => random.Next(1,16)).ToList();
             
         }
 
