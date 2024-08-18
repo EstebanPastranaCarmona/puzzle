@@ -41,6 +41,7 @@ namespace puzzle
         private void btnButtons_Click(object sender, EventArgs e)
         {
             ChangeButtons(sender);
+            CheckIfWin();
         }
         #endregion events
 
@@ -100,7 +101,10 @@ namespace puzzle
             List<int> buttonNumber = new List<int>();
             for(int i  = 0; i < gbxMain.Controls.Count - 1;i++)
             {
-                buttonNumber.Add(Convert.ToInt32(gbxMain.Controls[i].Text));
+                if(!string.IsNullOrEmpty(gbxMain.Controls[i].Text)) 
+                { 
+                    buttonNumber.Add(Convert.ToInt32(gbxMain.Controls[i].Text)); 
+                }
             }
             if (numbers.SequenceEqual(buttonNumber))
             {
@@ -111,9 +115,8 @@ namespace puzzle
         void  Shuffle(Random random)
         {
             randomNumbers = numbers.OrderBy(x => random.Next(1,16)).ToList();
-            
         }
 
-#endregion methods
+        #endregion methods
     }
 }
