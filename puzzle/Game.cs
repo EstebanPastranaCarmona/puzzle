@@ -9,16 +9,13 @@ namespace puzzle
     public partial class frmGame : Form
     {
 
-
         public frmGame()
         {
 
-            frmMenu Menu = new frmMenu();
-            Menu.Close();
             InitializeComponent();
             SPlayer2();
             
-            muteBtnGame.Image = Image.FromFile(unmute);
+            btnMuteGame.Image = Image.FromFile(unmute);
             Shuffle(random);
 
             for (int i = 0; i < 4; i++)
@@ -62,6 +59,21 @@ namespace puzzle
         private void frmGame_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+        private void btnMuteGame_Click_1(object sender, EventArgs e)
+        {
+            if (active)
+            {
+                btnMuteGame.Image = Image.FromFile(mute);
+                player2.Stop();
+                active = false;
+            }
+            else
+            {
+                btnMuteGame.Image = Image.FromFile(unmute);
+                player2.Play();
+                active = true;
+            }
         }
         #endregion events
 
@@ -145,55 +157,28 @@ namespace puzzle
                 MessageBox.Show("Congratulation you win", "Win", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
         void Shuffle(Random random)
         {
             randomNumbers = numbers.OrderBy(x => random.Next(1, 16)).ToList();
-
         }
-
-        #endregion methods
-
-
         public void SPlayer2()
         {
             player2 = new SoundPlayer();
             player2.SoundLocation = @"C:\Source\Puzzle\puzzle\assets\audio\music2.wav";
             player2.PlayLooping();
-
-        }
-        private void muteBtnGame_Click(object sender, EventArgs e)
-        {
-
-            
-        }
-
-        private void muteBtnGame_Click_1(object sender, EventArgs e)
-        {
-            if (active)
-            {
-                muteBtnGame.Image = Image.FromFile(mute);
-                player2.Stop();
-                active = false;
-
-            }
-
-            else
-            {
-
-                muteBtnGame.Image = Image.FromFile(unmute);
-                player2.Play();
-                active = true;
-            }
-         
         }
         public void playMusic()
         {
-           if (active)
+            if (active)
             {
                 player2.Play();
             }
-
         }
+        #endregion methods
+
+
+
+        
+       
     }
 }
