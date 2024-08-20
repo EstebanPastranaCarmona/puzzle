@@ -8,14 +8,13 @@ namespace puzzle
 {
     public partial class frmGame : Form
     {
-
         public frmGame()
         {
-
             InitializeComponent();
             SPlayer2();
-            
+
             btnMuteGame.Image = Image.FromFile(unmute);
+
             Shuffle(random);
 
             for (int i = 0; i < 4; i++)
@@ -36,18 +35,19 @@ namespace puzzle
                     gbxMain.Controls[i].Text = $"{randomNumbers[i]}";
                 }
             }
-
         }
         #region variables
         public SoundPlayer player2;
         string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
         string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
         private bool active = true;
+
         Button[,] buttons = new Button[4, 4];
-        int index = 0;
         Random random = new Random();
         List<int> numbers = new List<int>([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
         List<int> randomNumbers = new List<int>();
+
+        int index = 0;
         #endregion variables
 
         #region events
