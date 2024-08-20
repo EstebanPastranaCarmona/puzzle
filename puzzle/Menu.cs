@@ -40,7 +40,11 @@ namespace puzzle
 
         private void picBtn_Click(object sender, EventArgs e)
         {
-
+            gamePicture gmp = new gamePicture();
+            player.Stop();
+            this.Hide();
+            gmp.ShowDialog();
+            
         }
 
         private void btnExitGame_Click(object sender, EventArgs e)
