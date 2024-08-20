@@ -32,13 +32,14 @@
             btnMenu = new Button();
             btnExitGame = new Button();
             muteBtn = new Button();
+            picBtn = new Button();
             SuspendLayout();
             // 
             // lblMenu
             // 
             lblMenu.AutoSize = true;
             lblMenu.Font = new Font("Snap ITC", 72F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            lblMenu.Location = new Point(2, -2);
+            lblMenu.Location = new Point(12, -2);
             lblMenu.Name = "lblMenu";
             lblMenu.Size = new Size(407, 123);
             lblMenu.TabIndex = 0;
@@ -49,7 +50,7 @@
             btnMenu.BackColor = Color.FromArgb(192, 192, 255);
             btnMenu.Font = new Font("Snap ITC", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnMenu.ForeColor = Color.Black;
-            btnMenu.Location = new Point(102, 166);
+            btnMenu.Location = new Point(102, 145);
             btnMenu.Margin = new Padding(3, 2, 3, 2);
             btnMenu.Name = "btnMenu";
             btnMenu.Size = new Size(228, 37);
@@ -62,7 +63,7 @@
             // 
             btnExitGame.BackColor = Color.FromArgb(192, 192, 255);
             btnExitGame.Font = new Font("Snap ITC", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnExitGame.Location = new Point(102, 220);
+            btnExitGame.Location = new Point(102, 227);
             btnExitGame.Margin = new Padding(3, 2, 3, 2);
             btnExitGame.Name = "btnExitGame";
             btnExitGame.Size = new Size(228, 37);
@@ -80,12 +81,27 @@
             muteBtn.UseVisualStyleBackColor = true;
             muteBtn.Click += button1_Click;
             // 
+            // picBtn
+            // 
+            picBtn.BackColor = Color.FromArgb(192, 192, 255);
+            picBtn.Font = new Font("Snap ITC", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            picBtn.ForeColor = Color.Black;
+            picBtn.Location = new Point(102, 186);
+            picBtn.Margin = new Padding(3, 2, 3, 2);
+            picBtn.Name = "picBtn";
+            picBtn.Size = new Size(228, 37);
+            picBtn.TabIndex = 4;
+            picBtn.Text = "Pictures";
+            picBtn.UseVisualStyleBackColor = false;
+            picBtn.Click += picBtn_Click;
+            // 
             // frmMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(128, 128, 255);
             ClientSize = new Size(448, 338);
+            Controls.Add(picBtn);
             Controls.Add(muteBtn);
             Controls.Add(btnExitGame);
             Controls.Add(btnMenu);
@@ -107,5 +123,6 @@
         private Button btnMenu;
         private Button btnExitGame;
         private Button muteBtn;
+        private Button picBtn;
     }
 }

@@ -2,6 +2,7 @@ using System.Linq.Expressions;
 using System.Media;
 using System.Numerics;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace puzzle
 {
@@ -16,7 +17,7 @@ namespace puzzle
             Menu.Close();
             InitializeComponent();
             SPlayer2();
-            MessageBox.Show("Se ha ejecutado");
+            
             muteBtnGame.Image = Image.FromFile(unmute);
             Shuffle(random);
 
@@ -158,7 +159,7 @@ namespace puzzle
         {
             player2 = new SoundPlayer();
             player2.SoundLocation = @"C:\Source\Puzzle\puzzle\assets\audio\music2.wav";
-            player2.Play();
+            player2.PlayLooping();
 
         }
         private void muteBtnGame_Click(object sender, EventArgs e)
@@ -184,6 +185,15 @@ namespace puzzle
                 player2.Play();
                 active = true;
             }
+         
+        }
+        public void playMusic()
+        {
+           if (active)
+            {
+                player2.Play();
+            }
+
         }
     }
 }

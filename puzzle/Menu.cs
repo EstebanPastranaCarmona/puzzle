@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace puzzle
 {
-    
+
 
     public partial class frmMenu : Form
     {
@@ -22,12 +22,12 @@ namespace puzzle
         private SoundPlayer player;
         public frmMenu()
         {
-            
+
             InitializeComponent();
             muteBtn.Image = Image.FromFile(unmute);
             SPlayer();
-          
-          
+
+
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -36,6 +36,11 @@ namespace puzzle
             frmGame.Show();
             player.Stop();
             this.Hide();
+        }
+
+        private void picBtn_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnExitGame_Click(object sender, EventArgs e)
@@ -50,7 +55,7 @@ namespace puzzle
             player.Play();
 
         }
-        
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -62,19 +67,18 @@ namespace puzzle
 
             }
 
-           else
-            { 
-                  
+            else
+            {
+
                 muteBtn.Image = Image.FromFile(unmute);
                 player.Play();
                 active = true;
             }
-            
+
 
 
         }
 
         
-     
     }
 }
