@@ -8,17 +8,16 @@ namespace puzzle
 {
     public partial class frmGame : Form
     {
-
-
         public frmGame()
         {
-
-            frmMenu Menu = new frmMenu();
-            Menu.Close();
             InitializeComponent();
             SPlayer2();
-            
-            muteBtnGame.Image = Image.FromFile(unmute);
+
+            btnMuteGame.Image = Image.FromFile(unmute);
+            btnPauseGame.Image = Image.FromFile(pause);
+
+            tmtTimer.Start();
+
             Shuffle(random);
 
             for (int i = 0; i < 4; i++)
@@ -39,18 +38,26 @@ namespace puzzle
                     gbxMain.Controls[i].Text = $"{randomNumbers[i]}";
                 }
             }
-
         }
         #region variables
         public SoundPlayer player2;
         string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
         string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
+        string play = @"C:\Source\Puzzle\puzzle\assets\icon\play.png";
+        string pause = @"C:\Source\Puzzle\puzzle\assets\icon\pause.png";
         private bool active = true;
+        private bool active2 = true;
+
         Button[,] buttons = new Button[4, 4];
-        int index = 0;
         Random random = new Random();
         List<int> numbers = new List<int>([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
         List<int> randomNumbers = new List<int>();
+
+        int index = 0;
+
+        int hours = 0;
+        int minutes = 0;
+        int seconds = 0;
         #endregion variables
 
         #region events
@@ -62,6 +69,36 @@ namespace puzzle
         private void frmGame_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+        private void btnMuteGame_Click_1(object sender, EventArgs e)
+        {
+            if (active)
+            {
+                btnMuteGame.Image = Image.FromFile(mute);
+                player2.Stop();
+                active = false;
+            }
+            else
+            {
+                btnMuteGame.Image = Image.FromFile(unmute);
+                player2.Play();
+                active = true;
+            }
+        }
+        private void tmCronometer_Tick(object sender, EventArgs e)
+        {
+            seconds++;
+            if (seconds > 60)
+            {
+                seconds = 0;
+                minutes++;
+                if (minutes > 60)
+                {
+                    minutes = 0;
+                    hours++;
+                }
+            }
+            lblTimer.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
         }
         #endregion events
 
@@ -145,55 +182,40 @@ namespace puzzle
                 MessageBox.Show("Congratulation you win", "Win", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
         void Shuffle(Random random)
         {
             randomNumbers = numbers.OrderBy(x => random.Next(1, 16)).ToList();
-
         }
-
-        #endregion methods
-
-
         public void SPlayer2()
         {
             player2 = new SoundPlayer();
             player2.SoundLocation = @"C:\Source\Puzzle\puzzle\assets\audio\music2.wav";
             player2.PlayLooping();
-
-        }
-        private void muteBtnGame_Click(object sender, EventArgs e)
-        {
-
-            
-        }
-
-        private void muteBtnGame_Click_1(object sender, EventArgs e)
-        {
-            if (active)
-            {
-                muteBtnGame.Image = Image.FromFile(mute);
-                player2.Stop();
-                active = false;
-
-            }
-
-            else
-            {
-
-                muteBtnGame.Image = Image.FromFile(unmute);
-                player2.Play();
-                active = true;
-            }
-         
         }
         public void playMusic()
         {
-           if (active)
+            if (active)
             {
                 player2.Play();
             }
+        }
+        #endregion methods
 
+
+        private void btnPauseGame_Click(object sender, EventArgs e)
+        {
+            if (active2)
+            {
+                btnPauseGame.Image = Image.FromFile(play);
+                tmtTimer.Stop();
+                active2 = false;
+            }
+            else
+            {
+                btnPauseGame.Image = Image.FromFile(pause); 
+                tmtTimer.Start();
+                active2 = true;
+            }
         }
     }
 }

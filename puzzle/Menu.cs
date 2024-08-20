@@ -12,8 +12,6 @@ using System.Windows.Forms;
 
 namespace puzzle
 {
-
-
     public partial class frmMenu : Form
     {
         string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
@@ -22,12 +20,9 @@ namespace puzzle
         private SoundPlayer player;
         public frmMenu()
         {
-
             InitializeComponent();
-            muteBtn.Image = Image.FromFile(unmute);
+            btnMuteMenu.Image = Image.FromFile(unmute);
             SPlayer();
-
-
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -35,9 +30,9 @@ namespace puzzle
             frmGame frmGame = new frmGame();
             frmGame.Show();
             player.Stop();
+            frmGame.SPlayer2();
             this.Hide();
         }
-
         private void picBtn_Click(object sender, EventArgs e)
         {
             gamePicture gmp = new gamePicture();
@@ -46,7 +41,6 @@ namespace puzzle
             gmp.ShowDialog();
             
         }
-
         private void btnExitGame_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -57,32 +51,21 @@ namespace puzzle
             player = new SoundPlayer();
             player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music1.wav";
             player.Play();
-
         }
-
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnMuteMenu_Click(object sender, EventArgs e)
         {
             if (active)
             {
-                muteBtn.Image = Image.FromFile(mute);
+                btnMuteMenu.Image = Image.FromFile(mute);
                 player.Stop();
                 active = false;
-
             }
-
             else
             {
-
-                muteBtn.Image = Image.FromFile(unmute);
+                btnMuteMenu.Image = Image.FromFile(unmute);
                 player.Play();
                 active = true;
             }
-
-
-
         }
-
-        
     }
 }
