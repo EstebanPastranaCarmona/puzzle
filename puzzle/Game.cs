@@ -1,15 +1,23 @@
 using System.Linq.Expressions;
+using System.Media;
+using System.Numerics;
 using System.Runtime.InteropServices;
 
 namespace puzzle
 {
     public partial class frmGame : Form
     {
+
+
         public frmGame()
         {
+
             frmMenu Menu = new frmMenu();
             Menu.Close();
             InitializeComponent();
+            SPlayer2();
+            MessageBox.Show("Se ha ejecutado");
+            muteBtnGame.Image = Image.FromFile(unmute);
             Shuffle(random);
 
             for (int i = 0; i < 4; i++)
@@ -30,8 +38,13 @@ namespace puzzle
                     gbxMain.Controls[i].Text = $"{randomNumbers[i]}";
                 }
             }
+
         }
         #region variables
+        public SoundPlayer player2;
+        string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
+        string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
+        private bool active = true;
         Button[,] buttons = new Button[4, 4];
         int index = 0;
         Random random = new Random();
@@ -135,10 +148,42 @@ namespace puzzle
         void Shuffle(Random random)
         {
             randomNumbers = numbers.OrderBy(x => random.Next(1, 16)).ToList();
+
         }
 
         #endregion methods
 
 
+        public void SPlayer2()
+        {
+            player2 = new SoundPlayer();
+            player2.SoundLocation = @"C:\Source\Puzzle\puzzle\assets\audio\music2.wav";
+            player2.Play();
+
+        }
+        private void muteBtnGame_Click(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void muteBtnGame_Click_1(object sender, EventArgs e)
+        {
+            if (active)
+            {
+                muteBtnGame.Image = Image.FromFile(mute);
+                player2.Stop();
+                active = false;
+
+            }
+
+            else
+            {
+
+                muteBtnGame.Image = Image.FromFile(unmute);
+                player2.Play();
+                active = true;
+            }
+        }
     }
 }
