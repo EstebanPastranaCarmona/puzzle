@@ -33,12 +33,10 @@ namespace puzzle
             frmGame.SPlayer2();
             this.Hide();
         }
-
         private void picBtn_Click(object sender, EventArgs e)
         {
 
         }
-
         private void btnExitGame_Click(object sender, EventArgs e)
         {
             this.Close();

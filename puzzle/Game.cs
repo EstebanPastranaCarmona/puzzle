@@ -14,6 +14,9 @@ namespace puzzle
             SPlayer2();
 
             btnMuteGame.Image = Image.FromFile(unmute);
+            btnPauseGame.Image = Image.FromFile(pause);
+
+            tmtTimer.Start();
 
             Shuffle(random);
 
@@ -40,7 +43,10 @@ namespace puzzle
         public SoundPlayer player2;
         string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
         string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
+        string play = @"C:\Source\Puzzle\puzzle\assets\icon\play.png";
+        string pause = @"C:\Source\Puzzle\puzzle\assets\icon\pause.png";
         private bool active = true;
+        private bool active2 = true;
 
         Button[,] buttons = new Button[4, 4];
         Random random = new Random();
@@ -48,6 +54,10 @@ namespace puzzle
         List<int> randomNumbers = new List<int>();
 
         int index = 0;
+
+        int hours = 0;
+        int minutes = 0;
+        int seconds = 0;
         #endregion variables
 
         #region events
@@ -74,6 +84,21 @@ namespace puzzle
                 player2.Play();
                 active = true;
             }
+        }
+        private void tmCronometer_Tick(object sender, EventArgs e)
+        {
+            seconds++;
+            if (seconds > 60)
+            {
+                seconds = 0;
+                minutes++;
+                if (minutes > 60)
+                {
+                    minutes = 0;
+                    hours++;
+                }
+            }
+            lblTimer.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
         }
         #endregion events
 
@@ -177,8 +202,20 @@ namespace puzzle
         #endregion methods
 
 
-
-        
-       
+        private void btnPauseGame_Click(object sender, EventArgs e)
+        {
+            if (active2)
+            {
+                btnPauseGame.Image = Image.FromFile(play);
+                tmtTimer.Stop();
+                active2 = false;
+            }
+            else
+            {
+                btnPauseGame.Image = Image.FromFile(pause); 
+                tmtTimer.Start();
+                active2 = true;
+            }
+        }
     }
 }
