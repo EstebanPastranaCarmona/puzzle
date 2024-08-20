@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             groupBox1 = new GroupBox();
             pic15 = new PictureBox();
             pic14 = new PictureBox();
@@ -46,6 +47,11 @@
             pic1 = new PictureBox();
             pic0 = new PictureBox();
             originalPictureBox = new PictureBox();
+            btnMuteGame = new Button();
+            lblTimer = new Label();
+            btnPauseGame = new Button();
+            tmtTimer = new System.Windows.Forms.Timer(components);
+            exit = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic15).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic14).BeginInit();
@@ -237,18 +243,68 @@
             // 
             // originalPictureBox
             // 
-            originalPictureBox.Location = new Point(43, 88);
+            originalPictureBox.Location = new Point(31, 135);
             originalPictureBox.Name = "originalPictureBox";
             originalPictureBox.Size = new Size(265, 265);
             originalPictureBox.TabIndex = 1;
             originalPictureBox.TabStop = false;
             originalPictureBox.Click += originalPictureBox_Click;
             // 
+            // btnMuteGame
+            // 
+            btnMuteGame.Location = new Point(71, 414);
+            btnMuteGame.Name = "btnMuteGame";
+            btnMuteGame.Size = new Size(50, 39);
+            btnMuteGame.TabIndex = 4;
+            btnMuteGame.UseVisualStyleBackColor = true;
+            btnMuteGame.Click += btnMuteGame_Click;
+            // 
+            // lblTimer
+            // 
+            lblTimer.AutoSize = true;
+            lblTimer.Font = new Font("Snap ITC", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTimer.Location = new Point(52, 27);
+            lblTimer.Name = "lblTimer";
+            lblTimer.Size = new Size(228, 45);
+            lblTimer.TabIndex = 6;
+            lblTimer.Text = "00:00:00";
+            lblTimer.Click += lblTimer_Click;
+            // 
+            // btnPauseGame
+            // 
+            btnPauseGame.Location = new Point(31, 74);
+            btnPauseGame.Margin = new Padding(3, 2, 3, 2);
+            btnPauseGame.Name = "btnPauseGame";
+            btnPauseGame.Size = new Size(62, 56);
+            btnPauseGame.TabIndex = 7;
+            btnPauseGame.UseVisualStyleBackColor = true;
+            btnPauseGame.Click += btnPauseGame_Click;
+            // 
+            // tmtTimer
+            // 
+            tmtTimer.Tick += tmtTimer_Tick;
+            // 
+            // exit
+            // 
+            exit.Font = new Font("Snap ITC", 15.8000011F);
+            exit.Location = new Point(147, 414);
+            exit.Name = "exit";
+            exit.Size = new Size(105, 39);
+            exit.TabIndex = 8;
+            exit.Text = "Salir.";
+            exit.UseVisualStyleBackColor = true;
+            exit.Click += exit_Click;
+            // 
             // gamePicture
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(128, 128, 255);
             ClientSize = new Size(798, 471);
+            Controls.Add(exit);
+            Controls.Add(btnPauseGame);
+            Controls.Add(lblTimer);
+            Controls.Add(btnMuteGame);
             Controls.Add(originalPictureBox);
             Controls.Add(groupBox1);
             Name = "gamePicture";
@@ -274,6 +330,7 @@
             ((System.ComponentModel.ISupportInitialize)pic0).EndInit();
             ((System.ComponentModel.ISupportInitialize)originalPictureBox).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -296,5 +353,10 @@
         private PictureBox pic2;
         private PictureBox pic1;
         private PictureBox pic0;
+        private Button btnMuteGame;
+        private Label lblTimer;
+        private Button btnPauseGame;
+        private System.Windows.Forms.Timer tmtTimer;
+        private Button exit;
     }
 }

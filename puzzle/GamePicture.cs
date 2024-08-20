@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,16 +19,30 @@ namespace puzzle
         List<int> numbers = new List<int>([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]);
         List<int> randomNumbers = new List<int>();
         int coincidencias = 0;
+        string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
+        string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
+        public string play1 = @"C:\Source\Puzzle\puzzle\assets\icon\play.png";
+        public string pause1 = @"C:\Source\Puzzle\puzzle\assets\icon\pause.png";
+        bool active = true;
+        private SoundPlayer player;
+        int hours = 0;
+        int minutes = 0;
+        int seconds = 0;
+        private bool active2 = true;
         public gamePicture()
         {
             InitializeComponent();
+            SPlayer();
+
+            btnMuteGame.Image = Image.FromFile(unmute);
             chargeList();
             //movimientos = rutaOrdenadas;
             Shuffle(random);
             randomImages();
             chargeGame();
             originalPictureBox.ImageLocation = @"C:\Source\Puzzle\puzzle\assets\img\original.jpg";
-
+            tmtTimer.Start();
+            btnPauseGame.Image = Image.FromFile(pause1);
         }
         public void chargeList()
         {
@@ -599,7 +614,7 @@ namespace puzzle
             {
                 if (movimientos[i] == rutaOrdenadas[i])
                 {
-                    coincidencias = coincidencias+1;
+                    coincidencias = coincidencias + 1;
                     if (coincidencias == 15)
                     {
                         MessageBox.Show("Ha Ganado!!!!", "Felicitaciones");
@@ -607,7 +622,7 @@ namespace puzzle
                 }
 
             }
-           // MessageBox.Show(String.Format("Coincidencias:{0}",coincidencias),"Puntaje");
+            // MessageBox.Show(String.Format("Coincidencias:{0}",coincidencias),"Puntaje");
         }
 
         private void originalPictureBox_Click(object sender, EventArgs e)
@@ -617,7 +632,91 @@ namespace puzzle
 
         private void gamePicture_Load(object sender, EventArgs e)
         {
+            playMusic();
+        }
+        public void SPlayer()
+        {
+            player = new SoundPlayer();
+            player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music33.wav";
+            player.Play();
+        }
 
+        private void btnMuteGame_Click(object sender, EventArgs e)
+        {
+            if (active)
+            {
+                btnMuteGame.Image = Image.FromFile(mute);
+                player.Stop();
+                active = false;
+            }
+            else
+            {
+                btnMuteGame.Image = Image.FromFile(unmute);
+                player.Play();
+                active = true;
+            }
+        }
+        public void playMusic()
+        {
+            if (active)
+            {
+                player.Play();
+            }
+        }
+
+        private void btnPauseGame_Click(object sender, EventArgs e)
+        {
+            if (active2)
+            {
+                btnPauseGame.Image = Image.FromFile(play1);
+                tmtTimer.Stop();
+                active2 = false;
+            }
+            else
+            {
+                btnPauseGame.Image = Image.FromFile(pause1);
+                tmtTimer.Start();
+                active2 = true;
+            }
+        }
+
+        private void lblTimer_Click(object sender, EventArgs e)
+        {
+            /*  seconds++;
+              if (seconds > 60)
+              {
+                  seconds = 0;
+                  minutes++;
+                  if (minutes > 60)
+                  {
+                      minutes = 0;
+                      hours++;
+                  }
+              }
+              lblTimer.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
+              */
+        }
+
+        private void tmtTimer_Tick(object sender, EventArgs e)
+        {
+            seconds++;
+            tmtTimer.Interval = 1000;
+            if (seconds > 60)
+            {
+                seconds = 0;
+                minutes++;
+                if (minutes > 60)
+                {
+                    minutes = 0;
+                    hours++;
+                }
+            }
+            lblTimer.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

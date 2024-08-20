@@ -189,7 +189,7 @@ namespace puzzle
         public void SPlayer2()
         {
             player2 = new SoundPlayer();
-            player2.SoundLocation = @"C:\Source\Puzzle\puzzle\assets\audio\music2.wav";
+            player2.SoundLocation = @"C:\Source\Puzzle\puzzle\assets\audio\music11.wav";
             player2.PlayLooping();
         }
         public void playMusic()
@@ -212,10 +212,15 @@ namespace puzzle
             }
             else
             {
-                btnPauseGame.Image = Image.FromFile(pause); 
+                btnPauseGame.Image = Image.FromFile(pause);
                 tmtTimer.Start();
                 active2 = true;
             }
+        }
+
+        private void frmGame_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

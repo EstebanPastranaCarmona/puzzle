@@ -39,20 +39,22 @@
             // 
             lblMenu.AutoSize = true;
             lblMenu.Font = new Font("Snap ITC", 72F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            lblMenu.Location = new Point(14, -3);
+            lblMenu.Location = new Point(12, -2);
             lblMenu.Name = "lblMenu";
-            lblMenu.Size = new Size(509, 155);
+            lblMenu.Size = new Size(407, 123);
             lblMenu.TabIndex = 0;
             lblMenu.Text = "Puzzle";
+            lblMenu.Click += lblMenu_Click;
             // 
             // btnMenu
             // 
             btnMenu.BackColor = Color.FromArgb(192, 192, 255);
             btnMenu.Font = new Font("Snap ITC", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnMenu.ForeColor = Color.Black;
-            btnMenu.Location = new Point(117, 193);
+            btnMenu.Location = new Point(102, 145);
+            btnMenu.Margin = new Padding(3, 2, 3, 2);
             btnMenu.Name = "btnMenu";
-            btnMenu.Size = new Size(261, 49);
+            btnMenu.Size = new Size(228, 37);
             btnMenu.TabIndex = 1;
             btnMenu.Text = "New Game";
             btnMenu.UseVisualStyleBackColor = false;
@@ -62,9 +64,10 @@
             // 
             btnExitGame.BackColor = Color.FromArgb(192, 192, 255);
             btnExitGame.Font = new Font("Snap ITC", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnExitGame.Location = new Point(117, 303);
+            btnExitGame.Location = new Point(102, 227);
+            btnExitGame.Margin = new Padding(3, 2, 3, 2);
             btnExitGame.Name = "btnExitGame";
-            btnExitGame.Size = new Size(261, 49);
+            btnExitGame.Size = new Size(228, 37);
             btnExitGame.TabIndex = 2;
             btnExitGame.Text = "Exit";
             btnExitGame.UseVisualStyleBackColor = false;
@@ -72,10 +75,9 @@
             // 
             // btnMuteMenu
             // 
-            btnMuteMenu.Location = new Point(37, 367);
-            btnMuteMenu.Margin = new Padding(3, 4, 3, 4);
+            btnMuteMenu.Location = new Point(32, 275);
             btnMuteMenu.Name = "btnMuteMenu";
-            btnMuteMenu.Size = new Size(57, 52);
+            btnMuteMenu.Size = new Size(50, 39);
             btnMuteMenu.TabIndex = 3;
             btnMuteMenu.UseVisualStyleBackColor = true;
             btnMuteMenu.Click += btnMuteMenu_Click;
@@ -85,9 +87,10 @@
             picBtn.BackColor = Color.FromArgb(192, 192, 255);
             picBtn.Font = new Font("Snap ITC", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             picBtn.ForeColor = Color.Black;
-            picBtn.Location = new Point(117, 248);
+            picBtn.Location = new Point(102, 186);
+            picBtn.Margin = new Padding(3, 2, 3, 2);
             picBtn.Name = "picBtn";
-            picBtn.Size = new Size(261, 49);
+            picBtn.Size = new Size(228, 37);
             picBtn.TabIndex = 4;
             picBtn.Text = "Pictures";
             picBtn.UseVisualStyleBackColor = false;
@@ -95,15 +98,16 @@
             // 
             // frmMenu
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(128, 128, 255);
-            ClientSize = new Size(512, 451);
+            ClientSize = new Size(448, 338);
             Controls.Add(picBtn);
             Controls.Add(btnMuteMenu);
             Controls.Add(btnExitGame);
             Controls.Add(btnMenu);
             Controls.Add(lblMenu);
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmMenu";

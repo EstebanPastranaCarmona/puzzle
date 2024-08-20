@@ -39,18 +39,18 @@ namespace puzzle
             player.Stop();
             this.Hide();
             gmp.ShowDialog();
-            
+
         }
         private void btnExitGame_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         public void SPlayer()
         {
             player = new SoundPlayer();
-            player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music1.wav";
-            player.Play();
+            player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music22.wav";
+            player.PlayLooping();
         }
         private void btnMuteMenu_Click(object sender, EventArgs e)
         {
@@ -66,6 +66,11 @@ namespace puzzle
                 player.Play();
                 active = true;
             }
+        }
+
+        private void lblMenu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
