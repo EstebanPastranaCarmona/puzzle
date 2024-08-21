@@ -132,55 +132,59 @@ namespace puzzle
         {
             //The object that invokes the event
             Button clickedButton = (Button)sender;
-            //The matrix is ??traversed
-            for (int i = 0; i < 4; i++)
+            // if pause button if no active
+            if (active2)
+            //The matrix is traversed
             {
-                for (int j = 0; j < 4; j++)
+                for (int i = 0; i < 4; i++)
                 {
-                    //The button that invokes the event is searched within the matrix.
-                    if (clickedButton == buttons[i, j])
+                    for (int j = 0; j < 4; j++)
                     {
-                        //Searching for a button with adjacent white space
-                        try
+                        //The button that invokes the event is searched within the matrix.
+                        if (clickedButton == buttons[i, j])
                         {
-                            //check right
-                            if (buttons[i, j + 1].Text == "")
+                            //Searching for a button with adjacent white space
+                            try
                             {
-                                buttons[i, j + 1].Text = clickedButton.Text;
-                                clickedButton.Text = "";
+                                //check right
+                                if (buttons[i, j + 1].Text == "")
+                                {
+                                    buttons[i, j + 1].Text = clickedButton.Text;
+                                    clickedButton.Text = "";
+                                }
                             }
-                        }
-                        catch { }
-                        try
-                        {
-                            //check left
-                            if (buttons[i, j - 1].Text == "")
+                            catch { }
+                            try
                             {
-                                buttons[i, j - 1].Text = clickedButton.Text;
-                                clickedButton.Text = "";
+                                //check left
+                                if (buttons[i, j - 1].Text == "")
+                                {
+                                    buttons[i, j - 1].Text = clickedButton.Text;
+                                    clickedButton.Text = "";
+                                }
                             }
-                        }
-                        catch { }
-                        try
-                        {
-                            //check below
-                            if (buttons[i + 1, j].Text == "")
+                            catch { }
+                            try
                             {
-                                buttons[i + 1, j].Text = clickedButton.Text;
-                                clickedButton.Text = "";
+                                //check below
+                                if (buttons[i + 1, j].Text == "")
+                                {
+                                    buttons[i + 1, j].Text = clickedButton.Text;
+                                    clickedButton.Text = "";
+                                }
                             }
-                        }
-                        catch { }
-                        try
-                        {
-                            //check above
-                            if (buttons[i - 1, j].Text == "")
+                            catch { }
+                            try
                             {
-                                buttons[i - 1, j].Text = clickedButton.Text;
-                                clickedButton.Text = "";
+                                //check above
+                                if (buttons[i - 1, j].Text == "")
+                                {
+                                    buttons[i - 1, j].Text = clickedButton.Text;
+                                    clickedButton.Text = "";
+                                }
                             }
+                            catch { }
                         }
-                        catch { }
                     }
                 }
             }
