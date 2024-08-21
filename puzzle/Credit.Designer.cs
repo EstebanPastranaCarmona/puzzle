@@ -31,8 +31,8 @@
             btnMuteCredit = new Button();
             btnExit = new Button();
             lblLTittle = new LinkLabel();
-            linkLabel1 = new LinkLabel();
-            linkLabel2 = new LinkLabel();
+            lklblEsteban = new LinkLabel();
+            lklblJose = new LinkLabel();
             lblCourse = new Label();
             lblProfesor = new Label();
             lbdDate = new Label();
@@ -60,7 +60,7 @@
             btnExit.TabIndex = 10;
             btnExit.Text = "Exit";
             btnExit.UseVisualStyleBackColor = true;
-            btnExit.Click += exit_Click;
+            btnExit.Click += btnExit_Click;
             // 
             // lblLTittle
             // 
@@ -75,39 +75,39 @@
             lblLTittle.TabStop = true;
             lblLTittle.Text = "Puzzle in C#";
             lblLTittle.TextAlign = ContentAlignment.MiddleCenter;
-            lblLTittle.LinkClicked += lblLTittle_LinkClicked;
+            lblLTittle.LinkClicked += lblTittle_LinkClicked;
             // 
-            // linkLabel1
+            // lklblEsteban
             // 
-            linkLabel1.ActiveLinkColor = Color.Red;
-            linkLabel1.AutoSize = true;
-            linkLabel1.Font = new Font("Snap ITC", 12F, FontStyle.Bold);
-            linkLabel1.LinkBehavior = LinkBehavior.NeverUnderline;
-            linkLabel1.LinkColor = Color.FromArgb(255, 192, 255);
-            linkLabel1.Location = new Point(42, 183);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(345, 27);
-            linkLabel1.TabIndex = 15;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Esteban Pastrana Carmona";
-            linkLabel1.TextAlign = ContentAlignment.TopCenter;
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked_1;
+            lklblEsteban.ActiveLinkColor = Color.Red;
+            lklblEsteban.AutoSize = true;
+            lklblEsteban.Font = new Font("Snap ITC", 12F, FontStyle.Bold);
+            lklblEsteban.LinkBehavior = LinkBehavior.NeverUnderline;
+            lklblEsteban.LinkColor = Color.FromArgb(255, 192, 255);
+            lklblEsteban.Location = new Point(42, 183);
+            lklblEsteban.Name = "lklblEsteban";
+            lklblEsteban.Size = new Size(345, 27);
+            lklblEsteban.TabIndex = 15;
+            lklblEsteban.TabStop = true;
+            lklblEsteban.Text = "Esteban Pastrana Carmona";
+            lklblEsteban.TextAlign = ContentAlignment.TopCenter;
+            lklblEsteban.LinkClicked += lklblEsteban_LinkClicked_1;
             // 
-            // linkLabel2
+            // lklblJose
             // 
-            linkLabel2.ActiveLinkColor = Color.Red;
-            linkLabel2.AutoSize = true;
-            linkLabel2.Font = new Font("Snap ITC", 12F, FontStyle.Bold);
-            linkLabel2.LinkBehavior = LinkBehavior.NeverUnderline;
-            linkLabel2.LinkColor = Color.FromArgb(255, 192, 255);
-            linkLabel2.Location = new Point(15, 219);
-            linkLabel2.Name = "linkLabel2";
-            linkLabel2.Size = new Size(392, 27);
-            linkLabel2.TabIndex = 16;
-            linkLabel2.TabStop = true;
-            linkLabel2.Text = "José Luis Guadamuz Rodríguez";
-            linkLabel2.TextAlign = ContentAlignment.TopCenter;
-            linkLabel2.LinkClicked += linkLabel2_LinkClicked;
+            lklblJose.ActiveLinkColor = Color.Red;
+            lklblJose.AutoSize = true;
+            lklblJose.Font = new Font("Snap ITC", 12F, FontStyle.Bold);
+            lklblJose.LinkBehavior = LinkBehavior.NeverUnderline;
+            lklblJose.LinkColor = Color.FromArgb(255, 192, 255);
+            lklblJose.Location = new Point(15, 219);
+            lklblJose.Name = "lklblJose";
+            lklblJose.Size = new Size(392, 27);
+            lklblJose.TabIndex = 16;
+            lklblJose.TabStop = true;
+            lklblJose.Text = "José Luis Guadamuz Rodríguez";
+            lklblJose.TextAlign = ContentAlignment.TopCenter;
+            lklblJose.LinkClicked += lklblJose_LinkClicked;
             // 
             // lblCourse
             // 
@@ -162,8 +162,8 @@
             Controls.Add(lbdDate);
             Controls.Add(lblProfesor);
             Controls.Add(lblCourse);
-            Controls.Add(linkLabel2);
-            Controls.Add(linkLabel1);
+            Controls.Add(lklblJose);
+            Controls.Add(lklblEsteban);
             Controls.Add(lblLTittle);
             Controls.Add(btnExit);
             Controls.Add(btnMuteCredit);
@@ -171,7 +171,7 @@
             Name = "frmCredit";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Credits";
-            FormClosing += Credit_FormClosing;
+            FormClosing += frmCredit_FormClosing;
             Load += frmCredit_Load;
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             ResumeLayout(false);
@@ -184,8 +184,8 @@
         private Button btnExit;
         private Label lblTittle;
         private LinkLabel lblLTittle;
-        private LinkLabel linkLabel1;
-        private LinkLabel linkLabel2;
+        private LinkLabel lklblEsteban;
+        private LinkLabel lklblJose;
         private Label lblCourse;
         private Label lblProfesor;
         private Label lbdDate;

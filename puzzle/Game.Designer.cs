@@ -319,7 +319,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Puzzle";
             FormClosing += frmGame_FormClosing;
-            FormClosed += frmGame_FormClosed;
             gbxMain.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
