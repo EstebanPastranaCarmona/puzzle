@@ -74,15 +74,13 @@ namespace puzzle
                 active = true;
             }
         }
-        #endregion events
-
-
         private void BtnCredit_Click(object sender, EventArgs e)
         {
-           frmCredit frmCredit = new frmCredit(this);
+            frmCredit frmCredit = new frmCredit(this);
             player.Stop();
             this.Hide();
-           frmCredit.ShowDialog();
+            frmCredit.ShowDialog();
         }
+        #endregion events
     }
 }
