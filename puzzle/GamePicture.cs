@@ -24,7 +24,7 @@ namespace puzzle
             SPlayer();
             btnMuteGame.Image = Image.FromFile(unmute);
             chargeList();
-            //movimientos = rutaOrdenadas;
+
             Shuffle(random);
             randomImages();
             chargeGame();

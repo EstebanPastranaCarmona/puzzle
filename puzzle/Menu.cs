@@ -14,20 +14,31 @@ namespace puzzle
 {
     public partial class frmMenu : Form
     {
+        public frmMenu()
+        {
+            InitializeComponent();
+            SPlayer();
+            btnMuteMenu.Image = Image.FromFile(unmute);
+            
+        }
+
+        #region variables
         string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
         string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
         bool active = true;
         private SoundPlayer player;
-   
+        #endregion variables
 
-
-        public frmMenu()
+        #region methods
+        public void SPlayer()
         {
-            InitializeComponent();
-            btnMuteMenu.Image = Image.FromFile(unmute);
-            SPlayer();
+            player = new SoundPlayer();
+            player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music22.wav";
+            player.PlayLooping();
         }
+        #endregion methods
 
+        #region events
         private void btnMenu_Click(object sender, EventArgs e)
         {
             frmGame frmGame = new frmGame(this);
@@ -35,32 +46,18 @@ namespace puzzle
             frmGame.Show();
             player.Stop();
             frmGame.SPlayer2();
-
         }
         private void picBtn_Click(object sender, EventArgs e)
         {
-
-
-
-
             frmGamePicture gmp = new frmGamePicture(this);
             player.Stop();
             this.Hide();
             gmp.ShowDialog();
-
         }
         private void btnExitGame_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-        public void SPlayer()
-        {
-            player = new SoundPlayer();
-            player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music22.wav";
-            player.PlayLooping();
-        }
-       
         private void btnMuteMenu_Click(object sender, EventArgs e)
         {
             if (active)
@@ -76,29 +73,6 @@ namespace puzzle
                 active = true;
             }
         }
-
-        private void lblMenu_Click(object sender, EventArgs e)
-        {
-
-        }
-        public void viewMenuForm()
-        {
-
-        }
-
-        private void btnMenu_MouseHover(object sender, EventArgs e)
-        {
-         
-        }
-
-        private void picBtn_MouseHover(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnExitGame_MouseHover(object sender, EventArgs e)
-        {
-            
-        }
+        #endregion events
     }
 }

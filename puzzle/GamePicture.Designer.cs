@@ -266,7 +266,6 @@
             originalPictureBox.Size = new Size(303, 353);
             originalPictureBox.TabIndex = 1;
             originalPictureBox.TabStop = false;
-            originalPictureBox.Click += originalPictureBox_Click;
             // 
             // btnMuteGame
             // 
@@ -287,7 +286,6 @@
             lblTimer.Size = new Size(283, 57);
             lblTimer.TabIndex = 6;
             lblTimer.Text = "00:00:00";
-            lblTimer.Click += lblTimer_Click;
             // 
             // btnPauseGame
             // 
