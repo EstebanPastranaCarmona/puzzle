@@ -76,6 +76,13 @@ namespace puzzle
         }
         #endregion events
 
-        
+
+        private void BtnCredit_Click(object sender, EventArgs e)
+        {
+           frmCredit frmCredit = new frmCredit(this);
+            player.Stop();
+            this.Hide();
+           frmCredit.ShowDialog();
+        }
     }
 }

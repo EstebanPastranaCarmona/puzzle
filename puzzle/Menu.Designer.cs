@@ -33,6 +33,7 @@
             btnExitGame = new Button();
             btnMuteMenu = new Button();
             picBtn = new Button();
+            BtnCredit = new Button();
             SuspendLayout();
             // 
             // lblMenu
@@ -74,11 +75,12 @@
             // 
             // btnMuteMenu
             // 
-            btnMuteMenu.Location = new Point(32, 275);
+            btnMuteMenu.BackColor = Color.FromArgb(192, 192, 255);
+            btnMuteMenu.Location = new Point(29, 288);
             btnMuteMenu.Name = "btnMuteMenu";
             btnMuteMenu.Size = new Size(50, 39);
             btnMuteMenu.TabIndex = 3;
-            btnMuteMenu.UseVisualStyleBackColor = true;
+            btnMuteMenu.UseVisualStyleBackColor = false;
             btnMuteMenu.Click += btnMuteMenu_Click;
             // 
             // picBtn
@@ -95,12 +97,25 @@
             picBtn.UseVisualStyleBackColor = false;
             picBtn.Click += picBtn_Click;
             // 
+            // BtnCredit
+            // 
+            BtnCredit.BackColor = Color.FromArgb(192, 192, 255);
+            BtnCredit.Font = new Font("Snap ITC", 11.2F);
+            BtnCredit.Location = new Point(343, 287);
+            BtnCredit.Name = "BtnCredit";
+            BtnCredit.Size = new Size(93, 39);
+            BtnCredit.TabIndex = 5;
+            BtnCredit.Text = "Créditos";
+            BtnCredit.UseVisualStyleBackColor = false;
+            BtnCredit.Click += BtnCredit_Click;
+            // 
             // frmMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(128, 128, 255);
             ClientSize = new Size(448, 338);
+            Controls.Add(BtnCredit);
             Controls.Add(picBtn);
             Controls.Add(btnMuteMenu);
             Controls.Add(btnExitGame);
@@ -124,5 +139,6 @@
         private Button btnExitGame;
         private Button btnMuteMenu;
         private Button picBtn;
+        private Button BtnCredit;
     }
 }

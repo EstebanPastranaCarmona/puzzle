@@ -129,12 +129,16 @@ namespace puzzle
             }
             // MessageBox.Show(String.Format("Coincidencias:{0}",coincidencias),"Puntaje");
         }
+
+        //Music player 
         public void SPlayer()
         {
             player = new SoundPlayer();
             player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music33.wav";
             player.Play();
         }
+
+        //Play music
         public void playMusic()
         {
             if (active)
@@ -143,6 +147,7 @@ namespace puzzle
             }
         }
 
+    //Shufle position 
         void Shuffle(Random random)
         {
             randomNumbers = numbers.OrderBy(x => random.Next()).ToList();
