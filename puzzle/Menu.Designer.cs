@@ -33,7 +33,7 @@
             btnExitGame = new Button();
             btnMuteMenu = new Button();
             picBtn = new Button();
-            BtnCredits = new Button();
+            btnCredits = new Button();
             SuspendLayout();
             // 
             // lblMenu
@@ -93,20 +93,20 @@
             picBtn.TabIndex = 4;
             picBtn.Text = "Pictures";
             picBtn.UseVisualStyleBackColor = false;
-            picBtn.Click += picBtn_Click;
+            picBtn.Click += btnPic_Click;
             // 
-            // BtnCredits
+            // btnCredits
             // 
-            BtnCredits.BackColor = Color.FromArgb(192, 192, 255);
-            BtnCredits.Font = new Font("Snap ITC", 11.2F);
-            BtnCredits.Location = new Point(392, 383);
-            BtnCredits.Margin = new Padding(3, 4, 3, 4);
-            BtnCredits.Name = "BtnCredits";
-            BtnCredits.Size = new Size(106, 52);
-            BtnCredits.TabIndex = 5;
-            BtnCredits.Text = "Credits";
-            BtnCredits.UseVisualStyleBackColor = false;
-            BtnCredits.Click += BtnCredit_Click;
+            btnCredits.BackColor = Color.FromArgb(192, 192, 255);
+            btnCredits.Font = new Font("Snap ITC", 11.2F);
+            btnCredits.Location = new Point(392, 383);
+            btnCredits.Margin = new Padding(3, 4, 3, 4);
+            btnCredits.Name = "btnCredits";
+            btnCredits.Size = new Size(106, 52);
+            btnCredits.TabIndex = 5;
+            btnCredits.Text = "Credits";
+            btnCredits.UseVisualStyleBackColor = false;
+            btnCredits.Click += btnCredit_Click;
             // 
             // frmMenu
             // 
@@ -114,7 +114,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(128, 128, 255);
             ClientSize = new Size(512, 451);
-            Controls.Add(BtnCredits);
+            Controls.Add(btnCredits);
             Controls.Add(picBtn);
             Controls.Add(btnMuteMenu);
             Controls.Add(btnExitGame);
@@ -137,6 +137,6 @@
         private Button btnExitGame;
         private Button btnMuteMenu;
         private Button picBtn;
-        private Button BtnCredits;
+        private Button btnCredits;
     }
 }

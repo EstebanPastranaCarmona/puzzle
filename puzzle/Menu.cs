@@ -47,7 +47,7 @@ namespace puzzle
             player.Stop();
             frmGame.SPlayer2();
         }
-        private void picBtn_Click(object sender, EventArgs e)
+        private void btnPic_Click(object sender, EventArgs e)
         {
             frmGamePicture gmp = new frmGamePicture(this);
             player.Stop();
@@ -73,7 +73,7 @@ namespace puzzle
                 active = true;
             }
         }
-        private void BtnCredit_Click(object sender, EventArgs e)
+        private void btnCredit_Click(object sender, EventArgs e)
         {
             frmCredit frmCredit = new frmCredit(this);
             player.Stop();
