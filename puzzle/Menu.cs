@@ -20,7 +20,6 @@ namespace puzzle
             InitializeComponent();
             SPlayer();
             btnMuteMenu.Image = Image.FromFile(unmute);
-
         }
 
         #region variables

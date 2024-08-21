@@ -38,7 +38,7 @@ namespace puzzle
         Random random = new Random();
         List<string> routeOrdered = new List<string>();
         List<string> movements = new List<string>();
-        List<int> numbers = new List<int>([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]);
+        List<int> numbers = new List<int>([0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]);
         List<int> randomNumbers = new List<int>();
         int coincidences = 0;
         string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
@@ -56,56 +56,28 @@ namespace puzzle
         #region methods
         public void chargeList()
         {
-            routeOrdered.Add(@"C:\Source\Puzzle\puzzle\assets\img\00.jpg");
-            routeOrdered.Add(@"C:\Source\Puzzle\puzzle\assets\img\10.jpg");
-            routeOrdered.Add(@"C:\Source\Puzzle\puzzle\assets\img\20.jpg");
-            routeOrdered.Add(@"C:\Source\Puzzle\puzzle\assets\img\30.jpg");
-
-            routeOrdered.Add(@"C:\Source\Puzzle\puzzle\assets\img\01.jpg");
-            routeOrdered.Add(@"C:\Source\Puzzle\puzzle\assets\img\11.jpg");
-            routeOrdered.Add(@"C:\Source\Puzzle\puzzle\assets\img\21.jpg");
-            routeOrdered.Add(@"C:\Source\Puzzle\puzzle\assets\img\31.jpg");
-
-            routeOrdered.Add(@"C:\Source\Puzzle\puzzle\assets\img\02.jpg");
-            routeOrdered.Add(@"C:\Source\Puzzle\puzzle\assets\img\12.jpg");
-            routeOrdered.Add(@"C:\Source\Puzzle\puzzle\assets\img\22.jpg");
-            routeOrdered.Add(@"C:\Source\Puzzle\puzzle\assets\img\32.jpg");
-
-            routeOrdered.Add(@"C:\Source\Puzzle\puzzle\assets\img\03.jpg");
-            routeOrdered.Add(@"C:\Source\Puzzle\puzzle\assets\img\13.jpg");
-            routeOrdered.Add(@"C:\Source\Puzzle\puzzle\assets\img\23.jpg");
-            routeOrdered.Add(@"C:\Source\Puzzle\puzzle\assets\img\33.jpg");
+            for(int i = 0; i <= 15; i++)
+            {
+                routeOrdered.Add($@"C:\Source\Puzzle\puzzle\assets\img\{i}.jpg");
+            }
+            
         }
-
         public void chargeGame()
         {
-            pic0.ImageLocation = movements[0];
-            pic1.ImageLocation = movements[1];
-            pic2.ImageLocation = movements[2];
-            pic3.ImageLocation = movements[3];
-
-            pic4.ImageLocation = movements[4];
-            pic5.ImageLocation = movements[5];
-            pic6.ImageLocation = movements[6];
-            pic7.ImageLocation = movements[7];
-
-            pic8.ImageLocation = movements[8];
-            pic9.ImageLocation = movements[9];
-            pic10.ImageLocation = movements[10];
-            pic11.ImageLocation = movements[11];
-
-            pic12.ImageLocation = movements[12];
-            pic13.ImageLocation = movements[13];
-            pic14.ImageLocation = movements[14];
-            pic15.ImageLocation = movements[15];
+            int index = 15;
+            foreach(PictureBox pic in gbxImages.Controls)
+            {
+                pic.ImageLocation = movements[index];
+                index--;
+            }
             endGame();
         }
         public void randomImages()
         {
             for (int i = 0; i < randomNumbers.Count; i++)
             {
-                var pos = randomNumbers[i];
-                movements.Add(routeOrdered[pos]);
+                    var pos = randomNumbers[i];
+                    movements.Add(routeOrdered[pos]);
             }
             movements.Add(routeOrdered[15]);
         }
@@ -125,11 +97,9 @@ namespace puzzle
                         win.ShowDialog();
                     }
                 }
-
             }
             // MessageBox.Show(String.Format("Coincidencias:{0}",coincidencias),"Puntaje");
         }
-
         //Music player 
         public void SPlayer()
         {
@@ -137,7 +107,6 @@ namespace puzzle
             player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music33.wav";
             player.Play();
         }
-
         //Play music
         public void playMusic()
         {
@@ -146,79 +115,10 @@ namespace puzzle
                 player.Play();
             }
         }
-
     //Shufle position 
         void Shuffle(Random random)
         {
             randomNumbers = numbers.OrderBy(x => random.Next()).ToList();
-        }
-        private void gamePicture_Load(object sender, EventArgs e)
-        {
-            playMusic();
-        }
-
-        //Mute and unmute music.
-        private void btnMuteGame_Click(object sender, EventArgs e)
-        {
-            if (active)
-            {
-                btnMuteGame.Image = Image.FromFile(mute);
-                player.Stop();
-                active = false;
-            }
-            else
-            {
-                btnMuteGame.Image = Image.FromFile(unmute);
-                player.Play();
-                active = true;
-            }
-        }
-        //Pause and play menu.
-        private void btnPauseGame_Click(object sender, EventArgs e)
-        {
-            if (active2)
-            {
-                btnPauseGame.Image = Image.FromFile(play1);
-                tmtTimer.Stop();
-                active2 = false;
-            }
-            else
-            {
-                btnPauseGame.Image = Image.FromFile(pause1);
-                tmtTimer.Start();
-                active2 = true;
-            }
-        }
-        //Timmer of player.
-        private void tmtTimer_Tick(object sender, EventArgs e)
-        {
-            seconds++;
-            tmtTimer.Interval = 1000;
-            if (seconds > 60)
-            {
-                seconds = 0;
-                minutes++;
-                if (minutes > 60)
-                {
-                    minutes = 0;
-                    hours++;
-                }
-            }
-            lblTimer.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
-        }
-
-        //Exit btn
-        private void exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        //Close form and call frmMenu.
-        private void gamePicture_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            player.Stop();
-            main1.Show();
-            main1.SPlayer();
         }
         #endregion methods
 
@@ -685,7 +585,71 @@ namespace puzzle
                 chargeGame();
             }
         }
-
+        //Mute and unmute music.
+        private void btnMuteGame_Click(object sender, EventArgs e)
+        {
+            if (active)
+            {
+                btnMuteGame.Image = Image.FromFile(mute);
+                player.Stop();
+                active = false;
+            }
+            else
+            {
+                btnMuteGame.Image = Image.FromFile(unmute);
+                player.Play();
+                active = true;
+            }
+        }
+        //Pause and play menu.
+        private void btnPauseGame_Click(object sender, EventArgs e)
+        {
+            if (active2)
+            {
+                btnPauseGame.Image = Image.FromFile(play1);
+                tmtTimer.Stop();
+                active2 = false;
+            }
+            else
+            {
+                btnPauseGame.Image = Image.FromFile(pause1);
+                tmtTimer.Start();
+                active2 = true;
+            }
+        }
+        //Timmer of player.
+        private void tmtTimer_Tick(object sender, EventArgs e)
+        {
+            seconds++;
+            tmtTimer.Interval = 1000;
+            if (seconds > 60)
+            {
+                seconds = 0;
+                minutes++;
+                if (minutes > 60)
+                {
+                    minutes = 0;
+                    hours++;
+                }
+            }
+            lblTimer.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
+        }
+        //Exit btn
+        private void exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        //Close form and call frmMenu.
+        private void gamePicture_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            player.Stop();
+            main1.Show();
+            main1.SPlayer();
+        }
+        private void gamePicture_Load(object sender, EventArgs e)
+        {
+            playMusic();
+        }
         #endregion events
 
     }

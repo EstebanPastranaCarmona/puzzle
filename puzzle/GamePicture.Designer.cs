@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            groupBox1 = new GroupBox();
+            gbxImages = new GroupBox();
             pic15 = new PictureBox();
             pic14 = new PictureBox();
             pic13 = new PictureBox();
@@ -52,7 +52,7 @@
             btnPauseGame = new Button();
             tmtTimer = new System.Windows.Forms.Timer(components);
             btnExit = new Button();
-            groupBox1.SuspendLayout();
+            gbxImages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic15).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic14).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic13).BeginInit();
@@ -72,31 +72,31 @@
             ((System.ComponentModel.ISupportInitialize)originalPictureBox).BeginInit();
             SuspendLayout();
             // 
-            // groupBox1
+            // gbxImages
             // 
-            groupBox1.Controls.Add(pic15);
-            groupBox1.Controls.Add(pic14);
-            groupBox1.Controls.Add(pic13);
-            groupBox1.Controls.Add(pic12);
-            groupBox1.Controls.Add(pic11);
-            groupBox1.Controls.Add(pic10);
-            groupBox1.Controls.Add(pic9);
-            groupBox1.Controls.Add(pic8);
-            groupBox1.Controls.Add(pic7);
-            groupBox1.Controls.Add(pic6);
-            groupBox1.Controls.Add(pic5);
-            groupBox1.Controls.Add(pic4);
-            groupBox1.Controls.Add(pic3);
-            groupBox1.Controls.Add(pic2);
-            groupBox1.Controls.Add(pic1);
-            groupBox1.Controls.Add(pic0);
-            groupBox1.Location = new Point(359, 16);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(539, 596);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
+            gbxImages.Controls.Add(pic15);
+            gbxImages.Controls.Add(pic14);
+            gbxImages.Controls.Add(pic13);
+            gbxImages.Controls.Add(pic12);
+            gbxImages.Controls.Add(pic11);
+            gbxImages.Controls.Add(pic10);
+            gbxImages.Controls.Add(pic9);
+            gbxImages.Controls.Add(pic8);
+            gbxImages.Controls.Add(pic7);
+            gbxImages.Controls.Add(pic6);
+            gbxImages.Controls.Add(pic5);
+            gbxImages.Controls.Add(pic4);
+            gbxImages.Controls.Add(pic3);
+            gbxImages.Controls.Add(pic2);
+            gbxImages.Controls.Add(pic1);
+            gbxImages.Controls.Add(pic0);
+            gbxImages.Location = new Point(359, 16);
+            gbxImages.Margin = new Padding(3, 4, 3, 4);
+            gbxImages.Name = "gbxImages";
+            gbxImages.Padding = new Padding(3, 4, 3, 4);
+            gbxImages.Size = new Size(539, 596);
+            gbxImages.TabIndex = 0;
+            gbxImages.TabStop = false;
             // 
             // pic15
             // 
@@ -324,14 +324,14 @@
             Controls.Add(lblTimer);
             Controls.Add(btnMuteGame);
             Controls.Add(originalPictureBox);
-            Controls.Add(groupBox1);
+            Controls.Add(gbxImages);
             Margin = new Padding(3, 4, 3, 4);
             Name = "frmGamePicture";
             StartPosition = FormStartPosition.CenterParent;
             Text = "GamePicture";
             FormClosing += gamePicture_FormClosing;
             Load += gamePicture_Load;
-            groupBox1.ResumeLayout(false);
+            gbxImages.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pic15).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic14).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic13).EndInit();
@@ -355,7 +355,7 @@
 
         #endregion
 
-        private GroupBox groupBox1;
+        private GroupBox gbxImages;
         private PictureBox originalPictureBox;
         private PictureBox pic15;
         private PictureBox pic14;
