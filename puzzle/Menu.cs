@@ -18,6 +18,9 @@ namespace puzzle
         string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
         bool active = true;
         private SoundPlayer player;
+   
+
+
         public frmMenu()
         {
             InitializeComponent();
@@ -32,13 +35,13 @@ namespace puzzle
             frmGame.Show();
             player.Stop();
             frmGame.SPlayer2();
-            
+
         }
         private void picBtn_Click(object sender, EventArgs e)
         {
-            
-            
-           
+
+
+
 
             gamePicture gmp = new gamePicture(this);
             player.Stop();
@@ -57,6 +60,7 @@ namespace puzzle
             player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music22.wav";
             player.PlayLooping();
         }
+       
         private void btnMuteMenu_Click(object sender, EventArgs e)
         {
             if (active)
@@ -78,6 +82,21 @@ namespace puzzle
 
         }
         public void viewMenuForm()
+        {
+
+        }
+
+        private void btnMenu_MouseHover(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void picBtn_MouseHover(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnExitGame_MouseHover(object sender, EventArgs e)
         {
             
         }

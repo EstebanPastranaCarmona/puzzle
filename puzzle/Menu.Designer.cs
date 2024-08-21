@@ -59,6 +59,7 @@
             btnMenu.Text = "New Game";
             btnMenu.UseVisualStyleBackColor = false;
             btnMenu.Click += btnMenu_Click;
+            btnMenu.MouseHover += btnMenu_MouseHover;
             // 
             // btnExitGame
             // 
@@ -72,6 +73,7 @@
             btnExitGame.Text = "Exit";
             btnExitGame.UseVisualStyleBackColor = false;
             btnExitGame.Click += btnExitGame_Click;
+            btnExitGame.MouseHover += btnExitGame_MouseHover;
             // 
             // btnMuteMenu
             // 
@@ -95,6 +97,7 @@
             picBtn.Text = "Pictures";
             picBtn.UseVisualStyleBackColor = false;
             picBtn.Click += picBtn_Click;
+            picBtn.MouseHover += picBtn_MouseHover;
             // 
             // frmMenu
             // 
