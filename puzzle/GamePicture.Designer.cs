@@ -329,8 +329,8 @@
             Name = "frmGamePicture";
             StartPosition = FormStartPosition.CenterParent;
             Text = "GamePicture";
-            FormClosing += gamePicture_FormClosing;
-            Load += gamePicture_Load;
+            FormClosing += frmGamePicture_FormClosing;
+            Load += frmGamePicture_Load;
             gbxImages.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pic15).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic14).EndInit();

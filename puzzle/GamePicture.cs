@@ -21,10 +21,10 @@ namespace puzzle
         {
             InitializeComponent();
             SPlayer();
-            chargeList();
+            ChargeList();
             Shuffle(random);
-            randomImages();
-            chargeGame();
+            RandomImages();
+            ChargeGame();
 
             main1 = main2;
 
@@ -54,7 +54,7 @@ namespace puzzle
         #endregion variables
 
         #region methods
-        public void chargeList()
+        public void ChargeList()
         {
             for(int i = 0; i <= 15; i++)
             {
@@ -62,7 +62,7 @@ namespace puzzle
             }
             
         }
-        public void chargeGame()
+        public void ChargeGame()
         {
             int index = 15;
             foreach(PictureBox pic in gbxImages.Controls)
@@ -70,9 +70,9 @@ namespace puzzle
                 pic.ImageLocation = movements[index];
                 index--;
             }
-            endGame();
+            EndGame();
         }
-        public void randomImages()
+        public void RandomImages()
         {
             for (int i = 0; i < randomNumbers.Count; i++)
             {
@@ -81,7 +81,7 @@ namespace puzzle
             }
             movements.Add(routeOrdered[15]);
         }
-        public void endGame()
+        public void EndGame()
         {
             coincidences = 0;
 
@@ -108,7 +108,7 @@ namespace puzzle
             player.Play();
         }
         //Play music
-        public void playMusic()
+        public void PlayMusic()
         {
             if (active)
             {
@@ -131,7 +131,7 @@ namespace puzzle
                 var temporary = movements[4];
                 movements[4] = movements[0];
                 movements[0] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Down
             if (movements[8] == routeOrdered[15])
@@ -139,7 +139,7 @@ namespace puzzle
                 var temporary = movements[8];
                 movements[8] = movements[4];
                 movements[4] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Lefth
             if (movements[1] == routeOrdered[15])
@@ -147,7 +147,7 @@ namespace puzzle
                 var temporary = movements[1];
                 movements[1] = movements[0];
                 movements[0] = temporary;
-                chargeGame();
+                ChargeGame();
             }
         }
         private void pic1_Click(object sender, EventArgs e)
@@ -158,7 +158,7 @@ namespace puzzle
                 var temporary = movements[5];
                 movements[5] = movements[1];
                 movements[1] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Right
             if (movements[0] == routeOrdered[15])
@@ -166,7 +166,7 @@ namespace puzzle
                 var temporary = movements[0];
                 movements[0] = movements[1];
                 movements[1] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Lefth
             if (movements[2] == routeOrdered[15])
@@ -174,7 +174,7 @@ namespace puzzle
                 var temporary = movements[2];
                 movements[2] = movements[1];
                 movements[1] = temporary;
-                chargeGame();
+                ChargeGame();
             }
         }
         private void pic2_Click(object sender, EventArgs e)
@@ -185,7 +185,7 @@ namespace puzzle
                 var temporary = movements[1];
                 movements[1] = movements[2];
                 movements[2] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Lefth
             if (movements[3] == routeOrdered[15])
@@ -193,7 +193,7 @@ namespace puzzle
                 var temporary = movements[3];
                 movements[3] = movements[2];
                 movements[2] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Down
             if (movements[6] == routeOrdered[15])
@@ -201,7 +201,7 @@ namespace puzzle
                 var temporary = movements[6];
                 movements[6] = movements[2];
                 movements[2] = temporary;
-                chargeGame();
+                ChargeGame();
             }
         }
         private void pic3_Click(object sender, EventArgs e)
@@ -212,7 +212,7 @@ namespace puzzle
                 var temporary = movements[2];
                 movements[2] = movements[3];
                 movements[3] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Up
             if (movements[7] == routeOrdered[15])
@@ -220,7 +220,7 @@ namespace puzzle
                 var temporary = movements[7];
                 movements[7] = movements[3];
                 movements[3] = temporary;
-                chargeGame();
+                ChargeGame();
             }
         }
         private void pic4_Click(object sender, EventArgs e)
@@ -231,7 +231,7 @@ namespace puzzle
                 var temporary = movements[0];
                 movements[0] = movements[4];
                 movements[4] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Down
             if (movements[8] == routeOrdered[15])
@@ -239,7 +239,7 @@ namespace puzzle
                 var temporary = movements[8];
                 movements[8] = movements[4];
                 movements[4] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Rigth
             if (movements[4] == routeOrdered[15])
@@ -247,7 +247,7 @@ namespace puzzle
                 var temporary = movements[4];
                 movements[4] = movements[5];
                 movements[5] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Left
             if (movements[5] == routeOrdered[15])
@@ -255,7 +255,7 @@ namespace puzzle
                 var temporary = movements[5];
                 movements[5] = movements[4];
                 movements[4] = temporary;
-                chargeGame();
+                ChargeGame();
             }
         }
         private void pic5_Click(object sender, EventArgs e)
@@ -266,7 +266,7 @@ namespace puzzle
                 var temporary = movements[1];
                 movements[1] = movements[5];
                 movements[5] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Down
             if (movements[9] == routeOrdered[15])
@@ -274,7 +274,7 @@ namespace puzzle
                 var temporary = movements[9];
                 movements[9] = movements[5];
                 movements[5] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Rgth
             if (movements[4] == routeOrdered[15])
@@ -282,7 +282,7 @@ namespace puzzle
                 var temporary = movements[4];
                 movements[4] = movements[5];
                 movements[5] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Left
             if (movements[6] == routeOrdered[15])
@@ -290,7 +290,7 @@ namespace puzzle
                 var temporary = movements[6];
                 movements[6] = movements[5];
                 movements[5] = temporary;
-                chargeGame();
+                ChargeGame();
             }
         }
         private void pic6_Click(object sender, EventArgs e)
@@ -301,7 +301,7 @@ namespace puzzle
                 var temporary = movements[5];
                 movements[5] = movements[6];
                 movements[6] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Left
             if (movements[7] == routeOrdered[15])
@@ -309,7 +309,7 @@ namespace puzzle
                 var temporary = movements[7];
                 movements[7] = movements[6];
                 movements[6] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Down
             if (movements[10] == routeOrdered[15])
@@ -317,7 +317,7 @@ namespace puzzle
                 var temporary = movements[10];
                 movements[10] = movements[6];
                 movements[6] = temporary;
-                chargeGame();
+                ChargeGame();
             }
 
             //Up
@@ -326,7 +326,7 @@ namespace puzzle
                 var temporary = movements[2];
                 movements[2] = movements[6];
                 movements[6] = temporary;
-                chargeGame();
+                ChargeGame();
             }
         }
         private void pic7_Click(object sender, EventArgs e)
@@ -337,7 +337,7 @@ namespace puzzle
                 var temporary = movements[6];
                 movements[6] = movements[7];
                 movements[7] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Up
             if (movements[11] == routeOrdered[15])
@@ -345,7 +345,7 @@ namespace puzzle
                 var temporary = movements[11];
                 movements[11] = movements[7];
                 movements[7] = temporary;
-                chargeGame();
+                ChargeGame();
             }
 
             //Down
@@ -354,7 +354,7 @@ namespace puzzle
                 var temporary = movements[3];
                 movements[3] = movements[7];
                 movements[7] = temporary;
-                chargeGame();
+                ChargeGame();
             }
         }
         private void pic8_Click(object sender, EventArgs e)
@@ -365,7 +365,7 @@ namespace puzzle
                 var temporary = movements[4];
                 movements[4] = movements[8];
                 movements[8] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Up
             if (movements[12] == routeOrdered[15])
@@ -373,7 +373,7 @@ namespace puzzle
                 var temporary = movements[12];
                 movements[12] = movements[8];
                 movements[8] = temporary;
-                chargeGame();
+                ChargeGame();
             }
 
             //Left
@@ -382,7 +382,7 @@ namespace puzzle
                 var temporary = movements[9];
                 movements[9] = movements[8];
                 movements[8] = temporary;
-                chargeGame();
+                ChargeGame();
             }
 
         }
@@ -394,7 +394,7 @@ namespace puzzle
                 var temporary = movements[13];
                 movements[13] = movements[9];
                 movements[9] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Up
             if (movements[5] == routeOrdered[15])
@@ -402,7 +402,7 @@ namespace puzzle
                 var temporary = movements[5];
                 movements[5] = movements[9];
                 movements[9] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Right
             if (movements[8] == routeOrdered[15])
@@ -410,7 +410,7 @@ namespace puzzle
                 var temporary = movements[8];
                 movements[8] = movements[9];
                 movements[9] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Left
             if (movements[10] == routeOrdered[15])
@@ -418,7 +418,7 @@ namespace puzzle
                 var temporary = movements[10];
                 movements[10] = movements[9];
                 movements[9] = temporary;
-                chargeGame();
+                ChargeGame();
             }
         }
         private void pic10_Click(object sender, EventArgs e)
@@ -429,7 +429,7 @@ namespace puzzle
                 var temporary = movements[14];
                 movements[14] = movements[10];
                 movements[10] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Rigth
             if (movements[9] == routeOrdered[15])
@@ -437,7 +437,7 @@ namespace puzzle
                 var temporary = movements[9];
                 movements[9] = movements[10];
                 movements[10] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Left
             if (movements[11] == routeOrdered[15])
@@ -445,7 +445,7 @@ namespace puzzle
                 var temporary = movements[11];
                 movements[11] = movements[10];
                 movements[10] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Up
             if (movements[6] == routeOrdered[15])
@@ -453,7 +453,7 @@ namespace puzzle
                 var temporary = movements[6];
                 movements[6] = movements[10];
                 movements[10] = temporary;
-                chargeGame();
+                ChargeGame();
             }
 
         }
@@ -465,7 +465,7 @@ namespace puzzle
                 var temporary = movements[11];
                 movements[11] = movements[15];
                 movements[15] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Down
             if (movements[7] == routeOrdered[15])
@@ -473,7 +473,7 @@ namespace puzzle
                 var temporary = movements[7];
                 movements[7] = movements[11];
                 movements[11] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Left
             if (movements[10] == routeOrdered[15])
@@ -481,7 +481,7 @@ namespace puzzle
                 var temporary = movements[11];
                 movements[11] = movements[10];
                 movements[10] = temporary;
-                chargeGame();
+                ChargeGame();
             }
         }
         private void pic12_Click(object sender, EventArgs e)
@@ -492,7 +492,7 @@ namespace puzzle
                 var temporary = movements[13];
                 movements[13] = movements[12];
                 movements[12] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //LEeft
             if (movements[10] == routeOrdered[15])
@@ -500,7 +500,7 @@ namespace puzzle
                 var temporary = movements[10];
                 movements[11] = movements[10];
                 movements[11] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Down
             if (movements[8] == routeOrdered[15])
@@ -508,7 +508,7 @@ namespace puzzle
                 var temporary = movements[8];
                 movements[8] = movements[12];
                 movements[12] = temporary;
-                chargeGame();
+                ChargeGame();
             }
         }
         private void pic13_Click(object sender, EventArgs e)
@@ -519,7 +519,7 @@ namespace puzzle
                 var temporary = movements[9];
                 movements[9] = movements[13];
                 movements[13] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Right
             if (movements[14] == routeOrdered[15])
@@ -527,7 +527,7 @@ namespace puzzle
                 var temporary = movements[14];
                 movements[14] = movements[13];
                 movements[13] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Left
             if (movements[12] == routeOrdered[15])
@@ -535,7 +535,7 @@ namespace puzzle
                 var temporary = movements[12];
                 movements[12] = movements[13];
                 movements[13] = temporary;
-                chargeGame();
+                ChargeGame();
             }
         }
         private void pic14_Click(object sender, EventArgs e)
@@ -546,7 +546,7 @@ namespace puzzle
                 var temporary = movements[14];
                 movements[14] = movements[13];
                 movements[13] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Left
             if (movements[15] == routeOrdered[15])
@@ -554,7 +554,7 @@ namespace puzzle
                 var temporary = movements[15];
                 movements[15] = movements[14];
                 movements[14] = temporary;
-                chargeGame();
+                ChargeGame();
             }
 
             //Up
@@ -563,7 +563,7 @@ namespace puzzle
                 var temporary = movements[10];
                 movements[10] = movements[14];
                 movements[14] = temporary;
-                chargeGame();
+                ChargeGame();
             }
         }
         private void pic15_Click(object sender, EventArgs e)
@@ -574,7 +574,7 @@ namespace puzzle
                 var temporary = movements[14];
                 movements[14] = movements[15];
                 movements[15] = temporary;
-                chargeGame();
+                ChargeGame();
             }
             //Up
             if (movements[11] == routeOrdered[15])
@@ -582,7 +582,7 @@ namespace puzzle
                 var temporary = movements[11];
                 movements[11] = movements[15];
                 movements[15] = temporary;
-                chargeGame();
+                ChargeGame();
             }
         }
         //Mute and unmute music.
@@ -640,15 +640,15 @@ namespace puzzle
             this.Close();
         }
         //Close form and call frmMenu.
-        private void gamePicture_FormClosing(object sender, FormClosingEventArgs e)
+        private void frmGamePicture_FormClosing(object sender, FormClosingEventArgs e)
         {
             player.Stop();
             main1.Show();
             main1.SPlayer();
         }
-        private void gamePicture_Load(object sender, EventArgs e)
+        private void frmGamePicture_Load(object sender, EventArgs e)
         {
-            playMusic();
+            PlayMusic();
         }
         #endregion events
 
