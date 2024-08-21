@@ -20,17 +20,19 @@ namespace puzzle
         public frmGamePicture(frmMenu main2)
         {
             InitializeComponent();
-            main1 = main2;
             SPlayer();
-            btnMuteGame.Image = Image.FromFile(unmute);
             chargeList();
-
             Shuffle(random);
             randomImages();
             chargeGame();
-            originalPictureBox.ImageLocation = @"C:\Source\Puzzle\puzzle\assets\img\original.jpg";
-            tmtTimer.Start();
+
+            main1 = main2;
+            
+            btnMuteGame.Image = Image.FromFile(unmute);
             btnPauseGame.Image = Image.FromFile(pause1);
+            originalPictureBox.ImageLocation = @"C:\Source\Puzzle\puzzle\assets\img\original.jpg";
+
+            tmtTimer.Start();
         }
         #region variables
         Random random = new Random();
@@ -118,7 +120,9 @@ namespace puzzle
                     coincidencias = coincidencias + 1;
                     if (coincidencias == 15)
                     {
-                        MessageBox.Show("Ha Ganado!!!!", "Felicitaciones");
+                        frmWin win = new frmWin($" {hours:D2}:{minutes:D2}:{seconds:D2}");
+                        win.callinForm = this;
+                        win.ShowDialog();   
                     }
                 }
 
