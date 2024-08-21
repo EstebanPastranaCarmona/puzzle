@@ -313,7 +313,7 @@
             exit.Name = "exit";
             exit.Size = new Size(105, 39);
             exit.TabIndex = 9;
-            exit.Text = "Salir.";
+            exit.Text = "Salir";
             exit.UseVisualStyleBackColor = true;
             exit.Click += exit_Click;
             // 

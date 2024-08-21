@@ -39,7 +39,7 @@
             // 
             lblMenu.AutoSize = true;
             lblMenu.Font = new Font("Snap ITC", 72F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            lblMenu.Location = new Point(12, -2);
+            lblMenu.Location = new Point(29, -4);
             lblMenu.Name = "lblMenu";
             lblMenu.Size = new Size(407, 123);
             lblMenu.TabIndex = 0;
