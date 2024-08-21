@@ -290,7 +290,6 @@
             lblTimer.Size = new Size(228, 45);
             lblTimer.TabIndex = 5;
             lblTimer.Text = "00:00:00";
-            lblTimer.Click += lblTimer_Click;
             // 
             // tmtTimer
             // 
@@ -339,7 +338,6 @@
             Text = "Puzzle";
             FormClosing += frmGame_FormClosing;
             FormClosed += frmGame_FormClosed;
-            Load += frmGame_Load;
             gbxMain.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

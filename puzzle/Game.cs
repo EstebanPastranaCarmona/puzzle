@@ -12,13 +12,13 @@ namespace puzzle
         {
             InitializeComponent();
             SPlayer2();
+            Shuffle(random);
+
             main1 = main2;
             btnMuteGame.Image = Image.FromFile(unmute);
             btnPauseGame.Image = Image.FromFile(pause);
 
             tmtTimer.Start();
-
-            Shuffle(random);
 
             for (int i = 0; i < 4; i++)
             {
@@ -101,6 +101,31 @@ namespace puzzle
             }
             lblTimer.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
         }
+        private void btnPauseGame_Click(object sender, EventArgs e)
+        {
+            if (active2)
+            {
+                btnPauseGame.Image = Image.FromFile(play);
+                tmtTimer.Stop();
+                active2 = false;
+            }
+            else
+            {
+                btnPauseGame.Image = Image.FromFile(pause);
+                tmtTimer.Start();
+                active2 = true;
+            }
+        }
+        private void frmGame_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            player2.Stop();
+            main1.Show();
+            main1.SPlayer();
+        }
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
         #endregion events
 
         #region methods
@@ -180,7 +205,9 @@ namespace puzzle
             //order that the numbers must have to win
             if (buttonNumber.SequenceEqual(numbers))
             {
-                MessageBox.Show("Congratulation you win", "Win", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                frmWin win = new frmWin($" {hours:D2}:{minutes:D2}:{seconds:D2}");
+                win.callinForm = this;
+                win.ShowDialog();
             }
         }
         void Shuffle(Random random)
@@ -201,44 +228,5 @@ namespace puzzle
             }
         }
         #endregion methods
-
-
-        private void btnPauseGame_Click(object sender, EventArgs e)
-        {
-            if (active2)
-            {
-                btnPauseGame.Image = Image.FromFile(play);
-                tmtTimer.Stop();
-                active2 = false;
-            }
-            else
-            {
-                btnPauseGame.Image = Image.FromFile(pause);
-                tmtTimer.Start();
-                active2 = true;
-            }
-        }
-
-        private void frmGame_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTimer_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmGame_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            player2.Stop();
-            main1.Show();
-            main1.SPlayer();
-        }
-
-        private void exit_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
     }
 }
