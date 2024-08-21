@@ -8,11 +8,15 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Xml.Linq;
 
 namespace puzzle
 {
     public partial class gamePicture : Form
     {
+
+        private frmMenu main1;
         Random random = new Random();
         List<string> rutaOrdenadas = new List<string>();
         List<string> movimientos = new List<string>();
@@ -29,11 +33,11 @@ namespace puzzle
         int minutes = 0;
         int seconds = 0;
         private bool active2 = true;
-        public gamePicture()
+        public gamePicture(frmMenu main2)
         {
             InitializeComponent();
+            main1 = main2;
             SPlayer();
-
             btnMuteGame.Image = Image.FromFile(unmute);
             chargeList();
             //movimientos = rutaOrdenadas;
@@ -716,7 +720,21 @@ namespace puzzle
 
         private void exit_Click(object sender, EventArgs e)
         {
-            Close();
+
+            this.Close();
+            
+
+
+
+        }
+
+        private void gamePicture_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            player.Stop();
+            main1.Show();
+            main1.SPlayer();
+            
+
         }
     }
 }

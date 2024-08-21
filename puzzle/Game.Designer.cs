@@ -50,6 +50,7 @@
             lblTimer = new Label();
             tmtTimer = new System.Windows.Forms.Timer(components);
             btnPauseGame = new Button();
+            exit = new Button();
             gbxMain.SuspendLayout();
             SuspendLayout();
             // 
@@ -289,6 +290,7 @@
             lblTimer.Size = new Size(228, 45);
             lblTimer.TabIndex = 5;
             lblTimer.Text = "00:00:00";
+            lblTimer.Click += lblTimer_Click;
             // 
             // tmtTimer
             // 
@@ -305,12 +307,24 @@
             btnPauseGame.UseVisualStyleBackColor = true;
             btnPauseGame.Click += btnPauseGame_Click;
             // 
+            // exit
+            // 
+            exit.Font = new Font("Snap ITC", 15.8000011F);
+            exit.Location = new Point(19, 372);
+            exit.Name = "exit";
+            exit.Size = new Size(105, 39);
+            exit.TabIndex = 9;
+            exit.Text = "Salir.";
+            exit.UseVisualStyleBackColor = true;
+            exit.Click += exit_Click;
+            // 
             // frmGame
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(128, 128, 255);
-            ClientSize = new Size(408, 376);
+            ClientSize = new Size(408, 419);
+            Controls.Add(exit);
             Controls.Add(btnPauseGame);
             Controls.Add(lblTimer);
             Controls.Add(btnMuteGame);
@@ -323,6 +337,7 @@
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Puzzle";
+            FormClosing += frmGame_FormClosing;
             FormClosed += frmGame_FormClosed;
             Load += frmGame_Load;
             gbxMain.ResumeLayout(false);
@@ -353,5 +368,6 @@
         private Label lblTimer;
         private System.Windows.Forms.Timer tmtTimer;
         private Button btnPauseGame;
+        private Button exit;
     }
 }

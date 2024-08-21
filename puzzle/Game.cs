@@ -8,11 +8,11 @@ namespace puzzle
 {
     public partial class frmGame : Form
     {
-        public frmGame()
+        public frmGame(frmMenu main2)
         {
             InitializeComponent();
             SPlayer2();
-
+            main1 = main2;
             btnMuteGame.Image = Image.FromFile(unmute);
             btnPauseGame.Image = Image.FromFile(pause);
 
@@ -40,6 +40,7 @@ namespace puzzle
             }
         }
         #region variables
+        private frmMenu main1;
         public SoundPlayer player2;
         string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
         string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
@@ -68,7 +69,7 @@ namespace puzzle
         }
         private void frmGame_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+          //  Application.Exit();
         }
         private void btnMuteGame_Click_1(object sender, EventArgs e)
         {
@@ -221,6 +222,23 @@ namespace puzzle
         private void frmGame_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblTimer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmGame_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            player2.Stop();
+            main1.Show();
+            main1.SPlayer();
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

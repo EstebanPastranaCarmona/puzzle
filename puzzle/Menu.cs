@@ -27,15 +27,20 @@ namespace puzzle
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            frmGame frmGame = new frmGame();
+            frmGame frmGame = new frmGame(this);
+            this.Hide();
             frmGame.Show();
             player.Stop();
             frmGame.SPlayer2();
-            this.Hide();
+            
         }
         private void picBtn_Click(object sender, EventArgs e)
         {
-            gamePicture gmp = new gamePicture();
+            
+            
+           
+
+            gamePicture gmp = new gamePicture(this);
             player.Stop();
             this.Hide();
             gmp.ShowDialog();
@@ -71,6 +76,10 @@ namespace puzzle
         private void lblMenu_Click(object sender, EventArgs e)
         {
 
+        }
+        public void viewMenuForm()
+        {
+            
         }
     }
 }

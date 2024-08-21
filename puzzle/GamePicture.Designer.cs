@@ -310,6 +310,7 @@
             Name = "gamePicture";
             StartPosition = FormStartPosition.CenterParent;
             Text = "GamePicture";
+            FormClosing += gamePicture_FormClosing;
             Load += gamePicture_Load;
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pic15).EndInit();
