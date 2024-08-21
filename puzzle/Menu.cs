@@ -43,7 +43,7 @@ namespace puzzle
 
 
 
-            gamePicture gmp = new gamePicture(this);
+            frmGamePicture gmp = new frmGamePicture(this);
             player.Stop();
             this.Hide();
             gmp.ShowDialog();

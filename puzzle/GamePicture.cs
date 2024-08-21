@@ -13,10 +13,26 @@ using System.Xml.Linq;
 
 namespace puzzle
 {
-    public partial class gamePicture : Form
+    public partial class frmGamePicture : Form
     {
-
         private frmMenu main1;
+
+        public frmGamePicture(frmMenu main2)
+        {
+            InitializeComponent();
+            main1 = main2;
+            SPlayer();
+            btnMuteGame.Image = Image.FromFile(unmute);
+            chargeList();
+            //movimientos = rutaOrdenadas;
+            Shuffle(random);
+            randomImages();
+            chargeGame();
+            originalPictureBox.ImageLocation = @"C:\Source\Puzzle\puzzle\assets\img\original.jpg";
+            tmtTimer.Start();
+            btnPauseGame.Image = Image.FromFile(pause1);
+        }
+        #region variables
         Random random = new Random();
         List<string> rutaOrdenadas = new List<string>();
         List<string> movimientos = new List<string>();
@@ -33,21 +49,9 @@ namespace puzzle
         int minutes = 0;
         int seconds = 0;
         private bool active2 = true;
-        public gamePicture(frmMenu main2)
-        {
-            InitializeComponent();
-            main1 = main2;
-            SPlayer();
-            btnMuteGame.Image = Image.FromFile(unmute);
-            chargeList();
-            //movimientos = rutaOrdenadas;
-            Shuffle(random);
-            randomImages();
-            chargeGame();
-            originalPictureBox.ImageLocation = @"C:\Source\Puzzle\puzzle\assets\img\original.jpg";
-            tmtTimer.Start();
-            btnPauseGame.Image = Image.FromFile(pause1);
-        }
+        #endregion variables
+
+        #region methods
         public void chargeList()
         {
             rutaOrdenadas.Add(@"C:\Source\Puzzle\puzzle\assets\img\00.jpg");
@@ -69,8 +73,6 @@ namespace puzzle
             rutaOrdenadas.Add(@"C:\Source\Puzzle\puzzle\assets\img\13.jpg");
             rutaOrdenadas.Add(@"C:\Source\Puzzle\puzzle\assets\img\23.jpg");
             rutaOrdenadas.Add(@"C:\Source\Puzzle\puzzle\assets\img\33.jpg");
-
-
         }
 
         public void chargeGame()
@@ -95,9 +97,50 @@ namespace puzzle
             pic14.ImageLocation = movimientos[14];
             pic15.ImageLocation = movimientos[15];
             endGame();
-
         }
+        public void randomImages()
+        {
+            for (int i = 0; i < randomNumbers.Count; i++)
+            {
+                var pos = randomNumbers[i];
+                movimientos.Add(rutaOrdenadas[pos]);
+            }
+            movimientos.Add(rutaOrdenadas[15]);
+        }
+        public void endGame()
+        {
+            coincidencias = 0;
 
+            for (int i = 0; i < rutaOrdenadas.Count; i++)
+            {
+                if (movimientos[i] == rutaOrdenadas[i])
+                {
+                    coincidencias = coincidencias + 1;
+                    if (coincidencias == 15)
+                    {
+                        MessageBox.Show("Ha Ganado!!!!", "Felicitaciones");
+                    }
+                }
+
+            }
+            // MessageBox.Show(String.Format("Coincidencias:{0}",coincidencias),"Puntaje");
+        }
+        public void SPlayer()
+        {
+            player = new SoundPlayer();
+            player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music33.wav";
+            player.Play();
+        }
+        public void playMusic()
+        {
+            if (active)
+            {
+                player.Play();
+            }
+        }
+        #endregion methods
+
+        #region events
         private void pic0_Click(object sender, EventArgs e)
         {
             //Arriba
@@ -108,7 +151,6 @@ namespace puzzle
                 movimientos[0] = temporal;
                 chargeGame();
             }
-
             //Abajo
             if (movimientos[8] == rutaOrdenadas[15])
             {
@@ -117,7 +159,6 @@ namespace puzzle
                 movimientos[4] = temporal;
                 chargeGame();
             }
-
             //Izquierda
             if (movimientos[1] == rutaOrdenadas[15])
             {
@@ -127,7 +168,6 @@ namespace puzzle
                 chargeGame();
             }
         }
-
         private void pic1_Click(object sender, EventArgs e)
         {
             //Abajo
@@ -138,7 +178,6 @@ namespace puzzle
                 movimientos[1] = temporal;
                 chargeGame();
             }
-
             //Derecha
             if (movimientos[0] == rutaOrdenadas[15])
             {
@@ -147,7 +186,6 @@ namespace puzzle
                 movimientos[1] = temporal;
                 chargeGame();
             }
-
             //Izquierda
             if (movimientos[2] == rutaOrdenadas[15])
             {
@@ -157,7 +195,6 @@ namespace puzzle
                 chargeGame();
             }
         }
-
         private void pic2_Click(object sender, EventArgs e)
         {
             //Derecha
@@ -168,7 +205,6 @@ namespace puzzle
                 movimientos[2] = temporal;
                 chargeGame();
             }
-
             //Izquierda
             if (movimientos[3] == rutaOrdenadas[15])
             {
@@ -185,9 +221,7 @@ namespace puzzle
                 movimientos[2] = temporal;
                 chargeGame();
             }
-
         }
-
         private void pic3_Click(object sender, EventArgs e)
         {
             //Derecha
@@ -198,7 +232,6 @@ namespace puzzle
                 movimientos[3] = temporal;
                 chargeGame();
             }
-
             //Arriba
             if (movimientos[7] == rutaOrdenadas[15])
             {
@@ -208,7 +241,6 @@ namespace puzzle
                 chargeGame();
             }
         }
-
         private void pic4_Click(object sender, EventArgs e)
         {
             //Abajo
@@ -227,7 +259,6 @@ namespace puzzle
                 movimientos[4] = temporal;
                 chargeGame();
             }
-
             //Derecha
             if (movimientos[4] == rutaOrdenadas[15])
             {
@@ -245,7 +276,6 @@ namespace puzzle
                 chargeGame();
             }
         }
-
         private void pic5_Click(object sender, EventArgs e)
         {
             //Arriba
@@ -264,7 +294,6 @@ namespace puzzle
                 movimientos[5] = temporal;
                 chargeGame();
             }
-
             //Derecha
             if (movimientos[4] == rutaOrdenadas[15])
             {
@@ -282,7 +311,6 @@ namespace puzzle
                 chargeGame();
             }
         }
-
         private void pic6_Click(object sender, EventArgs e)
         {
             //Derecha
@@ -319,7 +347,6 @@ namespace puzzle
                 chargeGame();
             }
         }
-
         private void pic7_Click(object sender, EventArgs e)
         {
             //Derecha
@@ -348,7 +375,6 @@ namespace puzzle
                 chargeGame();
             }
         }
-
         private void pic8_Click(object sender, EventArgs e)
         {
             //Abajo
@@ -378,7 +404,6 @@ namespace puzzle
             }
 
         }
-
         private void pic9_Click(object sender, EventArgs e)
         {
             //Abajo
@@ -414,7 +439,6 @@ namespace puzzle
                 chargeGame();
             }
         }
-
         private void pic10_Click(object sender, EventArgs e)
         {
             //Abajo
@@ -425,7 +449,6 @@ namespace puzzle
                 movimientos[10] = temporal;
                 chargeGame();
             }
-
             //Derecha
             if (movimientos[9] == rutaOrdenadas[15])
             {
@@ -434,9 +457,7 @@ namespace puzzle
                 movimientos[10] = temporal;
                 chargeGame();
             }
-
             //Izquierda
-
             if (movimientos[11] == rutaOrdenadas[15])
             {
                 var temporal = movimientos[11];
@@ -444,7 +465,6 @@ namespace puzzle
                 movimientos[10] = temporal;
                 chargeGame();
             }
-
             //Arriba
             if (movimientos[6] == rutaOrdenadas[15])
             {
@@ -455,7 +475,6 @@ namespace puzzle
             }
 
         }
-
         private void pic11_Click(object sender, EventArgs e)
         {
             //Ariba
@@ -482,9 +501,7 @@ namespace puzzle
                 movimientos[10] = temporal;
                 chargeGame();
             }
-
         }
-
         private void pic12_Click(object sender, EventArgs e)
         {
             //derecha
@@ -496,7 +513,6 @@ namespace puzzle
                 chargeGame();
             }
             //Izquierda
-
             if (movimientos[10] == rutaOrdenadas[15])
             {
                 var temporal = movimientos[10];
@@ -504,7 +520,6 @@ namespace puzzle
                 movimientos[11] = temporal;
                 chargeGame();
             }
-
             //Abajo
             if (movimientos[8] == rutaOrdenadas[15])
             {
@@ -514,7 +529,6 @@ namespace puzzle
                 chargeGame();
             }
         }
-
         private void pic13_Click(object sender, EventArgs e)
         {
             //Arriba
@@ -525,7 +539,6 @@ namespace puzzle
                 movimientos[13] = temporal;
                 chargeGame();
             }
-
             //Derecha
             if (movimientos[14] == rutaOrdenadas[15])
             {
@@ -543,7 +556,6 @@ namespace puzzle
                 chargeGame();
             }
         }
-
         private void pic14_Click(object sender, EventArgs e)
         {
             //derecha
@@ -571,9 +583,7 @@ namespace puzzle
                 movimientos[14] = temporal;
                 chargeGame();
             }
-
         }
-
         private void pic15_Click(object sender, EventArgs e)
         {
             //Izquieda
@@ -593,58 +603,14 @@ namespace puzzle
                 chargeGame();
             }
         }
-        public void randomImages()
-        {
-            for (int i = 0; i < randomNumbers.Count; i++)
-            {
-                var pos = randomNumbers[i];
-                movimientos.Add(rutaOrdenadas[pos]);
-
-            }
-            movimientos.Add(rutaOrdenadas[15]);
-
-
-        }
         void Shuffle(Random random)
         {
             randomNumbers = numbers.OrderBy(x => random.Next()).ToList();
         }
-
-        public void endGame()
-        {
-            coincidencias = 0;
-
-            for (int i = 0; i < rutaOrdenadas.Count; i++)
-            {
-                if (movimientos[i] == rutaOrdenadas[i])
-                {
-                    coincidencias = coincidencias + 1;
-                    if (coincidencias == 15)
-                    {
-                        MessageBox.Show("Ha Ganado!!!!", "Felicitaciones");
-                    }
-                }
-
-            }
-            // MessageBox.Show(String.Format("Coincidencias:{0}",coincidencias),"Puntaje");
-        }
-
-        private void originalPictureBox_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void gamePicture_Load(object sender, EventArgs e)
         {
             playMusic();
         }
-        public void SPlayer()
-        {
-            player = new SoundPlayer();
-            player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music33.wav";
-            player.Play();
-        }
-
         private void btnMuteGame_Click(object sender, EventArgs e)
         {
             if (active)
@@ -660,14 +626,6 @@ namespace puzzle
                 active = true;
             }
         }
-        public void playMusic()
-        {
-            if (active)
-            {
-                player.Play();
-            }
-        }
-
         private void btnPauseGame_Click(object sender, EventArgs e)
         {
             if (active2)
@@ -683,24 +641,6 @@ namespace puzzle
                 active2 = true;
             }
         }
-
-        private void lblTimer_Click(object sender, EventArgs e)
-        {
-            /*  seconds++;
-              if (seconds > 60)
-              {
-                  seconds = 0;
-                  minutes++;
-                  if (minutes > 60)
-                  {
-                      minutes = 0;
-                      hours++;
-                  }
-              }
-              lblTimer.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
-              */
-        }
-
         private void tmtTimer_Tick(object sender, EventArgs e)
         {
             seconds++;
@@ -717,15 +657,9 @@ namespace puzzle
             }
             lblTimer.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
         }
-
         private void exit_Click(object sender, EventArgs e)
         {
-
             this.Close();
-            
-
-
-
         }
 
         private void gamePicture_FormClosing(object sender, FormClosingEventArgs e)
@@ -733,8 +667,8 @@ namespace puzzle
             player.Stop();
             main1.Show();
             main1.SPlayer();
-            
-
         }
+        #endregion events
+
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace puzzle
 {
-    partial class gamePicture
+    partial class frmGamePicture
     {
         /// <summary>
         /// Required designer variable.
@@ -90,171 +90,190 @@
             groupBox1.Controls.Add(pic2);
             groupBox1.Controls.Add(pic1);
             groupBox1.Controls.Add(pic0);
-            groupBox1.Location = new Point(314, 12);
+            groupBox1.Location = new Point(359, 16);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(472, 447);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(539, 596);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
             // 
             // pic15
             // 
-            pic15.Location = new Point(349, 339);
+            pic15.Location = new Point(399, 452);
+            pic15.Margin = new Padding(3, 4, 3, 4);
             pic15.Name = "pic15";
-            pic15.Size = new Size(102, 102);
+            pic15.Size = new Size(117, 136);
             pic15.TabIndex = 15;
             pic15.TabStop = false;
             pic15.Click += pic15_Click;
             // 
             // pic14
             // 
-            pic14.Location = new Point(241, 339);
+            pic14.Location = new Point(275, 452);
+            pic14.Margin = new Padding(3, 4, 3, 4);
             pic14.Name = "pic14";
-            pic14.Size = new Size(102, 102);
+            pic14.Size = new Size(117, 136);
             pic14.TabIndex = 14;
             pic14.TabStop = false;
             pic14.Click += pic14_Click;
             // 
             // pic13
             // 
-            pic13.Location = new Point(133, 339);
+            pic13.Location = new Point(152, 452);
+            pic13.Margin = new Padding(3, 4, 3, 4);
             pic13.Name = "pic13";
-            pic13.Size = new Size(102, 102);
+            pic13.Size = new Size(117, 136);
             pic13.TabIndex = 13;
             pic13.TabStop = false;
             pic13.Click += pic13_Click;
             // 
             // pic12
             // 
-            pic12.Location = new Point(25, 339);
+            pic12.Location = new Point(29, 452);
+            pic12.Margin = new Padding(3, 4, 3, 4);
             pic12.Name = "pic12";
-            pic12.Size = new Size(102, 102);
+            pic12.Size = new Size(117, 136);
             pic12.TabIndex = 12;
             pic12.TabStop = false;
             pic12.Click += pic12_Click;
             // 
             // pic11
             // 
-            pic11.Location = new Point(349, 231);
+            pic11.Location = new Point(399, 308);
+            pic11.Margin = new Padding(3, 4, 3, 4);
             pic11.Name = "pic11";
-            pic11.Size = new Size(102, 102);
+            pic11.Size = new Size(117, 136);
             pic11.TabIndex = 11;
             pic11.TabStop = false;
             pic11.Click += pic11_Click;
             // 
             // pic10
             // 
-            pic10.Location = new Point(241, 231);
+            pic10.Location = new Point(275, 308);
+            pic10.Margin = new Padding(3, 4, 3, 4);
             pic10.Name = "pic10";
-            pic10.Size = new Size(102, 102);
+            pic10.Size = new Size(117, 136);
             pic10.TabIndex = 10;
             pic10.TabStop = false;
             pic10.Click += pic10_Click;
             // 
             // pic9
             // 
-            pic9.Location = new Point(133, 231);
+            pic9.Location = new Point(152, 308);
+            pic9.Margin = new Padding(3, 4, 3, 4);
             pic9.Name = "pic9";
-            pic9.Size = new Size(102, 102);
+            pic9.Size = new Size(117, 136);
             pic9.TabIndex = 9;
             pic9.TabStop = false;
             pic9.Click += pic9_Click;
             // 
             // pic8
             // 
-            pic8.Location = new Point(25, 231);
+            pic8.Location = new Point(29, 308);
+            pic8.Margin = new Padding(3, 4, 3, 4);
             pic8.Name = "pic8";
-            pic8.Size = new Size(102, 102);
+            pic8.Size = new Size(117, 136);
             pic8.TabIndex = 8;
             pic8.TabStop = false;
             pic8.Click += pic8_Click;
             // 
             // pic7
             // 
-            pic7.Location = new Point(349, 123);
+            pic7.Location = new Point(399, 164);
+            pic7.Margin = new Padding(3, 4, 3, 4);
             pic7.Name = "pic7";
-            pic7.Size = new Size(102, 102);
+            pic7.Size = new Size(117, 136);
             pic7.TabIndex = 7;
             pic7.TabStop = false;
             pic7.Click += pic7_Click;
             // 
             // pic6
             // 
-            pic6.Location = new Point(241, 123);
+            pic6.Location = new Point(275, 164);
+            pic6.Margin = new Padding(3, 4, 3, 4);
             pic6.Name = "pic6";
-            pic6.Size = new Size(102, 102);
+            pic6.Size = new Size(117, 136);
             pic6.TabIndex = 6;
             pic6.TabStop = false;
             pic6.Click += pic6_Click;
             // 
             // pic5
             // 
-            pic5.Location = new Point(133, 123);
+            pic5.Location = new Point(152, 164);
+            pic5.Margin = new Padding(3, 4, 3, 4);
             pic5.Name = "pic5";
-            pic5.Size = new Size(102, 102);
+            pic5.Size = new Size(117, 136);
             pic5.TabIndex = 5;
             pic5.TabStop = false;
             pic5.Click += pic5_Click;
             // 
             // pic4
             // 
-            pic4.Location = new Point(25, 123);
+            pic4.Location = new Point(29, 164);
+            pic4.Margin = new Padding(3, 4, 3, 4);
             pic4.Name = "pic4";
-            pic4.Size = new Size(102, 102);
+            pic4.Size = new Size(117, 136);
             pic4.TabIndex = 4;
             pic4.TabStop = false;
             pic4.Click += pic4_Click;
             // 
             // pic3
             // 
-            pic3.Location = new Point(349, 15);
+            pic3.Location = new Point(399, 20);
+            pic3.Margin = new Padding(3, 4, 3, 4);
             pic3.Name = "pic3";
-            pic3.Size = new Size(102, 102);
+            pic3.Size = new Size(117, 136);
             pic3.TabIndex = 3;
             pic3.TabStop = false;
             pic3.Click += pic3_Click;
             // 
             // pic2
             // 
-            pic2.Location = new Point(241, 15);
+            pic2.Location = new Point(275, 20);
+            pic2.Margin = new Padding(3, 4, 3, 4);
             pic2.Name = "pic2";
-            pic2.Size = new Size(102, 102);
+            pic2.Size = new Size(117, 136);
             pic2.TabIndex = 2;
             pic2.TabStop = false;
             pic2.Click += pic2_Click;
             // 
             // pic1
             // 
-            pic1.Location = new Point(133, 15);
+            pic1.Location = new Point(152, 20);
+            pic1.Margin = new Padding(3, 4, 3, 4);
             pic1.Name = "pic1";
-            pic1.Size = new Size(102, 102);
+            pic1.Size = new Size(117, 136);
             pic1.TabIndex = 1;
             pic1.TabStop = false;
             pic1.Click += pic1_Click;
             // 
             // pic0
             // 
-            pic0.Location = new Point(25, 15);
+            pic0.Location = new Point(29, 20);
+            pic0.Margin = new Padding(3, 4, 3, 4);
             pic0.Name = "pic0";
-            pic0.Size = new Size(102, 102);
+            pic0.Size = new Size(117, 136);
             pic0.TabIndex = 0;
             pic0.TabStop = false;
             pic0.Click += pic0_Click;
             // 
             // originalPictureBox
             // 
-            originalPictureBox.Location = new Point(31, 135);
+            originalPictureBox.Location = new Point(35, 180);
+            originalPictureBox.Margin = new Padding(3, 4, 3, 4);
             originalPictureBox.Name = "originalPictureBox";
-            originalPictureBox.Size = new Size(265, 265);
+            originalPictureBox.Size = new Size(303, 353);
             originalPictureBox.TabIndex = 1;
             originalPictureBox.TabStop = false;
             originalPictureBox.Click += originalPictureBox_Click;
             // 
             // btnMuteGame
             // 
-            btnMuteGame.Location = new Point(71, 414);
+            btnMuteGame.Location = new Point(35, 556);
+            btnMuteGame.Margin = new Padding(3, 4, 3, 4);
             btnMuteGame.Name = "btnMuteGame";
-            btnMuteGame.Size = new Size(50, 39);
+            btnMuteGame.Size = new Size(57, 52);
             btnMuteGame.TabIndex = 4;
             btnMuteGame.UseVisualStyleBackColor = true;
             btnMuteGame.Click += btnMuteGame_Click;
@@ -263,19 +282,18 @@
             // 
             lblTimer.AutoSize = true;
             lblTimer.Font = new Font("Snap ITC", 25.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTimer.Location = new Point(52, 27);
+            lblTimer.Location = new Point(59, 36);
             lblTimer.Name = "lblTimer";
-            lblTimer.Size = new Size(228, 45);
+            lblTimer.Size = new Size(283, 57);
             lblTimer.TabIndex = 6;
             lblTimer.Text = "00:00:00";
             lblTimer.Click += lblTimer_Click;
             // 
             // btnPauseGame
             // 
-            btnPauseGame.Location = new Point(31, 74);
-            btnPauseGame.Margin = new Padding(3, 2, 3, 2);
+            btnPauseGame.Location = new Point(35, 99);
             btnPauseGame.Name = "btnPauseGame";
-            btnPauseGame.Size = new Size(62, 56);
+            btnPauseGame.Size = new Size(71, 75);
             btnPauseGame.TabIndex = 7;
             btnPauseGame.UseVisualStyleBackColor = true;
             btnPauseGame.Click += btnPauseGame_Click;
@@ -287,27 +305,30 @@
             // exit
             // 
             exit.Font = new Font("Snap ITC", 15.8000011F);
-            exit.Location = new Point(147, 414);
+            exit.Location = new Point(119, 556);
+            exit.Margin = new Padding(3, 4, 3, 4);
             exit.Name = "exit";
-            exit.Size = new Size(105, 39);
+            exit.Size = new Size(120, 52);
             exit.TabIndex = 8;
             exit.Text = "Salir.";
             exit.UseVisualStyleBackColor = true;
             exit.Click += exit_Click;
             // 
-            // gamePicture
+            // frmGamePicture
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(128, 128, 255);
-            ClientSize = new Size(798, 471);
+            ClientSize = new Size(912, 628);
+            ControlBox = false;
             Controls.Add(exit);
             Controls.Add(btnPauseGame);
             Controls.Add(lblTimer);
             Controls.Add(btnMuteGame);
             Controls.Add(originalPictureBox);
             Controls.Add(groupBox1);
-            Name = "gamePicture";
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "frmGamePicture";
             StartPosition = FormStartPosition.CenterParent;
             Text = "GamePicture";
             FormClosing += gamePicture_FormClosing;
