@@ -60,73 +60,6 @@ namespace puzzle
         int seconds = 0;
         #endregion variables
 
-        #region events
-        private void btnButtons_Click(object sender, EventArgs e)
-        {
-            ChangeButtons(sender);
-            CheckIfWin();
-        }
-        private void frmGame_FormClosed(object sender, FormClosedEventArgs e)
-        {
-          //  Application.Exit();
-        }
-        private void btnMuteGame_Click_1(object sender, EventArgs e)
-        {
-            if (active)
-            {
-                btnMuteGame.Image = Image.FromFile(mute);
-                player2.Stop();
-                active = false;
-            }
-            else
-            {
-                btnMuteGame.Image = Image.FromFile(unmute);
-                player2.Play();
-                active = true;
-            }
-        }
-        private void tmCronometer_Tick(object sender, EventArgs e)
-        {
-            seconds++;
-            if (seconds > 60)
-            {
-                seconds = 0;
-                minutes++;
-                if (minutes > 60)
-                {
-                    minutes = 0;
-                    hours++;
-                }
-            }
-            lblTimer.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
-        }
-        private void btnPauseGame_Click(object sender, EventArgs e)
-        {
-            if (active2)
-            {
-                btnPauseGame.Image = Image.FromFile(play);
-                tmtTimer.Stop();
-                active2 = false;
-            }
-            else
-            {
-                btnPauseGame.Image = Image.FromFile(pause);
-                tmtTimer.Start();
-                active2 = true;
-            }
-        }
-        private void frmGame_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            player2.Stop();
-            main1.Show();
-            main1.SPlayer();
-        }
-        private void exit_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-        #endregion events
-
         #region methods
         void ChangeButtons(object sender)
         {
@@ -223,7 +156,7 @@ namespace puzzle
             player2.SoundLocation = @"C:\Source\Puzzle\puzzle\assets\audio\music11.wav";
             player2.PlayLooping();
         }
-        public void playMusic()
+        public void PlayMusic()
         {
             if (active)
             {
@@ -231,5 +164,68 @@ namespace puzzle
             }
         }
         #endregion methods
+
+        #region events
+        private void btnButtons_Click(object sender, EventArgs e)
+        {
+            ChangeButtons(sender);
+            CheckIfWin();
+        }
+        private void btnMuteGame_Click_1(object sender, EventArgs e)
+        {
+            if (active)
+            {
+                btnMuteGame.Image = Image.FromFile(mute);
+                player2.Stop();
+                active = false;
+            }
+            else
+            {
+                btnMuteGame.Image = Image.FromFile(unmute);
+                player2.Play();
+                active = true;
+            }
+        }
+        private void tmCronometer_Tick(object sender, EventArgs e)
+        {
+            seconds++;
+            if (seconds > 60)
+            {
+                seconds = 0;
+                minutes++;
+                if (minutes > 60)
+                {
+                    minutes = 0;
+                    hours++;
+                }
+            }
+            lblTimer.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
+        }
+        private void btnPauseGame_Click(object sender, EventArgs e)
+        {
+            if (active2)
+            {
+                btnPauseGame.Image = Image.FromFile(play);
+                tmtTimer.Stop();
+                active2 = false;
+            }
+            else
+            {
+                btnPauseGame.Image = Image.FromFile(pause);
+                tmtTimer.Start();
+                active2 = true;
+            }
+        }
+        private void frmGame_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            player2.Stop();
+            main1.Show();
+            main1.SPlayer();
+        }
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+        #endregion events
     }
 }
