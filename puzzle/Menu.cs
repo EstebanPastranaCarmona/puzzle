@@ -81,10 +81,5 @@ namespace puzzle
             frmCredit.ShowDialog();
         }
         #endregion events
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

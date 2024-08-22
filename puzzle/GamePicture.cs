@@ -240,20 +240,12 @@ namespace puzzle
         }
         private void pic0_Click(object sender, EventArgs e)
         {
-            //Up
+            //Down
             if (movements[4] == routeOrdered[15])
             {
                 var temporary = movements[4];
                 movements[4] = movements[0];
                 movements[0] = temporary;
-                loadGame();
-            }
-            //Down
-            if (movements[8] == routeOrdered[15])
-            {
-                var temporary = movements[8];
-                movements[8] = movements[4];
-                movements[4] = temporary;
                 loadGame();
             }
             //Lefth

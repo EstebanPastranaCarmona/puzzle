@@ -35,12 +35,12 @@
             btnMuteMenu = new Button();
             picBtn = new Button();
             btnCredits = new Button();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
+            pbx1 = new PictureBox();
+            pbx2 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbx1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbx2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
@@ -50,9 +50,9 @@
             lblMenu.AutoSize = true;
             lblMenu.BackColor = Color.Transparent;
             lblMenu.Font = new Font("Snap ITC", 60F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            lblMenu.Location = new Point(56, 19);
+            lblMenu.Location = new Point(64, 25);
             lblMenu.Name = "lblMenu";
-            lblMenu.Size = new Size(342, 103);
+            lblMenu.Size = new Size(426, 129);
             lblMenu.TabIndex = 0;
             lblMenu.Text = "Puzzle";
             // 
@@ -61,10 +61,9 @@
             btnMenu.BackColor = Color.FromArgb(192, 192, 255);
             btnMenu.Font = new Font("Snap ITC", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnMenu.ForeColor = Color.Black;
-            btnMenu.Location = new Point(102, 145);
-            btnMenu.Margin = new Padding(3, 2, 3, 2);
+            btnMenu.Location = new Point(117, 193);
             btnMenu.Name = "btnMenu";
-            btnMenu.Size = new Size(228, 37);
+            btnMenu.Size = new Size(261, 49);
             btnMenu.TabIndex = 1;
             btnMenu.Text = "New Game";
             btnMenu.UseVisualStyleBackColor = false;
@@ -74,10 +73,9 @@
             // 
             btnExitGame.BackColor = Color.FromArgb(192, 192, 255);
             btnExitGame.Font = new Font("Snap ITC", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnExitGame.Location = new Point(102, 227);
-            btnExitGame.Margin = new Padding(3, 2, 3, 2);
+            btnExitGame.Location = new Point(117, 303);
             btnExitGame.Name = "btnExitGame";
-            btnExitGame.Size = new Size(228, 37);
+            btnExitGame.Size = new Size(261, 49);
             btnExitGame.TabIndex = 2;
             btnExitGame.Text = "Exit";
             btnExitGame.UseVisualStyleBackColor = false;
@@ -86,9 +84,10 @@
             // btnMuteMenu
             // 
             btnMuteMenu.BackColor = Color.FromArgb(192, 192, 255);
-            btnMuteMenu.Location = new Point(29, 288);
+            btnMuteMenu.Location = new Point(33, 384);
+            btnMuteMenu.Margin = new Padding(3, 4, 3, 4);
             btnMuteMenu.Name = "btnMuteMenu";
-            btnMuteMenu.Size = new Size(50, 39);
+            btnMuteMenu.Size = new Size(57, 52);
             btnMuteMenu.TabIndex = 3;
             btnMuteMenu.UseVisualStyleBackColor = false;
             btnMuteMenu.Click += btnMuteMenu_Click;
@@ -98,10 +97,9 @@
             picBtn.BackColor = Color.FromArgb(192, 192, 255);
             picBtn.Font = new Font("Snap ITC", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             picBtn.ForeColor = Color.Black;
-            picBtn.Location = new Point(102, 186);
-            picBtn.Margin = new Padding(3, 2, 3, 2);
+            picBtn.Location = new Point(117, 248);
             picBtn.Name = "picBtn";
-            picBtn.Size = new Size(228, 37);
+            picBtn.Size = new Size(261, 49);
             picBtn.TabIndex = 4;
             picBtn.Text = "Pictures";
             picBtn.UseVisualStyleBackColor = false;
@@ -111,75 +109,79 @@
             // 
             btnCredits.BackColor = Color.FromArgb(192, 192, 255);
             btnCredits.Font = new Font("Snap ITC", 11.2F);
-            btnCredits.Location = new Point(343, 287);
+            btnCredits.Location = new Point(392, 383);
+            btnCredits.Margin = new Padding(3, 4, 3, 4);
             btnCredits.Name = "btnCredits";
-            btnCredits.Size = new Size(93, 39);
+            btnCredits.Size = new Size(106, 52);
             btnCredits.TabIndex = 5;
             btnCredits.Text = "Credits";
             btnCredits.UseVisualStyleBackColor = false;
             btnCredits.Click += btnCredit_Click;
             // 
-            // pictureBox1
+            // pbx1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(298, -2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(300, 300);
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
+            pbx1.Image = (Image)resources.GetObject("pbx1.Image");
+            pbx1.Location = new Point(341, -3);
+            pbx1.Margin = new Padding(3, 4, 3, 4);
+            pbx1.Name = "pbx1";
+            pbx1.Size = new Size(343, 400);
+            pbx1.TabIndex = 6;
+            pbx1.TabStop = false;
             // 
-            // pictureBox2
+            // pbx2
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(-8, -2);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(300, 300);
-            pictureBox2.TabIndex = 7;
-            pictureBox2.TabStop = false;
+            pbx2.Image = (Image)resources.GetObject("pbx2.Image");
+            pbx2.Location = new Point(-9, -3);
+            pbx2.Margin = new Padding(3, 4, 3, 4);
+            pbx2.Name = "pbx2";
+            pbx2.Size = new Size(343, 400);
+            pbx2.TabIndex = 7;
+            pbx2.TabStop = false;
             // 
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(-8, 186);
+            pictureBox3.Location = new Point(-9, 248);
+            pictureBox3.Margin = new Padding(3, 4, 3, 4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(300, 300);
+            pictureBox3.Size = new Size(343, 400);
             pictureBox3.TabIndex = 8;
             pictureBox3.TabStop = false;
             // 
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(150, 260);
+            pictureBox4.Location = new Point(171, 347);
+            pictureBox4.Margin = new Padding(3, 4, 3, 4);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(300, 300);
+            pictureBox4.Size = new Size(343, 400);
             pictureBox4.TabIndex = 9;
             pictureBox4.TabStop = false;
             // 
             // frmMenu
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(128, 128, 255);
-            ClientSize = new Size(448, 338);
+            ClientSize = new Size(512, 451);
             Controls.Add(btnCredits);
             Controls.Add(picBtn);
             Controls.Add(btnMuteMenu);
             Controls.Add(btnExitGame);
             Controls.Add(btnMenu);
             Controls.Add(lblMenu);
-            Controls.Add(pictureBox1);
-            Controls.Add(pictureBox2);
+            Controls.Add(pbx1);
+            Controls.Add(pbx2);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox4);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbx1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbx2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
@@ -194,8 +196,8 @@
         private Button btnMuteMenu;
         private Button picBtn;
         private Button btnCredits;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
+        private PictureBox pbx1;
+        private PictureBox pbx2;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
     }
