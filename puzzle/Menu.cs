@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Media;
 using System.Runtime.CompilerServices;
+using System.Security.Policy;
 using System.Threading.Channels;
 using System.Windows.Forms;
 
@@ -32,6 +33,7 @@ namespace puzzle
         #endregion variables
 
         #region methods
+        //Method that is responsible for reproducing music
         public void SPlayer()
         {
             try
@@ -48,6 +50,7 @@ namespace puzzle
         #endregion methods
 
         #region events
+        //Event that instantiates and calls the form of the game with numbers
         private void btnGame_Click(object sender, EventArgs e)
         {
             try
@@ -64,6 +67,7 @@ namespace puzzle
             }
 
         }
+        //Event that instantiates and calls the form of the game with images
         private void btnPic_Click(object sender, EventArgs e)
         {
             try
@@ -108,6 +112,7 @@ namespace puzzle
                 MessageBox.Show("There was an error loading the music, please restart the application", "Alert");
             }
         }
+        //Event that instantiates and calls the form that has the credits
         private void btnCredit_Click(object sender, EventArgs e)
         {
             try
