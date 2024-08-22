@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCredit));
             btnMuteCredit = new Button();
             btnExit = new Button();
             lblLTittle = new LinkLabel();
@@ -42,10 +43,9 @@
             // 
             // btnMuteCredit
             // 
-            btnMuteCredit.Location = new Point(70, 443);
-            btnMuteCredit.Margin = new Padding(3, 4, 3, 4);
+            btnMuteCredit.Location = new Point(61, 332);
             btnMuteCredit.Name = "btnMuteCredit";
-            btnMuteCredit.Size = new Size(57, 52);
+            btnMuteCredit.Size = new Size(50, 39);
             btnMuteCredit.TabIndex = 4;
             btnMuteCredit.UseVisualStyleBackColor = true;
             btnMuteCredit.Click += btnMuteCredit_Click;
@@ -53,10 +53,9 @@
             // btnExit
             // 
             btnExit.Font = new Font("Snap ITC", 15.8000011F);
-            btnExit.Location = new Point(287, 443);
-            btnExit.Margin = new Padding(3, 4, 3, 4);
+            btnExit.Location = new Point(251, 332);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(120, 52);
+            btnExit.Size = new Size(105, 39);
             btnExit.TabIndex = 10;
             btnExit.Text = "Exit";
             btnExit.UseVisualStyleBackColor = true;
@@ -68,9 +67,9 @@
             lblLTittle.Font = new Font("Snap ITC", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblLTittle.LinkBehavior = LinkBehavior.NeverUnderline;
             lblLTittle.LinkColor = Color.White;
-            lblLTittle.Location = new Point(127, 145);
+            lblLTittle.Location = new Point(111, 109);
             lblLTittle.Name = "lblLTittle";
-            lblLTittle.Size = new Size(172, 27);
+            lblLTittle.Size = new Size(140, 22);
             lblLTittle.TabIndex = 14;
             lblLTittle.TabStop = true;
             lblLTittle.Text = "Puzzle in C#";
@@ -84,9 +83,9 @@
             lklblEsteban.Font = new Font("Snap ITC", 12F, FontStyle.Bold);
             lklblEsteban.LinkBehavior = LinkBehavior.NeverUnderline;
             lklblEsteban.LinkColor = Color.FromArgb(255, 192, 255);
-            lklblEsteban.Location = new Point(42, 183);
+            lklblEsteban.Location = new Point(37, 137);
             lklblEsteban.Name = "lklblEsteban";
-            lklblEsteban.Size = new Size(345, 27);
+            lklblEsteban.Size = new Size(278, 22);
             lklblEsteban.TabIndex = 15;
             lklblEsteban.TabStop = true;
             lklblEsteban.Text = "Esteban Pastrana Carmona";
@@ -100,9 +99,9 @@
             lklblJose.Font = new Font("Snap ITC", 12F, FontStyle.Bold);
             lklblJose.LinkBehavior = LinkBehavior.NeverUnderline;
             lklblJose.LinkColor = Color.FromArgb(255, 192, 255);
-            lklblJose.Location = new Point(15, 219);
+            lklblJose.Location = new Point(13, 164);
             lklblJose.Name = "lklblJose";
-            lklblJose.Size = new Size(392, 27);
+            lklblJose.Size = new Size(322, 22);
             lklblJose.TabIndex = 16;
             lklblJose.TabStop = true;
             lklblJose.Text = "José Luis Guadamuz Rodríguez";
@@ -114,9 +113,9 @@
             lblCourse.AutoSize = true;
             lblCourse.Font = new Font("Snap ITC", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblCourse.ForeColor = SystemColors.ButtonHighlight;
-            lblCourse.Location = new Point(82, 264);
+            lblCourse.Location = new Point(72, 198);
             lblCourse.Name = "lblCourse";
-            lblCourse.Size = new Size(276, 27);
+            lblCourse.Size = new Size(217, 22);
             lblCourse.TabIndex = 17;
             lblCourse.Text = "BIS04-Programación ll";
             // 
@@ -125,9 +124,9 @@
             lblProfesor.AutoSize = true;
             lblProfesor.Font = new Font("Snap ITC", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblProfesor.ForeColor = SystemColors.ButtonHighlight;
-            lblProfesor.Location = new Point(104, 301);
+            lblProfesor.Location = new Point(91, 226);
             lblProfesor.Name = "lblProfesor";
-            lblProfesor.Size = new Size(234, 23);
+            lblProfesor.Size = new Size(191, 18);
             lblProfesor.TabIndex = 18;
             lblProfesor.Text = "Gerardo Garita Juarez";
             // 
@@ -136,28 +135,26 @@
             lbdDate.AutoSize = true;
             lbdDate.Font = new Font("Snap ITC", 9F);
             lbdDate.ForeColor = SystemColors.ButtonHighlight;
-            lbdDate.Location = new Point(127, 342);
+            lbdDate.Location = new Point(111, 256);
             lbdDate.Name = "lbdDate";
-            lbdDate.Size = new Size(194, 19);
+            lbdDate.Size = new Size(157, 17);
             lbdDate.TabIndex = 19;
             lbdDate.Text = "21 de agosto de 2024";
             // 
             // picLogo
             // 
-            picLogo.Location = new Point(15, 13);
-            picLogo.Margin = new Padding(3, 4, 3, 4);
+            picLogo.Location = new Point(13, 10);
             picLogo.Name = "picLogo";
-            picLogo.Size = new Size(413, 128);
+            picLogo.Size = new Size(361, 96);
             picLogo.TabIndex = 20;
             picLogo.TabStop = false;
             // 
             // frmCredit
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(128, 128, 255);
-            ClientSize = new Size(440, 521);
-            ControlBox = false;
+            ClientSize = new Size(385, 391);
             Controls.Add(picLogo);
             Controls.Add(lbdDate);
             Controls.Add(lblProfesor);
@@ -167,7 +164,9 @@
             Controls.Add(lblLTittle);
             Controls.Add(btnExit);
             Controls.Add(btnMuteCredit);
-            Margin = new Padding(3, 4, 3, 4);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmCredit";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Credits";
