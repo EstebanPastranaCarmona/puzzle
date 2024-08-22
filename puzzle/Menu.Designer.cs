@@ -35,15 +35,24 @@
             btnMuteMenu = new Button();
             picBtn = new Button();
             btnCredits = new Button();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // lblMenu
             // 
             lblMenu.AutoSize = true;
-            lblMenu.Font = new Font("Snap ITC", 72F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            lblMenu.Location = new Point(2, -1);
+            lblMenu.BackColor = Color.Transparent;
+            lblMenu.Font = new Font("Snap ITC", 60F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            lblMenu.Location = new Point(56, 19);
             lblMenu.Name = "lblMenu";
-            lblMenu.Size = new Size(407, 123);
+            lblMenu.Size = new Size(342, 103);
             lblMenu.TabIndex = 0;
             lblMenu.Text = "Puzzle";
             // 
@@ -110,6 +119,42 @@
             btnCredits.UseVisualStyleBackColor = false;
             btnCredits.Click += btnCredit_Click;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(298, -2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(300, 300);
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(-8, -2);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(300, 300);
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(-8, 186);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(300, 300);
+            pictureBox3.TabIndex = 8;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(150, 260);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(300, 300);
+            pictureBox4.TabIndex = 9;
+            pictureBox4.TabStop = false;
+            // 
             // frmMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -122,6 +167,10 @@
             Controls.Add(btnExitGame);
             Controls.Add(btnMenu);
             Controls.Add(lblMenu);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox4);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
@@ -129,6 +178,10 @@
             Name = "frmMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -141,5 +194,9 @@
         private Button btnMuteMenu;
         private Button picBtn;
         private Button btnCredits;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
     }
 }
