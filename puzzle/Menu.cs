@@ -45,7 +45,7 @@ namespace puzzle
             this.Hide();
             frmGame.Show();
             player.Stop();
-            frmGame.SPlayer2();
+            frmGame.SPlayer();
         }
         private void btnPic_Click(object sender, EventArgs e)
         {
@@ -69,7 +69,7 @@ namespace puzzle
             else
             {
                 btnMuteMenu.Image = Image.FromFile(unmute);
-                player.Play();
+                player.PlayLooping();
                 active = true;
             }
         }

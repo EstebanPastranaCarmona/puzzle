@@ -11,7 +11,7 @@ namespace puzzle
         public frmGame(frmMenu main2)
         {
             InitializeComponent();
-            SPlayer2();
+            SPlayer();
             Shuffle(random);
 
             main1 = main2;
@@ -41,7 +41,7 @@ namespace puzzle
         }
         #region variables
         private frmMenu main1;
-        public SoundPlayer player2;
+        public SoundPlayer player;
         string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
         string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
         string play = @"C:\Source\Puzzle\puzzle\assets\icon\play.png";
@@ -150,17 +150,17 @@ namespace puzzle
         {
             randomNumbers = numbers.OrderBy(x => random.Next(1, 16)).ToList();
         }
-        public void SPlayer2()
+        public void SPlayer()
         {
-            player2 = new SoundPlayer();
-            player2.SoundLocation = @"C:\Source\Puzzle\puzzle\assets\audio\music11.wav";
-            player2.PlayLooping();
+            player = new SoundPlayer();
+            player.SoundLocation = @"C:\Source\Puzzle\puzzle\assets\audio\music11.wav";
+            player.PlayLooping();
         }
         public void PlayMusic()
         {
             if (active)
             {
-                player2.Play();
+                player.PlayLooping();
             }
         }
         #endregion methods
@@ -176,13 +176,13 @@ namespace puzzle
             if (active)
             {
                 btnMuteGame.Image = Image.FromFile(mute);
-                player2.Stop();
+                player.Stop();
                 active = false;
             }
             else
             {
                 btnMuteGame.Image = Image.FromFile(unmute);
-                player2.Play();
+                player.PlayLooping();
                 active = true;
             }
         }
@@ -207,18 +207,21 @@ namespace puzzle
             {
                 btnPauseGame.Image = Image.FromFile(play);
                 tmtTimer.Stop();
+                player.Stop();
                 active2 = false;
+                
             }
             else
             {
                 btnPauseGame.Image = Image.FromFile(pause);
                 tmtTimer.Start();
+                player.Play();
                 active2 = true;
             }
         }
         private void frmGame_FormClosing(object sender, FormClosingEventArgs e)
         {
-            player2.Stop();
+            player.Stop();
             main1.Show();
             main1.SPlayer();
         }

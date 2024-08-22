@@ -28,13 +28,13 @@ namespace puzzle
         {
             player = new SoundPlayer();
             player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music2.wav";
-            player.Play();
+            player.PlayLooping();
         }
         public void playMusic()
         {
             if (active)
             {
-                player.Play();
+                player.PlayLooping();
             }
         }
         public void loadImage()
@@ -58,7 +58,7 @@ namespace puzzle
             {
                 btnMuteCredit.Image = Image.FromFile(unmute);
                 active = true;
-                player.Play();
+                player.PlayLooping();
             }
         }
         private void frmCredit_FormClosing(object sender, FormClosingEventArgs e)
