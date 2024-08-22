@@ -1,8 +1,5 @@
-using System.Linq.Expressions;
+using System.Diagnostics;
 using System.Media;
-using System.Numerics;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.X509Certificates;
 
 namespace puzzle
 {
@@ -10,51 +7,61 @@ namespace puzzle
     {
         public frmGame(frmMenu main2)
         {
-            InitializeComponent();
-            SPlayer();
-            Shuffle(random);
-
-            main1 = main2;
-            btnMuteGame.Image = Image.FromFile(unmute);
-            btnPauseGame.Image = Image.FromFile(pause);
-
-            tmtTimer.Start();
-
-            for (int i = 0; i < 4; i++)
+            try
             {
-                for (int j = 0; j < 4; j++)
+                InitializeComponent();
+                SPlayer();
+                Shuffle(random);
+
+                main1 = main2;
+                btnMuteGame.Image = Image.FromFile(unmute);
+                btnPauseGame.Image = Image.FromFile(pause);
+
+                tmtTimer.Start();
+
+                for (int i = 0; i < 4; i++)
                 {
-                    if (index < gbxMain.Controls.Count)
+                    for (int j = 0; j < 4; j++)
                     {
-                        buttons[i, j] = (Button)gbxMain.Controls[index];
-                        index++;
+                        if (buttonIndex < gbxMain.Controls.Count)
+                        {
+                            buttons[i, j] = (Button)gbxMain.Controls[buttonIndex];
+                            buttonIndex++;
+                        }
                     }
                 }
-            }
-            for (int i = 0; i < gbxMain.Controls.Count; i++)
-            {
-                if (gbxMain.Controls[i].Name != "btn16")
+                for (int i = 0; i < gbxMain.Controls.Count; i++)
                 {
-                    gbxMain.Controls[i].Text = $"{randomNumbers[i]}";
+                    if (gbxMain.Controls[i].Name != "btn16")
+                    {
+                        gbxMain.Controls[i].Text = $"{randomNumbers[i]}";
+                    }
                 }
+            } 
+            catch 
+            {
+                MessageBox.Show("There was an error loading the game, the application will restart", "Error");
+                string exePath = Application.ExecutablePath;
+                Process.Start(exePath);
+                Application.Exit();
             }
         }
         #region variables
-        private frmMenu main1;
-        public SoundPlayer player;
         string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
         string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
         string play = @"C:\Source\Puzzle\puzzle\assets\icon\play.png";
         string pause = @"C:\Source\Puzzle\puzzle\assets\icon\pause.png";
-        private bool active = true;
-        private bool active2 = true;
+        private bool isMusicActive = true;
+        private bool isGameActive = true;
 
+        private frmMenu main1;
+        public SoundPlayer player;
         Random random = new Random();
         Button[,] buttons = new Button[4, 4];
         List<int> numbers = new List<int>([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
         List<int> randomNumbers = new List<int>();
 
-        int index = 0;
+        int buttonIndex = 0;
         int hours = 0;
         int minutes = 0;
         int seconds = 0;
@@ -66,7 +73,7 @@ namespace puzzle
             //The object that invokes the event
             Button clickedButton = (Button)sender;
             // if pause button if no active
-            if (active2)
+            if (isGameActive)
             //The matrix is traversed
             {
                 for (int i = 0; i < 4; i++)
@@ -158,7 +165,7 @@ namespace puzzle
         }
         public void PlayMusic()
         {
-            if (active)
+            if (isMusicActive)
             {
                 player.PlayLooping();
             }
@@ -173,27 +180,27 @@ namespace puzzle
         }
         private void btnMuteGame_Click_1(object sender, EventArgs e)
         {
-            if (active)
+            if (isMusicActive)
             {
                 btnMuteGame.Image = Image.FromFile(mute);
                 player.Stop();
-                active = false;
+                isMusicActive = false;
             }
             else
             {
                 btnMuteGame.Image = Image.FromFile(unmute);
                 player.PlayLooping();
-                active = true;
+                isMusicActive = true;
             }
         }
         private void tmCronometer_Tick(object sender, EventArgs e)
         {
             seconds++;
-            if (seconds > 60)
+            if (seconds >= 60)
             {
                 seconds = 0;
                 minutes++;
-                if (minutes > 60)
+                if (minutes >= 60)
                 {
                     minutes = 0;
                     hours++;
@@ -203,12 +210,12 @@ namespace puzzle
         }
         private void btnPauseGame_Click(object sender, EventArgs e)
         {
-            if (active2)
+            if (isGameActive)
             {
                 btnPauseGame.Image = Image.FromFile(play);
                 tmtTimer.Stop();
                 player.Stop();
-                active2 = false;
+                isGameActive = false;
                 
             }
             else
@@ -216,7 +223,7 @@ namespace puzzle
                 btnPauseGame.Image = Image.FromFile(pause);
                 tmtTimer.Start();
                 player.Play();
-                active2 = true;
+                isGameActive = true;
             }
         }
         private void frmGame_FormClosing(object sender, FormClosingEventArgs e)

@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+﻿using System.Diagnostics;
 using System.Media;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
+using System.Threading.Channels;
 using System.Windows.Forms;
-
 
 namespace puzzle
 {
@@ -17,42 +10,73 @@ namespace puzzle
     {
         public frmMenu()
         {
-            InitializeComponent();
-            SPlayer();
-            btnMuteMenu.Image = Image.FromFile(unmute);
+            try
+            {
+                InitializeComponent();
+                SPlayer();
+                btnMuteMenu.Image = Image.FromFile(unmute);
+            }
+            catch 
+            {
+                MessageBox.Show("There was an error loading the game, the application will restart", "Error");
+                string exePath = Application.ExecutablePath;
+                Process.Start(exePath);
+                Application.Exit();
+            }
         }
-
         #region variables
         string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
         string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
-        bool active = true;
+        bool isMusicActive = true;
         private SoundPlayer player;
         #endregion variables
 
         #region methods
         public void SPlayer()
         {
-            player = new SoundPlayer();
-            player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music22.wav";
-            player.PlayLooping();
+            try
+            {
+                player = new SoundPlayer();
+                player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music22.wav";
+                player.PlayLooping();
+            }
+            catch
+            {
+                MessageBox.Show("There was an error loading the music, please restart the application", "Alert");
+            } 
         }
         #endregion methods
 
         #region events
-        private void btnMenu_Click(object sender, EventArgs e)
+        private void btnGame_Click(object sender, EventArgs e)
         {
-            frmGame frmGame = new frmGame(this);
-            this.Hide();
-            frmGame.Show();
-            player.Stop();
-            frmGame.SPlayer();
+            try
+            {
+                frmGame frmGame = new frmGame(this);
+                this.Hide();
+                frmGame.Show();
+                player.Stop();
+                frmGame.SPlayer();
+            }
+            catch
+            {
+                MessageBox.Show("It was not possible to load the game, please restart the application", "Alert");
+            }
+
         }
         private void btnPic_Click(object sender, EventArgs e)
         {
-            frmGamePicture gmp = new frmGamePicture(this);
-            player.Stop();
-            this.Hide();
-            gmp.ShowDialog();
+            try
+            {
+                frmGamePicture gmp = new frmGamePicture(this);
+                player.Stop();
+                this.Hide();
+                gmp.ShowDialog();
+            }
+            catch
+            {
+                MessageBox.Show("It was not possible to load the game, please restart the application", "Alert");
+            }
         }
         private void btnExitGame_Click(object sender, EventArgs e)
         {
@@ -60,25 +84,43 @@ namespace puzzle
         }
         private void btnMuteMenu_Click(object sender, EventArgs e)
         {
-            if (active)
+            try
             {
-                btnMuteMenu.Image = Image.FromFile(mute);
-                player.Stop();
-                active = false;
+                if (isMusicActive)
+                {
+                    //The image of the button that controls the music is changed to represent that the music is unmuted.
+                    btnMuteMenu.Image = Image.FromFile(mute);
+                    //The music is stop
+                    player.Stop();
+                    isMusicActive = false;
+                }
+                else
+                {
+                    //The image of the button that controls the music is changed to represent that the music is unmuted.
+                    btnMuteMenu.Image = Image.FromFile(unmute);
+                    //The music start again
+                    player.PlayLooping();
+                    isMusicActive = true;
+                }
             }
-            else
+            catch 
             {
-                btnMuteMenu.Image = Image.FromFile(unmute);
-                player.PlayLooping();
-                active = true;
+                MessageBox.Show("There was an error loading the music, please restart the application", "Alert");
             }
         }
         private void btnCredit_Click(object sender, EventArgs e)
         {
-            frmCredit frmCredit = new frmCredit(this);
-            player.Stop();
-            this.Hide();
-            frmCredit.ShowDialog();
+            try
+            {
+                frmCredit frmCredit = new frmCredit(this);
+                player.Stop();
+                this.Hide();
+                frmCredit.ShowDialog();
+            }
+            catch
+            {
+                MessageBox.Show("It was not possible to load the credits, please restart the application", "Alert");
+            }
         }
         #endregion events
     }

@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+﻿using System.Data;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Xml.Linq;
 
 namespace puzzle
 {
@@ -48,24 +38,23 @@ namespace puzzle
         List<string> movements = new List<string>();
         List<int> numbers = new List<int>([0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]);
         List<int> randomNumbers = new List<int>();
-        int coincidences = 0;
+        private SoundPlayer player;
+
         string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
         string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
         public string play1 = @"C:\Source\Puzzle\puzzle\assets\icon\play.png";
         public string pause1 = @"C:\Source\Puzzle\puzzle\assets\icon\pause.png";
         bool active = true;
-        private SoundPlayer player;
+        private bool active2 = true;
+        
         int hours = 0;
         int minutes = 0;
         int seconds = 0;
-        private bool active2 = true;
+        int coincidences = 0;
         #endregion variables
 
         #region methods
-        /*
-         loadlist is responsible for loading the location of images in the list.
-         */
-
+        //loadlist is responsible for loading the location of images in the list.
         public void loadList()
         {
             try 
@@ -79,12 +68,8 @@ namespace puzzle
             {
                 MessageBox.Show("Error to load list");
             }
-           
-            
         }
-        /*
-        loadGame is responsible for load images in the pictureBox.
-        */
+        //loadGame is responsible for load images in the pictureBox.
         public void loadGame()
         {
             try
@@ -102,9 +87,7 @@ namespace puzzle
                 MessageBox.Show("Error to load game");
             }
         }
-        /*
-       loadGame copy items of the routeOrdered list to movement list in random posistions.
-       */
+        //loadGame copy items of the routeOrdered list to movement list in random posistions.
         public void randomImages()
         {
             try
@@ -118,9 +101,7 @@ namespace puzzle
             }
             catch { MessageBox.Show("Error to random images"); }
         }
-
-        /*
-         endGame */
+        //endGame 
         public void endGame()
         {
             try
@@ -140,7 +121,6 @@ namespace puzzle
                         }
                     }
                 }
-                // MessageBox.Show(String.Format("Coincidencias:{0}",coincidencias),"Puntaje");
             }
             catch
             {
@@ -162,7 +142,7 @@ namespace puzzle
                 player.Play();
             }
         }
-    //Shufle position 
+        //Shufle position 
         void Shuffle(Random random)
         {
             randomNumbers = numbers.OrderBy(x => random.Next()).ToList();
@@ -170,7 +150,6 @@ namespace puzzle
         #endregion methods
 
         #region events
-
         //Mute and unmute music.
         private void btnMuteGame_Click(object sender, EventArgs e)
         {
@@ -692,8 +671,6 @@ namespace puzzle
                 loadGame();
             }
         }
-        
         #endregion events
-
     }
 }

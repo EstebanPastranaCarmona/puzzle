@@ -21,6 +21,7 @@ namespace puzzle
         private void btnMenu_Click(object sender, EventArgs e)
         {
             callinForm.Close();
+            callinForm.Dispose();
             this.Close();
         }
     }

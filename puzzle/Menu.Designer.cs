@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             lblMenu = new Label();
-            btnMenu = new Button();
+            btnGame = new Button();
             btnExitGame = new Button();
             btnMuteMenu = new Button();
-            picBtn = new Button();
+            btnPic = new Button();
             btnCredits = new Button();
-            pbx1 = new PictureBox();
-            pbx2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pbx1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pbx2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            pic1 = new PictureBox();
+            pic2 = new PictureBox();
+            pic3 = new PictureBox();
+            pic4 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pic1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic4).BeginInit();
             SuspendLayout();
             // 
             // lblMenu
@@ -56,18 +56,18 @@
             lblMenu.TabIndex = 0;
             lblMenu.Text = "Puzzle";
             // 
-            // btnMenu
+            // btnGame
             // 
-            btnMenu.BackColor = Color.FromArgb(192, 192, 255);
-            btnMenu.Font = new Font("Snap ITC", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnMenu.ForeColor = Color.Black;
-            btnMenu.Location = new Point(117, 193);
-            btnMenu.Name = "btnMenu";
-            btnMenu.Size = new Size(261, 49);
-            btnMenu.TabIndex = 1;
-            btnMenu.Text = "New Game";
-            btnMenu.UseVisualStyleBackColor = false;
-            btnMenu.Click += btnMenu_Click;
+            btnGame.BackColor = Color.FromArgb(192, 192, 255);
+            btnGame.Font = new Font("Snap ITC", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnGame.ForeColor = Color.Black;
+            btnGame.Location = new Point(117, 193);
+            btnGame.Name = "btnGame";
+            btnGame.Size = new Size(261, 49);
+            btnGame.TabIndex = 1;
+            btnGame.Text = "New Game";
+            btnGame.UseVisualStyleBackColor = false;
+            btnGame.Click += btnGame_Click;
             // 
             // btnExitGame
             // 
@@ -92,18 +92,18 @@
             btnMuteMenu.UseVisualStyleBackColor = false;
             btnMuteMenu.Click += btnMuteMenu_Click;
             // 
-            // picBtn
+            // btnPic
             // 
-            picBtn.BackColor = Color.FromArgb(192, 192, 255);
-            picBtn.Font = new Font("Snap ITC", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            picBtn.ForeColor = Color.Black;
-            picBtn.Location = new Point(117, 248);
-            picBtn.Name = "picBtn";
-            picBtn.Size = new Size(261, 49);
-            picBtn.TabIndex = 4;
-            picBtn.Text = "Pictures";
-            picBtn.UseVisualStyleBackColor = false;
-            picBtn.Click += btnPic_Click;
+            btnPic.BackColor = Color.FromArgb(192, 192, 255);
+            btnPic.Font = new Font("Snap ITC", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPic.ForeColor = Color.Black;
+            btnPic.Location = new Point(117, 248);
+            btnPic.Name = "btnPic";
+            btnPic.Size = new Size(261, 49);
+            btnPic.TabIndex = 4;
+            btnPic.Text = "Pictures";
+            btnPic.UseVisualStyleBackColor = false;
+            btnPic.Click += btnPic_Click;
             // 
             // btnCredits
             // 
@@ -118,45 +118,45 @@
             btnCredits.UseVisualStyleBackColor = false;
             btnCredits.Click += btnCredit_Click;
             // 
-            // pbx1
+            // pic1
             // 
-            pbx1.Image = (Image)resources.GetObject("pbx1.Image");
-            pbx1.Location = new Point(341, -3);
-            pbx1.Margin = new Padding(3, 4, 3, 4);
-            pbx1.Name = "pbx1";
-            pbx1.Size = new Size(343, 400);
-            pbx1.TabIndex = 6;
-            pbx1.TabStop = false;
+            pic1.Image = (Image)resources.GetObject("pic1.Image");
+            pic1.Location = new Point(341, -3);
+            pic1.Margin = new Padding(3, 4, 3, 4);
+            pic1.Name = "pic1";
+            pic1.Size = new Size(343, 400);
+            pic1.TabIndex = 6;
+            pic1.TabStop = false;
             // 
-            // pbx2
+            // pic2
             // 
-            pbx2.Image = (Image)resources.GetObject("pbx2.Image");
-            pbx2.Location = new Point(-9, -3);
-            pbx2.Margin = new Padding(3, 4, 3, 4);
-            pbx2.Name = "pbx2";
-            pbx2.Size = new Size(343, 400);
-            pbx2.TabIndex = 7;
-            pbx2.TabStop = false;
+            pic2.Image = (Image)resources.GetObject("pic2.Image");
+            pic2.Location = new Point(-9, -3);
+            pic2.Margin = new Padding(3, 4, 3, 4);
+            pic2.Name = "pic2";
+            pic2.Size = new Size(343, 400);
+            pic2.TabIndex = 7;
+            pic2.TabStop = false;
             // 
-            // pictureBox3
+            // pic3
             // 
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(-9, 248);
-            pictureBox3.Margin = new Padding(3, 4, 3, 4);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(343, 400);
-            pictureBox3.TabIndex = 8;
-            pictureBox3.TabStop = false;
+            pic3.Image = (Image)resources.GetObject("pic3.Image");
+            pic3.Location = new Point(-9, 248);
+            pic3.Margin = new Padding(3, 4, 3, 4);
+            pic3.Name = "pic3";
+            pic3.Size = new Size(343, 400);
+            pic3.TabIndex = 8;
+            pic3.TabStop = false;
             // 
-            // pictureBox4
+            // pic4
             // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(171, 347);
-            pictureBox4.Margin = new Padding(3, 4, 3, 4);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(343, 400);
-            pictureBox4.TabIndex = 9;
-            pictureBox4.TabStop = false;
+            pic4.Image = (Image)resources.GetObject("pic4.Image");
+            pic4.Location = new Point(171, 347);
+            pic4.Margin = new Padding(3, 4, 3, 4);
+            pic4.Name = "pic4";
+            pic4.Size = new Size(343, 400);
+            pic4.TabIndex = 9;
+            pic4.TabStop = false;
             // 
             // frmMenu
             // 
@@ -165,25 +165,25 @@
             BackColor = Color.FromArgb(128, 128, 255);
             ClientSize = new Size(512, 451);
             Controls.Add(btnCredits);
-            Controls.Add(picBtn);
+            Controls.Add(btnPic);
             Controls.Add(btnMuteMenu);
             Controls.Add(btnExitGame);
-            Controls.Add(btnMenu);
+            Controls.Add(btnGame);
             Controls.Add(lblMenu);
-            Controls.Add(pbx1);
-            Controls.Add(pbx2);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox4);
+            Controls.Add(pic1);
+            Controls.Add(pic2);
+            Controls.Add(pic3);
+            Controls.Add(pic4);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu";
-            ((System.ComponentModel.ISupportInitialize)pbx1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pbx2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -191,14 +191,14 @@
         #endregion
 
         private Label lblMenu;
-        private Button btnMenu;
+        private Button btnGame;
         private Button btnExitGame;
         private Button btnMuteMenu;
-        private Button picBtn;
+        private Button btnPic;
         private Button btnCredits;
-        private PictureBox pbx1;
-        private PictureBox pbx2;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
+        private PictureBox pic1;
+        private PictureBox pic2;
+        private PictureBox pic3;
+        private PictureBox pic4;
     }
 }
