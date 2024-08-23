@@ -153,6 +153,7 @@ namespace puzzle
             {
                 frmWin win = new frmWin($" {hours:D2}:{minutes:D2}:{seconds:D2}");
                 win.callinForm = this;
+                tmtTimer.Stop();
                 win.ShowDialog();
             }
         }
@@ -203,10 +204,10 @@ namespace puzzle
                 MessageBox.Show("Error to pause Game");
             }
         }
-            #endregion methods
+        #endregion methods
 
-            #region events
-            private void btnButtons_Click(object sender, EventArgs e)
+        #region events
+        private void btnButtons_Click(object sender, EventArgs e)
         {
             ChangeButtons(sender);
             CheckIfWin();

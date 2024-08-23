@@ -116,6 +116,7 @@ namespace puzzle
                         if (coincidences == 15)
                         {
                             frmWin win = new frmWin($" {hours:D2}:{minutes:D2}:{seconds:D2}");
+                            tmtTimer.Stop();
                             win.callinForm = this;
                             win.ShowDialog();
                         }

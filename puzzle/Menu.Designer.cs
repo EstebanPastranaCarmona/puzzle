@@ -65,7 +65,7 @@
             btnGame.Name = "btnGame";
             btnGame.Size = new Size(261, 49);
             btnGame.TabIndex = 1;
-            btnGame.Text = "New Game";
+            btnGame.Text = "Numbers";
             btnGame.UseVisualStyleBackColor = false;
             btnGame.Click += btnGame_Click;
             // 
