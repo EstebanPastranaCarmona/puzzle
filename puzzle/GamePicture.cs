@@ -130,17 +130,33 @@ namespace puzzle
         //Music player 
         public void SPlayer()
         {
-            player = new SoundPlayer();
-            player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music33.wav";
-            player.Play();
+            try
+            {
+                player = new SoundPlayer();
+                player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music33.wav";
+                player.PlayLooping();
+            }
+            catch
+            {
+                MessageBox.Show("Error to start music player");
+            }
+            
         }
         //Play music
         public void PlayMusic()
         {
-            if (isMusicActive)
+            try 
             {
-                player.Play();
+                if (isMusicActive)
+                {
+                    player.PlayLooping();
+                }
+            } 
+            catch
+            {
+                MessageBox.Show("Erro to play music");
             }
+            
         }
         //Shufle position 
         void Shuffle(Random random)
@@ -153,53 +169,77 @@ namespace puzzle
         //Mute and unmute music.
         private void btnMuteGame_Click(object sender, EventArgs e)
         {
-            if (isMusicActive && isGameActive)
+            try
             {
-                btnMuteGame.Image = Image.FromFile(mute);
-                player.Stop();
-                isMusicActive = false;
+                if (isMusicActive && isGameActive)
+                {
+                    btnMuteGame.Image = Image.FromFile(mute);
+                    player.Stop();
+                    isMusicActive = false;
+                }
+                else if (!isMusicActive && isGameActive)
+                {
+                    btnMuteGame.Image = Image.FromFile(unmute);
+                    player.PlayLooping();
+                    isMusicActive = true;
+                }
             }
-            else if(!isMusicActive && isGameActive)
+            catch
             {
-                btnMuteGame.Image = Image.FromFile(unmute);
-                player.Play();
-                isMusicActive = true;
+                MessageBox.Show("Error for mute or unmute music");
             }
+            
         }
         //Pause and play menu.
         private void btnPauseGame_Click(object sender, EventArgs e)
         {
-            if (isGameActive)
+            try
             {
-                btnPauseGame.Image = Image.FromFile(play1);
-                tmtTimer.Stop();
-                isGameActive = false;
-                player.Stop();
+                if (isGameActive)
+                {
+                    btnPauseGame.Image = Image.FromFile(play1);
+                    tmtTimer.Stop();
+                    isGameActive = false;
+                    player.Stop();
+                }
+                else
+                {
+                    btnPauseGame.Image = Image.FromFile(pause1);
+                    tmtTimer.Start();
+                    player.PlayLooping();
+                    isGameActive = true;
+                }
             }
-            else
+            catch
             {
-                btnPauseGame.Image = Image.FromFile(pause1);
-                tmtTimer.Start();
-                player.PlayLooping();
-                isGameActive = true;
+                MessageBox.Show("Error to pause Game");
             }
+            
         }
         //Timmer of player.
         private void tmtTimer_Tick(object sender, EventArgs e)
         {
-            seconds++;
-            tmtTimer.Interval = 1000;
-            if (seconds > 60)
+            try
             {
-                seconds = 0;
-                minutes++;
-                if (minutes > 60)
+                seconds++;
+                tmtTimer.Interval = 1000;
+                if (seconds > 60)
                 {
-                    minutes = 0;
-                    hours++;
+                    seconds = 0;
+                    minutes++;
+                    if (minutes > 60)
+                    {
+                        minutes = 0;
+                        hours++;
+                    }
                 }
+                lblTimer.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
             }
-            lblTimer.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
+            catch
+            {
+                MessageBox.Show("Error in timmer");
+            }
+            
         }
         //Exit btn
         private void exit_Click(object sender, EventArgs e)
@@ -209,9 +249,17 @@ namespace puzzle
         //Close form and call frmMenu.
         private void frmGamePicture_FormClosing(object sender, FormClosingEventArgs e)
         {
-            player.Stop();
-            main1.Show();
-            main1.SPlayer();
+            try 
+            {
+                player.Stop();
+                main1.Show();
+                main1.SPlayer();
+            }
+            catch
+            {
+                MessageBox.Show("Error in form closing");
+            }
+            
         }
         private void frmGamePicture_Load(object sender, EventArgs e)
         {
