@@ -163,6 +163,33 @@ namespace puzzle
         {
             randomNumbers = numbers.OrderBy(x => random.Next()).ToList();
         }
+
+        public void pauseGame()
+        {
+            try
+            {
+                if (isGameActive)
+                {
+                    btnPauseGame.Image = Image.FromFile(play1);
+                    tmtTimer.Stop();
+                    isGameActive = false;
+                    player.Stop();
+                    frmPause pauseForm = new frmPause(this);
+                    pauseForm.ShowDialog();
+                }
+                else
+                {
+                    btnPauseGame.Image = Image.FromFile(pause1);
+                    tmtTimer.Start();
+                    player.PlayLooping();
+                    isGameActive = true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error to pause Game");
+            }
+        }
         #endregion methods
 
         #region events
@@ -193,28 +220,8 @@ namespace puzzle
         //Pause and play menu.
         private void btnPauseGame_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (isGameActive)
-                {
-                    btnPauseGame.Image = Image.FromFile(play1);
-                    tmtTimer.Stop();
-                    isGameActive = false;
-                    player.Stop();
-                }
-                else
-                {
-                    btnPauseGame.Image = Image.FromFile(pause1);
-                    tmtTimer.Start();
-                    player.PlayLooping();
-                    isGameActive = true;
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Error to pause Game");
-            }
-            
+            pauseGame();
+
         }
         //Timmer of player.
         private void tmtTimer_Tick(object sender, EventArgs e)

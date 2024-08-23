@@ -222,6 +222,7 @@ namespace puzzle
                 //The music stops
                 player.Stop();
                 isGameActive = false;
+
             }
             else
             {
