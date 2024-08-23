@@ -44,8 +44,8 @@ namespace puzzle
         string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
         public string play1 = @"C:\Source\Puzzle\puzzle\assets\icon\play.png";
         public string pause1 = @"C:\Source\Puzzle\puzzle\assets\icon\pause.png";
-        bool active = true;
-        private bool active2 = true;
+        bool isMusicActive = true;
+        private bool isGameActive = true;
         
         int hours = 0;
         int minutes = 0;
@@ -137,7 +137,7 @@ namespace puzzle
         //Play music
         public void PlayMusic()
         {
-            if (active)
+            if (isMusicActive)
             {
                 player.Play();
             }
@@ -153,27 +153,27 @@ namespace puzzle
         //Mute and unmute music.
         private void btnMuteGame_Click(object sender, EventArgs e)
         {
-            if (active)
+            if (isMusicActive && isGameActive)
             {
                 btnMuteGame.Image = Image.FromFile(mute);
                 player.Stop();
-                active = false;
+                isMusicActive = false;
             }
-            else
+            else if(!isMusicActive && isGameActive)
             {
                 btnMuteGame.Image = Image.FromFile(unmute);
                 player.Play();
-                active = true;
+                isMusicActive = true;
             }
         }
         //Pause and play menu.
         private void btnPauseGame_Click(object sender, EventArgs e)
         {
-            if (active2)
+            if (isGameActive)
             {
                 btnPauseGame.Image = Image.FromFile(play1);
                 tmtTimer.Stop();
-                active2 = false;
+                isGameActive = false;
                 player.Stop();
             }
             else
@@ -181,7 +181,7 @@ namespace puzzle
                 btnPauseGame.Image = Image.FromFile(pause1);
                 tmtTimer.Start();
                 player.PlayLooping();
-                active2 = true;
+                isGameActive = true;
             }
         }
         //Timmer of player.
