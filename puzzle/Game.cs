@@ -222,6 +222,8 @@ namespace puzzle
                 //The music stops
                 player.Stop();
                 isGameActive = false;
+                frmPause pauseForm = new frmPause();
+                pauseForm.ShowDialog();
 
             }
             else

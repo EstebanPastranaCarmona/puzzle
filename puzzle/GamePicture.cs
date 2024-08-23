@@ -163,7 +163,6 @@ namespace puzzle
         {
             randomNumbers = numbers.OrderBy(x => random.Next()).ToList();
         }
-
         public void pauseGame()
         {
             try
@@ -174,7 +173,8 @@ namespace puzzle
                     tmtTimer.Stop();
                     isGameActive = false;
                     player.Stop();
-                    frmPause pauseForm = new frmPause(this);
+                    frmPause pauseForm = new frmPause();
+                    pauseForm.callinForm = this;
                     pauseForm.ShowDialog();
                 }
                 else

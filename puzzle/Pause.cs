@@ -17,15 +17,17 @@ namespace puzzle
     {
        
 
-        public frmPause(frmGamePicture frmPic1)
+        public frmPause()
         {
             InitializeComponent();
-            frmPicture = frmPic1;
             SPlayer();
             PlayMusic();
         }
         #region Variables
-        private frmGamePicture frmPicture;
+        public Form callinForm;
+
+        frmGamePicture gamePicture;
+        frmGame game;
         private SoundPlayer player;
         #endregion
 
@@ -43,42 +45,43 @@ namespace puzzle
             {
                 MessageBox.Show("Error to start music player");
             }
-
         }
         //Play music
         public void PlayMusic()
         {
             try
             {
-
                 player.Play();
-
             }
             catch
             {
                 MessageBox.Show("Erro to play music");
             }
-
         }
         #endregion
 
         #region Events
 
-        /* Close btn*/
+        //Close btn
         private void btnPaused_Click(object sender, EventArgs e)
         {
             // PlayMusic();
             Close();
         }
-        /* Events of formClosing*/
+        //Events of formClosing
         private void frmPause_FormClosing(object sender, FormClosingEventArgs e)
         {
             SPlayer();
             PlayMusic();
-            frmPicture.pauseGame();
-
-
-
+            if (callinForm is frmGamePicture)
+            {
+                gamePicture = (frmGamePicture)callinForm;
+                gamePicture.pauseGame();
+            }
+            else
+            {
+                game = (frmGame)callinForm;
+            }
         }
         #endregion
 
