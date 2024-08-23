@@ -38,7 +38,11 @@
             lblProfesor = new Label();
             lbdDate = new Label();
             picLogo = new PictureBox();
+            pic2 = new PictureBox();
+            pic1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic1).BeginInit();
             SuspendLayout();
             // 
             // btnMuteCredit
@@ -149,12 +153,32 @@
             picLogo.TabIndex = 20;
             picLogo.TabStop = false;
             // 
+            // pic2
+            // 
+            pic2.Image = (Image)resources.GetObject("pic2.Image");
+            pic2.Location = new Point(27, 248);
+            pic2.Name = "pic2";
+            pic2.Size = new Size(78, 78);
+            pic2.TabIndex = 21;
+            pic2.TabStop = false;
+            // 
+            // pic1
+            // 
+            pic1.Image = (Image)resources.GetObject("pic1.Image");
+            pic1.Location = new Point(274, 248);
+            pic1.Name = "pic1";
+            pic1.Size = new Size(78, 78);
+            pic1.TabIndex = 22;
+            pic1.TabStop = false;
+            // 
             // frmCredit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(128, 128, 255);
             ClientSize = new Size(385, 391);
+            Controls.Add(pic1);
+            Controls.Add(pic2);
             Controls.Add(picLogo);
             Controls.Add(lbdDate);
             Controls.Add(lblProfesor);
@@ -173,6 +197,8 @@
             FormClosing += frmCredit_FormClosing;
             Load += frmCredit_Load;
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -189,5 +215,7 @@
         private Label lblProfesor;
         private Label lbdDate;
         private PictureBox picLogo;
+        private PictureBox pic2;
+        private PictureBox pic1;
     }
 }

@@ -40,19 +40,18 @@
             lblPause.AutoSize = true;
             lblPause.Font = new Font("Snap ITC", 16.2F);
             lblPause.ForeColor = SystemColors.ButtonHighlight;
-            lblPause.Location = new Point(73, 33);
+            lblPause.Location = new Point(64, 25);
             lblPause.Name = "lblPause";
-            lblPause.Size = new Size(205, 36);
+            lblPause.Size = new Size(162, 29);
             lblPause.TabIndex = 0;
             lblPause.Text = "Game Pause";
             // 
             // btnPaused
             // 
             btnPaused.Font = new Font("Snap ITC", 16.2F);
-            btnPaused.Location = new Point(86, 103);
-            btnPaused.Margin = new Padding(3, 4, 3, 4);
+            btnPaused.Location = new Point(75, 77);
             btnPaused.Name = "btnPaused";
-            btnPaused.Size = new Size(169, 52);
+            btnPaused.Size = new Size(148, 39);
             btnPaused.TabIndex = 1;
             btnPaused.Text = "Continue";
             btnPaused.UseVisualStyleBackColor = true;
@@ -62,25 +61,23 @@
             // 
             pic2.BackColor = Color.Transparent;
             pic2.Image = (Image)resources.GetObject("pic2.Image");
-            pic2.Location = new Point(8, -105);
-            pic2.Margin = new Padding(3, 4, 3, 4);
+            pic2.Location = new Point(7, -79);
             pic2.Name = "pic2";
-            pic2.Size = new Size(343, 400);
+            pic2.Size = new Size(300, 300);
             pic2.TabIndex = 8;
             pic2.TabStop = false;
             // 
             // frmPause
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(128, 128, 255);
-            ClientSize = new Size(359, 191);
+            BackColor = Color.SlateBlue;
+            ClientSize = new Size(314, 143);
             Controls.Add(btnPaused);
             Controls.Add(lblPause);
             Controls.Add(pic2);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmPause";
