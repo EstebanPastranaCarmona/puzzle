@@ -78,7 +78,7 @@
             Controls.Add(btnPaused);
             Controls.Add(lblPause);
             Controls.Add(pic2);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
