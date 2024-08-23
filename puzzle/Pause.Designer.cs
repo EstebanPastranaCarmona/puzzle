@@ -40,7 +40,7 @@
             lblPause.AutoSize = true;
             lblPause.Font = new Font("Snap ITC", 16.2F);
             lblPause.ForeColor = SystemColors.ButtonHighlight;
-            lblPause.Location = new Point(51, 28);
+            lblPause.Location = new Point(73, 33);
             lblPause.Name = "lblPause";
             lblPause.Size = new Size(205, 36);
             lblPause.TabIndex = 0;
@@ -60,6 +60,7 @@
             // 
             // pic2
             // 
+            pic2.BackColor = Color.Transparent;
             pic2.Image = (Image)resources.GetObject("pic2.Image");
             pic2.Location = new Point(8, -105);
             pic2.Margin = new Padding(3, 4, 3, 4);
@@ -83,7 +84,6 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmPause";
-            Opacity = 0.5D;
             StartPosition = FormStartPosition.CenterParent;
             Text = "Pause";
             FormClosing += frmPause_FormClosing;
