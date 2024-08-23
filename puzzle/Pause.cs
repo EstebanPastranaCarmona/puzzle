@@ -76,11 +76,12 @@ namespace puzzle
             if (callinForm is frmGamePicture)
             {
                 gamePicture = (frmGamePicture)callinForm;
-                gamePicture.pauseGame();
+                gamePicture.PauseGame();
             }
             else
             {
                 game = (frmGame)callinForm;
+                game.PauseGame();
             }
         }
         #endregion

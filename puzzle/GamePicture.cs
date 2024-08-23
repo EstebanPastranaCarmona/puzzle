@@ -163,7 +163,7 @@ namespace puzzle
         {
             randomNumbers = numbers.OrderBy(x => random.Next()).ToList();
         }
-        public void pauseGame()
+        public void PauseGame()
         {
             try
             {
@@ -220,7 +220,7 @@ namespace puzzle
         //Pause and play menu.
         private void btnPauseGame_Click(object sender, EventArgs e)
         {
-            pauseGame();
+            PauseGame();
 
         }
         //Timmer of player.
