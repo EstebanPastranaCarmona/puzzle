@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Media;
+using System.Numerics;
 
 namespace puzzle
 {
@@ -167,10 +168,45 @@ namespace puzzle
             player.SoundLocation = @"C:\Source\Puzzle\puzzle\assets\audio\music11.wav";
             player.PlayLooping();
         }
-        #endregion methods
+        public void PauseGame()
+        {
+            try
+            {
+                //Check that the game is active
+                if (isGameActive)
+                {
+                    //The image of the pause button is changed
+                    btnPauseGame.Image = Image.FromFile(play);
+                    //The stopwatch stops
+                    tmtTimer.Stop();
+                    //The music stops
+                    player.Stop();
+                    isGameActive = false;
+                    
+                    frmPause pauseForm = new frmPause();
+                    pauseForm.callinForm = this;
+                    pauseForm.ShowDialog();
+                }
+                else
+                {
+                    //The image of the pause button is changed
+                    btnPauseGame.Image = Image.FromFile(pause);
+                    //The stopwatch starts
+                    tmtTimer.Start();
+                    //The Music starts
+                    player.Play();
+                    isGameActive = true;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error to pause Game");
+            }
+        }
+            #endregion methods
 
-        #region events
-        private void btnButtons_Click(object sender, EventArgs e)
+            #region events
+            private void btnButtons_Click(object sender, EventArgs e)
         {
             ChangeButtons(sender);
             CheckIfWin();
@@ -212,30 +248,7 @@ namespace puzzle
         //Event to pause the game
         private void btnPauseGame_Click(object sender, EventArgs e)
         {
-            //Check that the game is active
-            if (isGameActive)
-            {
-                //The image of the pause button is changed
-                btnPauseGame.Image = Image.FromFile(play);
-                //The stopwatch stops
-                tmtTimer.Stop();
-                //The music stops
-                player.Stop();
-                isGameActive = false;
-                frmPause pauseForm = new frmPause();
-                pauseForm.ShowDialog();
-
-            }
-            else
-            {
-                //The image of the pause button is changed
-                btnPauseGame.Image = Image.FromFile(pause);
-                //The stopwatch starts
-                tmtTimer.Start();
-                //The stopwatch starts
-                player.Play();
-                isGameActive = true;
-            }
+           PauseGame();
         }
         //Event for when the form is closed
         private void frmGame_FormClosing(object sender, FormClosingEventArgs e)
