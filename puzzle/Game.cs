@@ -19,6 +19,7 @@ namespace puzzle
 
                 tmtTimer.Start();
 
+                //The buttons in the groupbox are added to the matrix
                 for (int i = 0; i < 4; i++)
                 {
                     for (int j = 0; j < 4; j++)
@@ -30,6 +31,7 @@ namespace puzzle
                         }
                     }
                 }
+                //Random numbers are assigned to the buttons.
                 for (int i = 0; i < gbxMain.Controls.Count; i++)
                 {
                     if (gbxMain.Controls[i].Name != "btn16")
@@ -153,22 +155,17 @@ namespace puzzle
                 win.ShowDialog();
             }
         }
+        //Method that fills a list with random numbers from 1 to 15
         void Shuffle(Random random)
         {
             randomNumbers = numbers.OrderBy(x => random.Next(1, 16)).ToList();
         }
+        //method that plays music
         public void SPlayer()
         {
             player = new SoundPlayer();
             player.SoundLocation = @"C:\Source\Puzzle\puzzle\assets\audio\music11.wav";
             player.PlayLooping();
-        }
-        public void PlayMusic()
-        {
-            if (isMusicActive)
-            {
-                player.PlayLooping();
-            }
         }
         #endregion methods
 
@@ -178,21 +175,25 @@ namespace puzzle
             ChangeButtons(sender);
             CheckIfWin();
         }
+        //event to mute the game
         private void btnMuteGame_Click_1(object sender, EventArgs e)
         {
-            if (isMusicActive)
+            //It is checked that the music is active and the game is not paused
+            if (isMusicActive && isGameActive)
             {
                 btnMuteGame.Image = Image.FromFile(mute);
                 player.Stop();
                 isMusicActive = false;
             }
-            else
+            //It is checked that the music is disable and the game is not paused
+            else if (!isMusicActive && isGameActive) 
             {
                 btnMuteGame.Image = Image.FromFile(unmute);
                 player.PlayLooping();
                 isMusicActive = true;
             }
         }
+        //Event for the stopwatch
         private void tmCronometer_Tick(object sender, EventArgs e)
         {
             seconds++;
@@ -208,28 +209,39 @@ namespace puzzle
             }
             lblTimer.Text = $"{hours:D2}:{minutes:D2}:{seconds:D2}";
         }
+        //Event to pause the game
         private void btnPauseGame_Click(object sender, EventArgs e)
         {
+            //Check that the game is active
             if (isGameActive)
             {
+                //The image of the pause button is changed
                 btnPauseGame.Image = Image.FromFile(play);
+                //The stopwatch stops
                 tmtTimer.Stop();
+                //The music stops
                 player.Stop();
                 isGameActive = false;
-                
             }
             else
             {
+                //The image of the pause button is changed
                 btnPauseGame.Image = Image.FromFile(pause);
+                //The stopwatch starts
                 tmtTimer.Start();
+                //The stopwatch starts
                 player.Play();
                 isGameActive = true;
             }
         }
+        //Event for when the form is closed
         private void frmGame_FormClosing(object sender, FormClosingEventArgs e)
         {
+            //the music stops
             player.Stop();
+            //the form of the menu is shown
             main1.Show();
+            //the menu music starts
             main1.SPlayer();
         }
         private void exit_Click(object sender, EventArgs e)
