@@ -61,7 +61,6 @@ namespace puzzle
         int hours = 0;
         int minutes = 0;
         int seconds = 0;
-        int coincidences = 0;
         #endregion variables
 
         #region methods
