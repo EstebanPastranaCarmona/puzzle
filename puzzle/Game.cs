@@ -41,9 +41,9 @@ namespace puzzle
                     }
                 }
             } 
-            catch 
+            catch( Exception ex)
             {
-                MessageBox.Show("There was an error loading the game, the application will restart", "Error");
+                MessageBox.Show($"There was an error loading the game, the application will restart Details: {ex.Message}", "Error");
                 string exePath = Application.ExecutablePath;
                 Process.Start(exePath);
                 Application.Exit();

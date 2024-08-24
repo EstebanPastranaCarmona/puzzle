@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Diagnostics;
 using System.Media;
 using System.Net.Http.Headers;
 
@@ -39,9 +40,12 @@ namespace puzzle
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Problem to start game.");
+                MessageBox.Show($"There was an error loading the game, the application will restart Details: {ex.Message}", "Error");
+                string exePath = Application.ExecutablePath;
+                Process.Start(exePath);
+                Application.Exit();
             }   
         }
         #region variables
@@ -92,13 +96,14 @@ namespace puzzle
                 int index = 0;
                 foreach (PictureBox pic in gbxImages.Controls)
                 {
-                    pic.ImageLocation = movements[index];
+                    pic.ImageLocation = movements[55];
                     index++;
                 }
             }
-            catch
+            catch( Exception ex)
             {
-                MessageBox.Show("Error to load game");
+                MessageBox.Show($"Error to load game, Details: {ex.Message}");
+                this.Close();
             }
         }
         //loadGame copy items of the routeOrdered list to movement list in random posistions.
@@ -249,7 +254,7 @@ namespace puzzle
                                     endGame();
                             }
                         }
-                            catch { }
+                        catch { }
                         try
                         {
                             if (pictures[i + 1, j].ImageLocation == movements[15])
@@ -329,7 +334,7 @@ namespace puzzle
             }
         }
         //Exit btn
-        private void exit_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
