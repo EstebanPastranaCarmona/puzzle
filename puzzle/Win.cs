@@ -13,7 +13,7 @@ namespace puzzle
     public partial class frmWin : Form
     {
 
-        public Form callinForm;
+        public Form callingForm;
 
         //Constructor
         public frmWin(string time)
@@ -24,8 +24,8 @@ namespace puzzle
         //Method
         private void btnMenu_Click(object sender, EventArgs e)
         { 
-            callinForm.Close();
-            callinForm.Dispose();
+            callingForm.Close();
+            callingForm.Dispose();
             this.Close();
         }
     }

@@ -17,7 +17,7 @@ namespace puzzle
                 SPlayer();
                 btnMuteMenu.Image = Image.FromFile(unmute);
             }
-            catch 
+            catch
             {
                 MessageBox.Show("There was an error loading the game, the application will restart", "Error");
                 string exePath = Application.ExecutablePath;
@@ -45,7 +45,7 @@ namespace puzzle
             catch
             {
                 MessageBox.Show("There was an error loading the music, please restart the application", "Alert");
-            } 
+            }
         }
         #endregion methods
 
@@ -106,7 +106,7 @@ namespace puzzle
                     isMusicActive = true;
                 }
             }
-            catch 
+            catch
             {
                 MessageBox.Show("There was an error loading the music, please restart the application", "Alert");
             }

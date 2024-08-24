@@ -16,9 +16,10 @@ namespace puzzle
                 main1 = main2;
                 btnMuteCredit.Image = Image.FromFile(unmute);
             }
-            catch
+            catch(Exception ex) 
             {
-                MessageBox.Show("Error to start credits");
+                MessageBox.Show($"Error to start credits Details{ex.Message}");
+                this.Close();   
             }
         }
         #region variables

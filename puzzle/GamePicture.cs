@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Media;
 using System.Net.Http.Headers;
 
@@ -14,34 +16,27 @@ namespace puzzle
             try 
             {
                 SPlayer();
-                loadList();
+                LoadList();
                 Shuffle(random);
-                randomImages();
-                loadGame();
+                RandomImages();
+                LoadMatrix();
+                LoadGame();
 
                 main1 = main2;
 
                 btnMuteGame.Image = Image.FromFile(unmute);
-                btnPauseGame.Image = Image.FromFile(pause1);
+                btnPauseGame.Image = Image.FromFile(pause);
                 originalPictureBox.ImageLocation = @"C:\Source\Puzzle\puzzle\assets\img\original.jpg";
 
                 tmtTimer.Start();
 
-                for (int i = 0; i < 4; i++)
-                {
-                    for (int j = 0; j < 4; j++)
-                    {
-                        if (pictureIndex < gbxImages.Controls.Count)
-                        {
-                            pictures[i, j] = (PictureBox)gbxImages.Controls[pictureIndex];
-                            pictureIndex++;
-                        }
-                    }
-                }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Problem to start game.");
+                MessageBox.Show($"There was an error loading the game, the application will restart Details: {ex.Message}", "Error");
+                string exePath = Application.ExecutablePath;
+                Process.Start(exePath);
+                Application.Exit();
             }   
         }
         #region variables
@@ -57,8 +52,8 @@ namespace puzzle
 
         string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
         string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
-        public string play1 = @"C:\Source\Puzzle\puzzle\assets\icon\play.png";
-        public string pause1 = @"C:\Source\Puzzle\puzzle\assets\icon\pause.png";
+        public string play = @"C:\Source\Puzzle\puzzle\assets\icon\play.png";
+        public string pause = @"C:\Source\Puzzle\puzzle\assets\icon\pause.png";
         bool isMusicActive = true;
         private bool isGameActive = true;
         
@@ -69,8 +64,23 @@ namespace puzzle
         #endregion variables
 
         #region methods
+        //The matrix is ​​loaded with the pictureboxes of the groupBox
+        public void LoadMatrix()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (pictureIndex < gbxImages.Controls.Count)
+                    {
+                        pictures[i, j] = (PictureBox)gbxImages.Controls[pictureIndex];
+                        pictureIndex++;
+                    }
+                }
+            }
+        }
         //loadlist is responsible for loading the location of images in the list.
-        public void loadList()
+        public void LoadList()
         {
             try 
             {
@@ -85,7 +95,7 @@ namespace puzzle
             }
         }
         //loadGame is responsible for load images in the pictureBox.
-        public void loadGame()
+        public void LoadGame()
         {
             try
             {
@@ -96,13 +106,14 @@ namespace puzzle
                     index++;
                 }
             }
-            catch
+            catch( Exception ex)
             {
-                MessageBox.Show("Error to load game");
+                MessageBox.Show($"Error to load game, Details: {ex.Message}");
+                this.Close();
             }
         }
         //loadGame copy items of the routeOrdered list to movement list in random posistions.
-        public void randomImages()
+        public void RandomImages()
         {
             try
             {
@@ -116,21 +127,29 @@ namespace puzzle
             catch { MessageBox.Show("Error to random images"); }
         }
         //endGame 
-        public void endGame()
+        public void EndGame()
         {
             try
             {
-                List<string> actualPictures = new List<string>();   
+                //List where the current positions of the images in the matrix are saved
+                List<string> actualPictures = new List<string>();
+                //The list of groupbox controls is iterated
                 for (int i = 0; i < gbxImages.Controls.Count; i++)
                 {
+                    //The pictureBox is saved in a temporary variable
                     PictureBox temp = (PictureBox)gbxImages.Controls[i];
+                    //The address of the image is saved in the list, thus obtaining the order of the images in the matrix
                     actualPictures.Add(temp.ImageLocation);
                 }
+                //It compares that the current sequence in the array is equal to the ordered list of the image
                 if (actualPictures.SequenceEqual(routeOrdered))
                 {
+                    //A frmPause is instantiated and the time in which the player finished the game is passed.
                     frmWin win = new frmWin($" {hours:D2}:{minutes:D2}:{seconds:D2}");
+                    //the timer stops
                     tmtTimer.Stop();
-                    win.callinForm = this;
+                    //The callingForm space is assigned this form
+                    win.callingForm = this;
                     win.ShowDialog();
                 }
                 //coincidences = 0;
@@ -188,25 +207,34 @@ namespace puzzle
         {
             randomNumbers = numbers.OrderBy(x => random.Next()).ToList();
         }
+
         public void PauseGame()
         {
             try
             {
+                //Check that the game is active
                 if (isGameActive)
                 {
-                    btnPauseGame.Image = Image.FromFile(play1);
+                    //The image of the pause button is changed
+                    btnPauseGame.Image = Image.FromFile(play);
+                    //The stopwatch stops
                     tmtTimer.Stop();
-                    isGameActive = false;
+                    //The music stops
                     player.Stop();
+                    isGameActive = false;
+
                     frmPause pauseForm = new frmPause();
                     pauseForm.callinForm = this;
                     pauseForm.ShowDialog();
                 }
                 else
                 {
-                    btnPauseGame.Image = Image.FromFile(pause1);
+                    //The image of the pause button is changed
+                    btnPauseGame.Image = Image.FromFile(pause);
+                    //The stopwatch starts
                     tmtTimer.Start();
-                    player.PlayLooping();
+                    //The Music starts
+                    player.Play();
                     isGameActive = true;
                 }
             }
@@ -235,7 +263,7 @@ namespace puzzle
                                 var temporary = pictures[i, j + 1].ImageLocation;
                                 pictures[i, j + 1].ImageLocation = pictures[i, j].ImageLocation;
                                 pictures[i, j].ImageLocation = temporary;
-                                endGame();
+                                EndGame();
                             }
                         }
                        catch { }
@@ -246,10 +274,10 @@ namespace puzzle
                                     var temporary = pictures[i, j - 1].ImageLocation;
                                     pictures[i, j - 1].ImageLocation = pictures[i, j].ImageLocation;
                                     pictures[i, j].ImageLocation = temporary;
-                                    endGame();
+                                    EndGame();
                             }
                         }
-                            catch { }
+                        catch { }
                         try
                         {
                             if (pictures[i + 1, j].ImageLocation == movements[15])
@@ -257,7 +285,7 @@ namespace puzzle
                                     var temporary = pictures[i + 1, j].ImageLocation;
                                     pictures[i + 1, j].ImageLocation = pictures[i, j].ImageLocation;
                                     pictures[i, j].ImageLocation = temporary;
-                                    endGame();
+                                    EndGame();
                             }
                         }
                         catch { }
@@ -268,7 +296,7 @@ namespace puzzle
                                     var temporary = pictures[i - 1, j].ImageLocation;
                                     pictures[i - 1, j].ImageLocation = pictures[i, j].ImageLocation;
                                     pictures[i, j].ImageLocation = temporary;
-                                    endGame();
+                                    EndGame();
                             }
                         }
                         catch { }
@@ -329,7 +357,7 @@ namespace puzzle
             }
         }
         //Exit btn
-        private void exit_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
