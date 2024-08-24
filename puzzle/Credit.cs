@@ -46,7 +46,7 @@ namespace puzzle
             }
         }
         //Function to star play the music.
-        public void playMusic()
+        public void PlayMusic()
         {
             try
             {
@@ -85,8 +85,6 @@ namespace puzzle
             {
                 MessageBox.Show("Error to Mute or unmute music");
             }
-
-
         }
         private void frmCredit_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -112,7 +110,7 @@ namespace puzzle
         //Event when form load, the music start to play.
         private void frmCredit_Load(object sender, EventArgs e)
         {
-            playMusic();
+            PlayMusic();
         }
         //Envent to go to gitHub of the proyect. 
         private void lblTittle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -133,7 +131,6 @@ namespace puzzle
         //Envent to go to personal gitHub of Pasatrana. 
         private void lklblEsteban_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
             try
             {
                 Process.Start(new ProcessStartInfo

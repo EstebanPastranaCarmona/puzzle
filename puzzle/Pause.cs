@@ -15,8 +15,6 @@ namespace puzzle
 
     public partial class frmPause : Form
     {
-       
-
         public frmPause()
         {
             InitializeComponent();
@@ -65,8 +63,7 @@ namespace puzzle
         //Close btn
         private void btnPaused_Click(object sender, EventArgs e)
         {
-            // PlayMusic();
-            Close();
+            this.Close();
         }
         //Events of formClosing
         private void frmPause_FormClosing(object sender, FormClosingEventArgs e)
