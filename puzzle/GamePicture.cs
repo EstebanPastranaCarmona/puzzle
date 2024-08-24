@@ -29,8 +29,7 @@ namespace puzzle
             catch
             {
                 MessageBox.Show("Problem to start game.");
-            }
-            
+            }   
         }
         #region variables
         Random random = new Random();
@@ -141,7 +140,6 @@ namespace puzzle
             {
                 MessageBox.Show("Error to start music player");
             }
-            
         }
         //Play music
         public void PlayMusic()
@@ -157,7 +155,6 @@ namespace puzzle
             {
                 MessageBox.Show("Erro to play music");
             }
-            
         }
         //Shufle position 
         void Shuffle(Random random)
@@ -216,13 +213,11 @@ namespace puzzle
             {
                 MessageBox.Show("Error for mute or unmute music");
             }
-            
         }
         //Pause and play menu.
         private void btnPauseGame_Click(object sender, EventArgs e)
         {
             PauseGame();
-
         }
         //Timmer of player.
         private void tmtTimer_Tick(object sender, EventArgs e)
@@ -247,7 +242,6 @@ namespace puzzle
             {
                 MessageBox.Show("Error in timmer");
             }
-            
         }
         //Exit btn
         private void exit_Click(object sender, EventArgs e)
@@ -267,7 +261,6 @@ namespace puzzle
             {
                 MessageBox.Show("Error in form closing");
             }
-            
         }
         private void frmGamePicture_Load(object sender, EventArgs e)
         {

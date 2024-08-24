@@ -31,9 +31,7 @@ namespace puzzle
         #endregion
 
         #region methods
-        /*
-         The music player is created for the credits.
-         */
+         //The music player is created for the credits.
         public void SPlayer()
         {
             try
@@ -46,11 +44,8 @@ namespace puzzle
             {
                 MessageBox.Show("Error to start music player");
             }
-
         }
-        /*
-         Function to star play the music.
-         */
+        //Function to star play the music.
         public void playMusic()
         {
             try
@@ -64,12 +59,11 @@ namespace puzzle
             {
                 MessageBox.Show("Error to play music");
             }
-
         }
         #endregion
 
         #region events
-        /*Btn whit event clic for mute music*/
+        //Btn whit event clic for mute music
         private void btnMuteCredit_Click(object sender, EventArgs e)
         {
             try
@@ -94,26 +88,22 @@ namespace puzzle
 
 
         }
-
-        /* Whe form clossing stop the music
-         show menu
-         play music
-         */
         private void frmCredit_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
+                // Whe form clossing stop the music
                 player.Stop();
+                //show menu
                 main1.Show();
+                //play music of the menu form
                 main1.SPlayer();
             }
             catch
             {
                 MessageBox.Show("Error to close credits");
             }
-
         }
-
         //Btn for close form.
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -124,7 +114,6 @@ namespace puzzle
         {
             playMusic();
         }
-
         //Envent to go to gitHub of the proyect. 
         private void lblTittle_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -157,7 +146,6 @@ namespace puzzle
             {
                 MessageBox.Show("No se pude abrir el enlace");
             }
-
         }
         //Envent to go to personal gitHub of Guadamuz. 
         private void lklblJose_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -147,8 +147,8 @@ namespace puzzle
                     buttonNumber.Add(Convert.ToInt32(gbxMain.Controls[i].Text));
                 }
             }
-            //It is checked that the list with the current order of the numbers in the game is equal to the list with the 
-            //order that the numbers must have to win
+            //It is checked that the list with the current order of the numbers in the game is equal to the list
+            //with the order that the numbers must have to win
             if (buttonNumber.SequenceEqual(numbers))
             {
                 frmWin win = new frmWin($" {hours:D2}:{minutes:D2}:{seconds:D2}");

@@ -65,7 +65,6 @@ namespace puzzle
             {
                 MessageBox.Show("It was not possible to load the game, please restart the application", "Alert");
             }
-
         }
         //Event that instantiates and calls the form of the game with images
         private void btnPic_Click(object sender, EventArgs e)
