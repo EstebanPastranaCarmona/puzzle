@@ -15,10 +15,11 @@ namespace puzzle
             try 
             {
                 SPlayer();
-                loadList();
+                LoadList();
                 Shuffle(random);
-                randomImages();
-                loadGame();
+                RandomImages();
+                LoadMatrice();
+                LoadGame();
 
                 main1 = main2;
 
@@ -28,17 +29,6 @@ namespace puzzle
 
                 tmtTimer.Start();
 
-                for (int i = 0; i < 4; i++)
-                {
-                    for (int j = 0; j < 4; j++)
-                    {
-                        if (pictureIndex < gbxImages.Controls.Count)
-                        {
-                            pictures[i, j] = (PictureBox)gbxImages.Controls[pictureIndex];
-                            pictureIndex++;
-                        }
-                    }
-                }
             }
             catch(Exception ex)
             {
@@ -73,8 +63,22 @@ namespace puzzle
         #endregion variables
 
         #region methods
+        public void LoadMatrice()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (pictureIndex < gbxImages.Controls.Count)
+                    {
+                        pictures[i, j] = (PictureBox)gbxImages.Controls[pictureIndex];
+                        pictureIndex++;
+                    }
+                }
+            }
+        }
         //loadlist is responsible for loading the location of images in the list.
-        public void loadList()
+        public void LoadList()
         {
             try 
             {
@@ -89,7 +93,7 @@ namespace puzzle
             }
         }
         //loadGame is responsible for load images in the pictureBox.
-        public void loadGame()
+        public void LoadGame()
         {
             try
             {
@@ -107,7 +111,7 @@ namespace puzzle
             }
         }
         //loadGame copy items of the routeOrdered list to movement list in random posistions.
-        public void randomImages()
+        public void RandomImages()
         {
             try
             {
@@ -121,7 +125,7 @@ namespace puzzle
             catch { MessageBox.Show("Error to random images"); }
         }
         //endGame 
-        public void endGame()
+        public void EndGame()
         {
             try
             {
@@ -240,7 +244,7 @@ namespace puzzle
                                 var temporary = pictures[i, j + 1].ImageLocation;
                                 pictures[i, j + 1].ImageLocation = pictures[i, j].ImageLocation;
                                 pictures[i, j].ImageLocation = temporary;
-                                endGame();
+                                EndGame();
                             }
                         }
                        catch { }
@@ -251,7 +255,7 @@ namespace puzzle
                                     var temporary = pictures[i, j - 1].ImageLocation;
                                     pictures[i, j - 1].ImageLocation = pictures[i, j].ImageLocation;
                                     pictures[i, j].ImageLocation = temporary;
-                                    endGame();
+                                    EndGame();
                             }
                         }
                         catch { }
@@ -262,7 +266,7 @@ namespace puzzle
                                     var temporary = pictures[i + 1, j].ImageLocation;
                                     pictures[i + 1, j].ImageLocation = pictures[i, j].ImageLocation;
                                     pictures[i, j].ImageLocation = temporary;
-                                    endGame();
+                                    EndGame();
                             }
                         }
                         catch { }
@@ -273,7 +277,7 @@ namespace puzzle
                                     var temporary = pictures[i - 1, j].ImageLocation;
                                     pictures[i - 1, j].ImageLocation = pictures[i, j].ImageLocation;
                                     pictures[i, j].ImageLocation = temporary;
-                                    endGame();
+                                    EndGame();
                             }
                         }
                         catch { }
