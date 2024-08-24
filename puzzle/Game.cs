@@ -17,8 +17,8 @@ namespace puzzle
                 PutRandomNumbers();
 
                 main1 = main2;
-                btnMuteGame.Image = Image.FromFile(unmute);
-                btnPauseGame.Image = Image.FromFile(pause);
+                btnMuteGame.Image = Properties.Resources.unmute;
+                btnPauseGame.Image = Properties.Resources.pause;
 
                 tmtTimer.Start();
             } 
@@ -31,13 +31,9 @@ namespace puzzle
             }
         }
         #region variables
-        string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
-        string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
-        string play = @"C:\Source\Puzzle\puzzle\assets\icon\play.png";
-        string pause = @"C:\Source\Puzzle\puzzle\assets\icon\pause.png";
+
         private bool isMusicActive = true;
         private bool isGameActive = true;
-
         private frmMenu main1;
         public SoundPlayer player;
         Random random = new Random();
@@ -176,8 +172,8 @@ namespace puzzle
         //method that plays music
         public void SPlayer()
         {
-            player = new SoundPlayer();
-            player.SoundLocation = @"C:\Source\Puzzle\puzzle\assets\audio\music11.wav";
+            player = new SoundPlayer(Properties.Resources.music11);
+            
             player.PlayLooping();
         }
         public void PauseGame()
@@ -188,7 +184,7 @@ namespace puzzle
                 if (isGameActive)
                 {
                     //The image of the pause button is changed
-                    btnPauseGame.Image = Image.FromFile(play);
+                    btnPauseGame.Image = Properties.Resources.play;
                     //The stopwatch stops
                     tmtTimer.Stop();
                     //The music stops
@@ -202,7 +198,7 @@ namespace puzzle
                 else
                 {
                     //The image of the pause button is changed
-                    btnPauseGame.Image = Image.FromFile(pause);
+                    btnPauseGame.Image = Properties.Resources.pause;
                     //The stopwatch starts
                     tmtTimer.Start();
                     //The Music starts
@@ -229,14 +225,14 @@ namespace puzzle
             //It is checked that the music is active and the game is not paused
             if (isMusicActive && isGameActive)
             {
-                btnMuteGame.Image = Image.FromFile(mute);
+                btnMuteGame.Image = Properties.Resources.mute;
                 player.Stop();
                 isMusicActive = false;
             }
             //It is checked that the music is disable and the game is not paused
             else if (!isMusicActive && isGameActive) 
             {
-                btnMuteGame.Image = Image.FromFile(unmute);
+                btnMuteGame.Image = Properties.Resources.unmute;
                 player.PlayLooping();
                 isMusicActive = true;
             }

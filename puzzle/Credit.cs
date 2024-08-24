@@ -11,10 +11,10 @@ namespace puzzle
             try
             {
                 SPlayer();
-                picLogo.ImageLocation = @"C:\Source\Puzzle\puzzle\assets\img\logo.png";
+                picLogo.Image = Properties.Resources.logo;
                 picLogo.Size = new Size(361, 104);
                 main1 = main2;
-                btnMuteCredit.Image = Image.FromFile(unmute);
+                btnMuteCredit.Image = Properties.Resources.unmute;
             }
             catch(Exception ex) 
             {
@@ -27,8 +27,6 @@ namespace puzzle
         private SoundPlayer player;
         bool active = true;
  
-        string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
-        string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
         #endregion
 
         #region methods
@@ -37,8 +35,8 @@ namespace puzzle
         {
             try
             {
-                player = new SoundPlayer();
-                player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music2.wav";
+                player = new SoundPlayer(Properties.Resources.music2);
+
                 player.PlayLooping();
             }
             catch
@@ -71,13 +69,13 @@ namespace puzzle
             {
                 if (active)
                 {
-                    btnMuteCredit.Image = Image.FromFile(mute);
+                    btnMuteCredit.Image = Properties.Resources.mute;
                     active = false;
                     player.Stop();
                 }
                 else
                 {
-                    btnMuteCredit.Image = Image.FromFile(unmute);
+                    btnMuteCredit.Image = Properties.Resources.unmute;
                     active = true;
                     player.PlayLooping();
                 }

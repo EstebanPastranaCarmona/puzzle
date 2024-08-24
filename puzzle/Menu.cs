@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using puzzle.Properties;
+using System.Diagnostics;
 using System.Media;
 using System.Runtime.CompilerServices;
 using System.Security.Policy;
@@ -15,7 +16,7 @@ namespace puzzle
             {
                 InitializeComponent();
                 SPlayer();
-                btnMuteMenu.Image = Image.FromFile(unmute);
+                btnMuteMenu.Image = Properties.Resources.unmute;
             }
             catch
             {
@@ -26,8 +27,7 @@ namespace puzzle
             }
         }
         #region variables
-        string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
-        string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
+
         bool isMusicActive = true;
         private SoundPlayer player;
         #endregion variables
@@ -38,8 +38,7 @@ namespace puzzle
         {
             try
             {
-                player = new SoundPlayer();
-                player.SoundLocation = @"C:\Source\puzzle\puzzle\assets\audio\music22.wav";
+                player = new SoundPlayer(Properties.Resources.music22);
                 player.PlayLooping();
             }
             catch
@@ -92,7 +91,7 @@ namespace puzzle
                 if (isMusicActive)
                 {
                     //The image of the button that controls the music is changed to represent that the music is unmuted.
-                    btnMuteMenu.Image = Image.FromFile(mute);
+                    btnMuteMenu.Image = Properties.Resources.mute;
                     //The music is stop
                     player.Stop();
                     isMusicActive = false;
@@ -100,7 +99,7 @@ namespace puzzle
                 else
                 {
                     //The image of the button that controls the music is changed to represent that the music is unmuted.
-                    btnMuteMenu.Image = Image.FromFile(unmute);
+                    btnMuteMenu.Image = Properties.Resources.unmute;
                     //The music start again
                     player.PlayLooping();
                     isMusicActive = true;

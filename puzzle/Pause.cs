@@ -35,8 +35,7 @@ namespace puzzle
         {
             try
             {
-                player = new SoundPlayer();
-                player.SoundLocation = @"C:\Source\Puzzle\puzzle\assets\audio\pop.wav";
+                player = new SoundPlayer(Properties.Resources.pop);
                 player.PlayLooping();
             }
             catch
