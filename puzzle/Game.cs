@@ -143,7 +143,8 @@ namespace puzzle
                 //Check that the button text is not empty
                 if (!string.IsNullOrEmpty(gbxMain.Controls[i].Text))
                 {
-                    //The text converted to int is added to the list of the order of numbers in the game
+                    //The text converted to int is added to the list of the order of numbers in the
+                    //game
                     buttonNumber.Add(Convert.ToInt32(gbxMain.Controls[i].Text));
                 }
             }
