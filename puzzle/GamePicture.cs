@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Media;
 using System.Net.Http.Headers;
@@ -18,13 +19,13 @@ namespace puzzle
                 LoadList();
                 Shuffle(random);
                 RandomImages();
-                LoadMatrice();
+                LoadMatrix();
                 LoadGame();
 
                 main1 = main2;
 
                 btnMuteGame.Image = Image.FromFile(unmute);
-                btnPauseGame.Image = Image.FromFile(pause1);
+                btnPauseGame.Image = Image.FromFile(pause);
                 originalPictureBox.ImageLocation = @"C:\Source\Puzzle\puzzle\assets\img\original.jpg";
 
                 tmtTimer.Start();
@@ -51,8 +52,8 @@ namespace puzzle
 
         string mute = @"C:\Source\Puzzle\puzzle\assets\icon\mute.png";
         string unmute = @"C:\Source\Puzzle\puzzle\assets\icon\unmute.png";
-        public string play1 = @"C:\Source\Puzzle\puzzle\assets\icon\play.png";
-        public string pause1 = @"C:\Source\Puzzle\puzzle\assets\icon\pause.png";
+        public string play = @"C:\Source\Puzzle\puzzle\assets\icon\play.png";
+        public string pause = @"C:\Source\Puzzle\puzzle\assets\icon\pause.png";
         bool isMusicActive = true;
         private bool isGameActive = true;
         
@@ -63,7 +64,8 @@ namespace puzzle
         #endregion variables
 
         #region methods
-        public void LoadMatrice()
+        //The matrix is ​​loaded with the pictureboxes of the groupBox
+        public void LoadMatrix()
         {
             for (int i = 0; i < 4; i++)
             {
@@ -100,7 +102,7 @@ namespace puzzle
                 int index = 0;
                 foreach (PictureBox pic in gbxImages.Controls)
                 {
-                    pic.ImageLocation = movements[55];
+                    pic.ImageLocation = movements[index];
                     index++;
                 }
             }
@@ -129,17 +131,25 @@ namespace puzzle
         {
             try
             {
-                List<string> actualPictures = new List<string>();   
+                //List where the current positions of the images in the matrix are saved
+                List<string> actualPictures = new List<string>();
+                //The list of groupbox controls is iterated
                 for (int i = 0; i < gbxImages.Controls.Count; i++)
                 {
+                    //The pictureBox is saved in a temporary variable
                     PictureBox temp = (PictureBox)gbxImages.Controls[i];
+                    //The address of the image is saved in the list, thus obtaining the order of the images in the matrix
                     actualPictures.Add(temp.ImageLocation);
                 }
+                //It compares that the current sequence in the array is equal to the ordered list of the image
                 if (actualPictures.SequenceEqual(routeOrdered))
                 {
+                    //A frmPause is instantiated and the time in which the player finished the game is passed.
                     frmWin win = new frmWin($" {hours:D2}:{minutes:D2}:{seconds:D2}");
+                    //the timer stops
                     tmtTimer.Stop();
-                    win.callinForm = this;
+                    //The callingForm space is assigned this form
+                    win.callingForm = this;
                     win.ShowDialog();
                 }
                 //coincidences = 0;
@@ -197,25 +207,34 @@ namespace puzzle
         {
             randomNumbers = numbers.OrderBy(x => random.Next()).ToList();
         }
+
         public void PauseGame()
         {
             try
             {
+                //Check that the game is active
                 if (isGameActive)
                 {
-                    btnPauseGame.Image = Image.FromFile(play1);
+                    //The image of the pause button is changed
+                    btnPauseGame.Image = Image.FromFile(play);
+                    //The stopwatch stops
                     tmtTimer.Stop();
-                    isGameActive = false;
+                    //The music stops
                     player.Stop();
+                    isGameActive = false;
+
                     frmPause pauseForm = new frmPause();
                     pauseForm.callinForm = this;
                     pauseForm.ShowDialog();
                 }
                 else
                 {
-                    btnPauseGame.Image = Image.FromFile(pause1);
+                    //The image of the pause button is changed
+                    btnPauseGame.Image = Image.FromFile(pause);
+                    //The stopwatch starts
                     tmtTimer.Start();
-                    player.PlayLooping();
+                    //The Music starts
+                    player.Play();
                     isGameActive = true;
                 }
             }

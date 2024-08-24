@@ -13,33 +13,14 @@ namespace puzzle
                 InitializeComponent();
                 SPlayer();
                 Shuffle(random);
+                AddButtonsToMatriz();
+                PutRandomNumbers();
 
                 main1 = main2;
                 btnMuteGame.Image = Image.FromFile(unmute);
                 btnPauseGame.Image = Image.FromFile(pause);
 
                 tmtTimer.Start();
-
-                //The buttons in the groupbox are added to the matrix
-                for (int i = 0; i < 4; i++)
-                {
-                    for (int j = 0; j < 4; j++)
-                    {
-                        if (buttonIndex < gbxMain.Controls.Count)
-                        {
-                            buttons[i, j] = (Button)gbxMain.Controls[buttonIndex];
-                            buttonIndex++;
-                        }
-                    }
-                }
-                //Random numbers are assigned to the buttons.
-                for (int i = 0; i < gbxMain.Controls.Count; i++)
-                {
-                    if (gbxMain.Controls[i].Name != "btn16")
-                    {
-                        gbxMain.Controls[i].Text = $"{randomNumbers[i]}";
-                    }
-                }
             } 
             catch( Exception ex)
             {
@@ -71,6 +52,32 @@ namespace puzzle
         #endregion variables
 
         #region methods
+        void AddButtonsToMatriz()
+        {
+            //The buttons in the groupbox are added to the matrix
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (buttonIndex < gbxMain.Controls.Count)
+                    {
+                        buttons[i, j] = (Button)gbxMain.Controls[buttonIndex];
+                        buttonIndex++;
+                    }
+                }
+            }
+        }
+        void PutRandomNumbers() 
+        {
+            //Random numbers are assigned to the buttons.
+            for (int i = 0; i < gbxMain.Controls.Count; i++)
+            {
+                if (gbxMain.Controls[i].Name != "btn16")
+                {
+                    gbxMain.Controls[i].Text = $"{randomNumbers[i]}";
+                }
+            }
+        }
         void ChangeButtons(object sender)
         {
             //The object that invokes the event
@@ -152,9 +159,12 @@ namespace puzzle
             //with the order that the numbers must have to win
             if (buttonNumber.SequenceEqual(numbers))
             {
+                //A frmPause is instantiated and the time in which the player finished the game is passed.
                 frmWin win = new frmWin($" {hours:D2}:{minutes:D2}:{seconds:D2}");
-                win.callinForm = this;
+                //the timer stops
                 tmtTimer.Stop();
+                //The callingForm space is assigned this form
+                win.callingForm = this;
                 win.ShowDialog();
             }
         }
