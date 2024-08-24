@@ -8,7 +8,7 @@ namespace puzzle
 {
     public partial class frmGamePicture : Form
     {
-        private frmMenu main1;
+       
 
         public frmGamePicture(frmMenu main2)
         {
@@ -46,6 +46,7 @@ namespace puzzle
         List<int> numbers = new List<int>([0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]);
         List<int> randomNumbers = new List<int>();
         private SoundPlayer player;
+        private frmMenu main1;
 
         PictureBox[,] pictures = new PictureBox[4, 4];
         int pictureIndex = 0;
@@ -119,7 +120,7 @@ namespace puzzle
             {
                 for (int i = 0; i < randomNumbers.Count; i++)
                 {
-                    var pos = numbers[i];
+                    var pos = randomNumbers[i];
                     movements.Add(routeOrdered[pos]);
                 }
                 movements.Add(routeOrdered[15]);
